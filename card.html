@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>一卡通</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="static/css/buttons.css">
+	<link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/dropload.css"> 
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/bootstrap/js/bootstrap.js"></script>
+	<!-- <script src="static/js/jquery.form-validator.js"></script> -->
+	<style type="text/css">
+	/* ——————————————
+	RESET
+	——————————————— */
+	body, div,
+	h1, h2, h3, h4, h5, h6,
+	p, blockquote, pre, dl, dt, dd, ol, ul, li, hr,
+	fieldset, form, label, legend, th, td,
+	article, aside, figure, footer, header, hgroup, menu, nav, section,
+	summary, hgroup {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+	}
+	body{
+	font-size:1.5em;
+	}
+	a,a:active,a:hover {
+	outline: 0;
+	text-decoration: none;
+	color:#333;
+	}
+	html,body { height:100%; }   
+    /** 设置默认字体 **/
+
+    body,
+    input,
+    select,
+    textarea
+    /* for ie */
+
+    {
+        font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+    }
+    fieldset,
+    img {
+        border: 0;
+    }
+    /* img 搭车：让链接里的 img 无边框 */
+
+    button,
+    input,
+    select,
+    textarea {
+        font-size: 100%;
+    }
+    /* 使得表单元素在 ie 下能继承字体大小 */
+    /* 注：optgroup 无法扶正 */
+    /** 重置表格元素 **/
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    /* 清除浮动 */
+
+    .ks-clear:after,
+    .clear:after {
+        content: '\20';
+        display: block;
+        height: 0;
+        clear: both;
+    }
+
+    .ks-clear,
+    .clear {
+        *zoom: 1;
+    }
+
+    /*basic css*/
+    
+    .header {
+    position: fixed;
+    z-index: 1060;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 45px;
+    border-bottom: 1px solid #43A382;
+    background-color: #45A673;
+    -webkit-box-shadow: 0 1px 1px rgba(98,98,98,.3);
+    box-shadow: 0 1px 1px rgba(98,98,98,.3);
+	}
+
+	.header h1 {
+    color: #fff;
+    font-size: 18px;
+    line-height: 44px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+    text-align: center;
+    font-family:"YouYuan";
+	}
+	
+	.header .navbar-left {
+	    float: left;
+	    /*color: #fff;*/
+	}
+    .navbar-left>* {
+        display: table-cell;
+        height: 45px;
+        padding-right: 10px;
+        padding-left: 10px;
+        vertical-align: middle;
+    }
+	.pull-right {
+	        float: right;
+	    }
+	.back {
+        color: #FFF;
+        font-size: 2.5em;
+    }
+
+   
+    #monthcost{
+        position: fixed;
+        z-index: 1060;
+        top: 45px;
+        right: 0;
+        left: 0;
+        background-color: #F0F0F0;
+
+    }
+    .enter{
+         font-size:21px;
+        color: #717C80;
+        top: 50%;
+        left: 50%;
+        padding-left: 10px;
+        padding-right: 5px;
+    }
+    span {
+        line-height: 35px; 
+        padding-left: 5px;
+        font-size: 13px;
+    }
+
+
+    img{width:100%;display:inline-block;float:left;}
+     .content{
+       /* position: fixed;*/
+        z-index: 1000;
+      /*  top: 80px;
+        right: 0;*/
+        left: 0;
+        background-color: #FFF;
+        padding-bottom: 40px;
+        margin-top: 60px;
+
+    }
+
+    .content .item{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align:center;
+        -webkit-box-align:center;
+        box-align:center;
+        -webkit-align-items:center;
+        align-items:center;
+        padding:3.125%;
+        border-bottom: 1px solid #ddd;
+        color: #333;
+        text-decoration: none;
+    }
+    .content .item img{
+        display: block;
+        width: 40px;
+        height: 40px;
+        border:1px solid #ddd;
+    }
+    .content .item h3{
+        display: block;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: 100%;
+        max-height: 40px;
+        min-height:35px;
+        overflow: hidden;
+        line-height: 20px;
+        /*margin: 0 10px;*/
+        font-size: 1.2rem;
+    }
+    .content .item .date{
+        display: block;
+        height: 20px;
+        line-height: 20px;
+        color: #999;
+        margin-bottom: -40px;
+    }
+    .opacity{
+        -webkit-animation: opacity 0.3s linear;
+        animation: opacity 0.3s linear;
+    }
+    @-webkit-keyframes opacity {
+        0% {
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+        }
+    }
+    @keyframes opacity {
+        0% {
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+        }
+    }
+
+</style>
+
+</head>
+
+<body>
+	<div class="header">
+        <div class="navbar-left">
+           <a href="index.html"><i class="fa fa-angle-left back"></i></a>
+        </div>
+        <h1>一卡通账单</h1>
+	</div>]
+    <a href="mcheck.html">
+    <div id="monthcost">
+        <span style="font-size: 12px;">本月</span>
+        <div class="pull-right"><span style="color:rgb(152, 148, 148)">月账单</span><i class="enter fa fa-angle-right"></i></div>
+    </div>
+    </a>
+	<div class="content">
+        <div class="lists">
+            <a class="item" href="#">
+                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
+                <h3>关于举办校第二届“互联网+”大学生创新创业大赛的通知</h3>
+                <span class="date">2014-14-14</span>
+            </a>
+            <a class="item" href="#">
+                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg"> 
+                <h3>关于举办“2015年华东地区高校经济学类专业教学改革与人才培养高级研讨会”的通知</h3>
+                <span class="date">2014-14-14</span>
+            </a>
+            <a class="item" href="#">
+                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
+                <h3>关于在全校招募2016年G20杭州峰会志愿者的通知</h3>
+                <span class="date">2014-14-14</span>
+            </a>
+            <a class="item" href="#">
+                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
+                <h3>关于浙江省高等学校思想政治教育研究会2015年专题研讨会论文征集的通知</h3>
+                <span class="date">2014-14-14</span>
+            </a>
+            <a class="item" href="#">
+                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
+                <h3>关于召开2015年校卓越教学名师、青年教学新秀评选会议的通知</h3>
+                <span class="date">2014-14-14</span>
+            </a>
+            <a class="item" href="#">
+                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
+                <h3>关于举办元旦游园会的通知</h3>
+                <span class="date">2014-14-14</span>
+            </a>
+            <a class="item" href="#">
+                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
+                <h3>关于切实做好寒潮及雨雪冰冻天气防御工作的通知</h3>
+                <span class="date">2014-14-14</span>
+            </a>
+            <a class="item" href="#">
+                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
+                <h3>第十届浙江省大学生英语演讲竞赛暨2015“外研社杯”全国英语演讲大赛浙江省复赛通知</h3>
+                <span class="date">2014-14-14</span>
+            </a>
+            <a class="item" href="#">
+                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
+                <h3>第16届IEEE通信技术国际会议(ICCT2015)通知</h3>
+                <span class="date">2014-14-14</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+<script src="static/js/dropload.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var counter = 0;
+        // 每页展示4个
+        var num = 4;
+        var pageStart = 0,pageEnd = 0;
+
+        // dropload
+        $('.content').dropload({
+            scrollArea : window,
+            domUp : {
+                domClass   : 'dropload-up',
+                domRefresh : '<div class="dropload-refresh">↓下拉刷新</div>',
+                domUpdate  : '<div class="dropload-update">↑释放更新</div>',
+                domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
+            },
+            domDown : {
+                domClass   : 'dropload-down',
+                domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
+                domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
+                domNoData  : '<div class="dropload-noData">暂无数据</div>'
+            },
+            loadUpFn : function(me){
+                $.ajax({
+                    type: 'GET',
+                    url: 'static/json/update.json',
+                    dataType: 'json',
+                    success: function(data){
+                        var result = '';
+                        for(var i = 0; i < data.lists.length; i++){
+                            result +=   '<a class="item opacity" href="'+data.lists[i].link+'">'
+                                            +'<img src="'+data.lists[i].pic+'" alt="">'
+                                            +'<h3>'+data.lists[i].title+'</h3>'
+                                            +'<span class="date">'+data.lists[i].date+'</span>'
+                                        +'</a>';
+                        }
+                        // 为了测试，延迟1秒加载
+                        setTimeout(function(){
+                            $('.lists').html(result);
+                            // 每次数据加载完，必须重置
+                            me.resetload();
+                        },500);
+                    },
+                    error: function(xhr, type){
+                        alert('Ajax error!');
+                        // 即使加载出错，也得重置
+                        me.resetload();
+                    }
+                });
+            },
+            loadDownFn : function(me){
+                $.ajax({
+                    type: 'GET',
+                    url: 'static/json/more.json',
+                    dataType: 'json',
+                    success: function(data){
+                        var result = '';
+                        counter++;
+                        pageEnd = num * counter;
+                        pageStart = pageEnd - num;
+
+                        for(var i = pageStart; i < pageEnd; i++){
+                            result +=   '<a class="item opacity" href="'+data.lists[i].link+'">'
+                                            +'<img src="'+data.lists[i].pic+'" alt="">'
+                                            +'<h3>'+data.lists[i].title+'</h3>'
+                                            +'<span class="date">'+data.lists[i].date+'</span>'
+                                        +'</a>';
+                            if((i + 1) >= data.lists.length){
+                                // 锁定
+                                me.lock();
+                                // 无数据
+                                me.noData();
+                                break;
+                            }
+                        }
+                        // 为了测试，延迟1秒加载
+                        setTimeout(function(){
+                            $('.lists').append(result);
+                            // 每次数据加载完，必须重置
+                            me.resetload();
+                        },500);
+                    },
+                    error: function(xhr, type){
+                        alert('Ajax error!');
+                        // 即使加载出错，也得重置
+                        me.resetload();
+                    }
+                });
+            },
+            threshold : 50
+        });
+    });
+
+</script>
+
+
+</html>
+
+
+

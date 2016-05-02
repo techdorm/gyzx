@@ -1,0 +1,584 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>留言广场</title>
+    <!-- <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.css"> -->
+    <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/dropload.css">
+    <link rel="stylesheet" type="text/css" href="static/css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="static/css/search-form.css">
+    <script src="static/js/jquery.min.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    /** 清除内外边距 **/
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    hr,
+    p,
+    blockquote,
+    /* structural elements 结构元素 */
+
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    /* list elements 列表元素 */
+
+    pre,
+    /* text formatting elements 文本格式元素 */
+
+    form,
+    fieldset,
+    legend,
+    input,
+    textarea,
+    /* form elements 表单元素 */
+
+    th,
+    td
+    /* table elements 表格元素 */
+
+    {
+        margin: 0;
+        padding: 0;
+    }
+    /** 设置默认字体 **/
+
+    body,
+    input,
+    select,
+    textarea
+    /* for ie */
+
+    {
+        font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+    }
+    /*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+
+    address,
+    cite,
+    dfn,
+    em,
+    var {
+        font-style: normal;
+    }
+    /* 将斜体扶正 */
+
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: courier new, courier, monospace;
+    }
+    /* 统一等宽字体 */
+
+    small {
+        font-size: 12px;
+    }
+    /* 小于 12px 的中文很难阅读，让 small 正常化 */
+    /** 重置文本格式元素 **/
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+    /** 重置表单元素 **/
+
+    legend {
+        color: #000;
+    }
+    /* for ie6 */
+
+    fieldset,
+    img {
+        border: 0;
+    }
+    /* img 搭车：让链接里的 img 无边框 */
+
+    button,
+    input,
+    select,
+    textarea {
+        font-size: 100%;
+    }
+    /* 使得表单元素在 ie 下能继承字体大小 */
+    /* 注：optgroup 无法扶正 */
+    /** 重置表格元素 **/
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    /* 清除浮动 */
+
+    .ks-clear:after,
+    .clear:after {
+        content: '\20';
+        display: block;
+        height: 0;
+        clear: both;
+    }
+
+    .ks-clear,
+    .clear {
+        *zoom: 1;
+    }
+
+    .header{
+        position: fixed;
+        z-index: 1060;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 45px;
+        border-bottom: 1px solid #45A673;
+        background-color: #45A673;
+    }
+    
+    
+    .header .menu,.question{
+    margin-top: 9px;
+    color: #333;
+    font-size: 18px;
+    line-height: 24px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    text-align: center;
+    font-family: "YouYuan";
+	}
+    .menu{
+     width:145px;
+     border-radius:25px;
+     background-color: #45A673;
+     border: 1px solid #FFF;
+	}
+
+    ul>li{
+        display:block;
+        float:left;
+        width:50%;
+        font-size: 13px;
+         color:#FFF;
+	}
+    .found{
+        border-radius: 25px 0 0 25px;
+	}
+    .mine{
+        border-radius: 0 25px 25px 0;
+	}
+    .selected{
+        background-color:#FFF;
+        color:#333;
+	}
+    .navbar-left {
+        float: left;
+    }
+
+    .navbar-right {
+        float: right;
+    }
+
+    .navbar-left>*,
+    .navbar-right>* {
+        display: table-cell;
+        height: 45px;
+        padding-right: 10px;
+        padding-left: 10px;
+        vertical-align: middle;
+    }
+
+    .back {
+        color: #FFF;
+        font-size: 2.5em;
+       /* margin-left: 10px;*/
+    }
+
+    .fa-search{
+        color: #FFF;
+        font-size: 1.6em;
+        margin-left: 5px;
+    }
+
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .content,.comment {
+        padding-top: 45px;
+        background-color: #fff;
+    }
+
+    .content .item {
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .content .item img {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #ddd;
+    }
+
+    .content .item h3 {
+        padding: 3.125%;
+        padding-bottom: 0;
+        max-height:45px;
+        min-height: 20px;
+        overflow: hidden;
+        line-height: 20px;
+        font-size: 1.1em;
+        font-family: "YouYuan";
+
+    }
+
+    .liulan{
+        display: block;
+        height: 15px;
+        line-height: 20px;
+        color: #999;
+        border-bottom: 1px solid #ddd;
+        padding-left: 3.125%;
+        padding-bottom: 5px;
+        font-size: 11px;
+    }
+    .date{
+    	display: block;
+    	height: 20px;
+        line-height: 20px;
+        border-bottom: 1px solid #ddd;
+        padding-left: 3.125%;
+        color: #999;
+    }
+
+
+    .opacity {
+        -webkit-animation: opacity 0.3s linear;
+        animation: opacity 0.3s linear;
+
+    }
+
+    @-webkit-keyframes opacity {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes opacity {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 5%;
+        right: 5%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        /*height: 30px;*/
+        text-decoration: none;
+        float: right;
+    }
+    .edit
+        {
+        text-align:center;
+        background:#45A673;
+        width:60px;
+        height:60px;
+        border-radius:30px;
+        box-shadow: 2px 2px 7px #45A673;
+        -moz-border-radius:25px; /* 老的 Firefox */
+        }
+    .fa-pencil-square-o{
+            color:white;
+            font-size:2em;
+            padding-top: 32%;
+            padding-left: 10%;
+        }
+    .comment {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+    .send{
+        font-size: 20px;
+        color:#FFF;
+    }
+   
+    input{
+        margin: 5px 10px;
+        height: 30px;
+        font-size: 17px;
+        line-height: 1.5; 
+        width: 92%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        box-shadow: none;
+        border:none;
+        outline:none;
+        border-bottom: solid 1px #C9C6C6;
+        border-radius: 0;
+    }
+ /*   textarea{
+        width:100%;
+        border:none;
+        resize:none;
+        outline:none;
+    }*/
+  .test_box {
+    min-height: 100px; 
+    max-height: 300px;
+    margin:0; 
+    padding: 3px; 
+    outline: 0; 
+    font-size: 14px; 
+    word-wrap: break-word;
+    overflow:hidden;
+	}
+
+	.test_box[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #ADB7B2; 
+	}
+    .unread{
+    background: #fff;
+    border-radius: 7px;
+    display: inline-block;
+    width: 14px;
+    padding: 3px 3px;
+    font-weight: 500;
+    line-height: 8px;
+    /*color: #45A673;*/
+    color:#333;
+    text-align: center;
+    white-space: nowrap;
+    margin-left: 4px;
+    }
+
+    </style>
+     <script type="text/javascript">
+      $(function() {
+            $("ul > li").click(tab);
+            function tab() {
+                $(this).addClass("selected").siblings().removeClass("selected");
+                var tab = $(this).attr("title");
+                $("#" + tab).show().siblings().hide(); 
+            };
+        });
+    //edit界面切换
+    $(function(){
+        $('.edit').click(function(){
+            $("#opinion").hide();
+            $('#write').show();
+        });
+        $('.back,.send').click(function(){
+            $('#write').hide();
+            $("#opinion").show();
+        });
+    });
+
+
+</script>
+</head>
+
+<body>
+    <div id="opinion">
+        <div class="header">
+            <div class="navbar-left">
+                <div id="return">
+                    <a href="index.html"><i class="fa fa-angle-left back"></i></a>
+                </div>
+            </div> 
+            <div class="tab">
+                <ul class="menu">
+                    <li class="selected found" title="found">发现</li>
+                    <li class="mine" title="mine">我的<span class="" id="MessageCount"></span></li>
+                    
+                </ul>
+            </div>
+
+            <div class="navbar-right">
+            	<a href="search.html"><i class="fa fa-search"></i></a>
+            </div>
+        </div>
+        <div class="content">
+           <div id="found" class="lists" style="display:block">
+                   <a class="item" href="#">
+                       <h3>填错志愿是一种什么体验？</h3>
+                       <span class="liulan">12749次浏览</span>
+                   </a>
+                   
+                       <a class="item" href="#">
+                           <h3>学校宿舍什么时候开门啊</h3>
+                           <span class="liulan">31849次浏览</span>
+                       </a>
+                       
+                  
+                       <a class="item" href="#">
+                           <h3>离学校最近工商银行在哪里？</h3>
+                           <span class="liulan">163次浏览</span>
+                       </a>
+                       
+                  
+                       <a class="item" href="#">
+                           <h3>什么时候通宵供电啊</h3>
+                           <span class="liulan">149次浏览</span>
+                       </a>
+                       
+                 
+                       <a class="item" href="#">
+                           <h3>新生去哪里报到</h3>
+                           <span class="liulan">127次浏览</span>
+                       </a>
+                       
+                       <a class="item" href="#">
+                           <h3>暑假什么时候开始啊</h3>
+                           <span class="liulan">123次浏览</span>
+                       </a>
+                       
+                   
+                       <a class="item" href="#">
+                           <h3>如果抢课没抢到去哪里签课啊</h3>
+                           <span class="liulan">244次浏览</span>
+                       </a>
+                       
+                  
+                       <a class="item" href="#">
+                           <h3>饭卡丢了去哪里补办</h3>
+                           <span class="liulan">127849次浏览</span>
+                       </a>
+           </div> 
+           <div id="mine"  class="lists" style="display:none">
+                       <a class="item" href="#">
+                           <h3>如果抢课没抢到去哪里签课啊</h3>
+                           <span class="liulan">244次浏览</span>
+                       </a>
+                       <a class="item" href="#">
+                           <h3>饭卡丢了去哪里补办</h3>
+                           <span class="liulan">127849次浏览</span>
+                       </a>
+                       <a class="item" href="#">
+                           <h3>学校附近有什么小吃呀</h3>
+                           <span class="liulan">127849次浏览</span>
+                       </a>
+                       
+           </div>
+        </div>
+        <div class="footer">
+            <a href="#">
+                <div class="edit">
+                    <i class="fa fa-pencil-square-o"></i>
+                </div>
+            </a> 
+        </div>
+    </div>
+    
+    <div id="write" style="display:none;" >
+            <div class="header">
+                <div class="navbar-left">
+                    <i class="fa fa-angle-left back"></i>
+                </div>
+                <div class="question" style="color:#FFF;">
+                    问题
+                </div>
+                <div class="navbar-right">
+                    <i class="fa fa-paper-plane send"></i>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="panel">
+                  <div class="panel-heading">
+                        <input placeholder="标题">
+                  </div>
+                  <div class="panel-body" style="padding-left: 10px;">
+                       <!--  <textarea rows="10" cols="30" placeholder="输入内容"></textarea> -->
+                       <div class="test_box" placeholder="输入内容" contenteditable="true" ></div>
+                  </div>
+                </div>
+            </div>
+    </div>    
+</body>
+<script src="static/js/dropload.js"></script>
+<script type="text/javascript">
+                //CheckMessaege
+
+CheckMessage=function(){
+    $.ajax({
+        type: 'GET',
+        url:'static/json/message.json',
+        dataType:'json',
+
+        success:function(data){
+            console.log("success");
+            var num=0;
+            for(var i=0;i<data.lists.length;i++){
+                if(data.lists[i].status==0)
+                    num++;
+            }
+           $('#MessageCount').html(num);
+           if(num!=0)
+             {
+                $('#MessageCount').addClass('unread');
+             }
+             else{
+                 $('#MessageCount').html('');
+                 $('#MessageCount').removeClass('unread');
+             }
+        },
+        error:function(xhr,type){
+            alert('加载错误');
+         }
+    });
+    
+
+    window.setTimeout(CheckMessage,500);
+}
+$(document).ready(function() {
+    CheckMessage();
+}); 
+
+</script>
+
+
+</html>

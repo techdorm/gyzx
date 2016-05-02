@@ -1,0 +1,413 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>留言广场</title>
+    <!-- <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.css"> -->
+    <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
+    <!--     <link rel="stylesheet" type="text/css" href="static/css/search-form.css"> -->
+    <script src="static/js/jquery.min.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    /** 清除内外边距 **/
+    
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    hr,
+    p,
+    blockquote,
+    /* structural elements 结构元素 */
+    
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    /* list elements 列表元素 */
+    
+    pre,
+    /* text formatting elements 文本格式元素 */
+    
+    form,
+    fieldset,
+    legend,
+    input,
+    textarea,
+    /* form elements 表单元素 */
+    
+    th,
+    td
+    /* table elements 表格元素 */
+    
+    {
+        margin: 0;
+        padding: 0;
+    }
+    /** 设置默认字体 **/
+    
+    body,
+    input,
+    select,
+    textarea
+    /* for ie */
+    
+    {
+        font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+    }
+    /*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+    
+    address,
+    cite,
+    dfn,
+    em,
+    var {
+        font-style: normal;
+    }
+    /* 将斜体扶正 */
+    
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: courier new, courier, monospace;
+    }
+    /* 统一等宽字体 */
+    
+    small {
+        font-size: 12px;
+    }
+    /* 小于 12px 的中文很难阅读，让 small 正常化 */
+    /** 重置文本格式元素 **/
+    
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    
+    a:hover {
+        text-decoration: none;
+    }
+    /** 重置表单元素 **/
+    
+    legend {
+        color: #000;
+    }
+    /* for ie6 */
+    
+    fieldset,
+    img {
+        border: 0;
+    }
+    /* img 搭车：让链接里的 img 无边框 */
+    
+    button,
+    input,
+    select,
+    textarea {
+        font-size: 100%;
+    }
+    /* 使得表单元素在 ie 下能继承字体大小 */
+    /* 注：optgroup 无法扶正 */
+    /** 重置表格元素 **/
+    
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    /* 清除浮动 */
+    
+    .ks-clear:after,
+    .clear:after {
+        content: '\20';
+        display: block;
+        height: 0;
+        clear: both;
+    }
+    
+    .ks-clear,
+    .clear {
+        *zoom: 1;
+    }
+    
+    .navbar-left {
+        float: left;
+    }
+    
+    .navbar-right {
+        float: right;
+    }
+    
+    .navbar-left>*,
+    .navbar-right>* {
+        display: table-cell;
+        height: 45px;
+        padding-right: 10px;
+        padding-left: 10px;
+        vertical-align: middle;
+    }
+    
+    .header {
+        position: fixed;
+        z-index: 1060;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 45px;
+        border-bottom: 1px solid #45A673;
+        background-color: #45A673;
+        background-color: #333;
+    }
+    
+    .back {
+        color: #FFF;
+        font-size: 2.5em;
+        /* margin-left: 10px;*/
+    }
+    
+    .barcolor {
+        background-color: #333;
+        display: block;
+        position: fixed;
+        z-index: 0;
+        top: 0;
+        right: 0;
+        height: 45px;
+    }
+    
+    .result-container a {
+        color: #000;
+    }
+    
+    .result-container {
+        background-color: #fff;
+        z-index: 1060px;
+        padding-bottom: 0;
+        font-size: 11px;
+        width: 100%;
+        height: 100%;
+        padding-top: 45px;
+    }
+    
+    .time {
+        display: block;
+        height: 20px;
+        line-height: 20px;
+        border-bottom: 1px solid #ddd;
+        color: #999;
+        margin-left: 50px;
+    }
+    
+    .opacity {
+        -webkit-animation: opacity 0.3s linear;
+        animation: opacity 0.3s linear;
+    }
+    
+    @-webkit-keyframes opacity {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes opacity {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    .result-container .item {
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .result-container .item img {
+        display: block;
+        padding: 3.125%;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: solid 1px #333;
+        float: left;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    
+    .result-container .item h3 {
+        padding: 3.125%;
+        padding-bottom: 0;
+        max-height: 45px;
+        min-height: 20px;
+        overflow: hidden;
+        line-height: 20px;
+        font-size: 1.1em;
+        font-family: "YouYuan";
+    }
+    
+    .result-container .item p {
+        padding-left: 3.125%;
+        padding-bottom: 0;
+        max-height: 45px;
+        min-height: 20px;
+        overflow: hidden;
+        line-height: 20px;
+        font-size: 1em;
+    }
+    
+    .result-container .item span {
+        padding-left: 3.125%;
+    }
+    
+    .fa-search {
+        color: #fff;
+        font-size: 1.77em;
+        float: right;
+        padding-right: 6%;
+    }
+    
+    .search-wrapper {
+        position: absolute;
+        top: 22px;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        left: 50%;
+    }
+    
+    .search-wrapper .input-holder {
+        overflow: hidden;
+        height: 30px;
+        background: #fff;
+        position: relative;
+        width: 200px;
+        border-radius: 50px;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .search-icon {
+        width: 28px;
+        height: 28px;
+        margin: 1px 1px 1px 1px;
+        border-radius: 30px;
+        border: none;
+        background-color: #45A673;
+        padding: 0px;
+        outline: none;
+        position: relative;
+        z-index: 2;
+        float: right;
+        cursor: pointer;
+    }
+    
+    .search-wrapper .input-holder .search-input {
+        width: 70%;
+        height: 20px;
+        padding: 0px 50px 0 20px;
+        opacity: 0;
+        position: absolute;
+        top: 5px;
+        left: 0px;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-family: "Open Sans", Arial, Verdana;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 20px;
+        color: #FFF;
+        opacity: 1;
+    }
+    
+    .search-wrapper .result-container {
+        width: 100%;
+        position: absolute;
+        top: 45px;
+        left: 0px;
+        text-align: center;
+        font-family: "Open Sans", Arial, Verdana;
+        font-size: 14px;
+        display: none;
+        color: #000;
+        background-color: #fff;
+        height: 100%;
+    }
+    
+    @media screen and (max-width: 560px) {
+        .search-wrapper.input-holder {
+            width: 200px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="navbar-left">
+            <div id="return">
+                <a href="question.html"><i class="fa fa-angle-left back"></i></a>
+            </div>
+        </div>
+        <form onsubmit="submitFn(this, event);">
+            <div class="search-wrapper">
+                <div class="input-holder">
+                    <input type="text" class="search-input" placeholder="输入关键字" />
+                    <button class="search-icon"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="result-container">
+    </div>
+</body>
+<script type="text/javascript">
+function submitFn(obj, evt) {
+    value = $(obj).find('.search-input').val().trim();
+
+    if (!value.length) {
+        alert("please add some text friend :D");
+    } else {
+        $.ajax({
+            type: 'GET',
+            url: 'static/json/reply.json',
+            dataType: 'json',
+            success: function(data) {
+                var result = '';
+                for (var i = 0; i < data.lists.length; i++) {
+                    result += '<a class= "item opacity" href="' + data.lists[i].link + '">' + '<img src="' + data.lists[i].pic + '" alt="">' + '<h3>' + data.lists[i].title + '</h3>' + '<p>' + data.lists[i].reply + '</p>' + '<p class="time">' + data.lists[i].date + '</p>' + '</a>';
+                }
+                // 为了测试，延迟半秒加载
+                setTimeout(function() {
+                    // $('.lists').html(result);
+                    $('.result-container').html(result);
+                    // $('.search-input').val('');
+                }, 100);
+            },
+            error: function(xhr, type) {
+                alert('Ajax error!');
+            }
+        })
+
+    }
+    evt.preventDefault();
+
+}
+</script>
+
+</html>

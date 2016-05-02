@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+     <title>账单</title>
+    <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css">
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/echart/echarts.min.js"></script>
+    <style type="text/css">
+    /* ------------------------------------------
+      RESET  
+    --------------------------------------------- */
+    body, div,
+    h1, h2, h3, h4, h5, h6,
+    p, blockquote, pre, dl, dt, dd, ol, ul, li, hr,
+    fieldset, form, label, legend, th, td,
+    article, aside, figure, footer, header, hgroup, menu, nav, section,
+    summary, hgroup {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    body{
+        font-size:1.5em;
+    }   
+    a,a:active,a:hover {
+      outline: 0;
+      text-decoration: none;
+      color:#333;
+       opacity: 0.5;
+    }
+    html,body { height:100%; }
+   
+	/* basic css */
+	 .panel-body{
+	padding:5px 15px;
+    }
+    #container{
+		padding-bottom: 20px;
+		height:60%;
+    }
+    .table-responsive{
+        padding-bottom: 20px;
+    }
+    </style>
+</head>
+
+<body>
+	<div class="now"> 
+	  <div class="panel panel-default">
+		  <div class="panel-heading">本月账单</div>
+		  <div class="panel-body">
+			  <div class="water">
+			  	<span >水费</span>
+	            <div class="pull-right sum">￥24.28</div>
+	          </div>
+	          <hr/>
+	          <div  containerclass="electric">
+	             <span>电费</span>
+	             <div class="pull-right sum">￥174.28</div>
+	          </div>
+	    </div>
+</div>
+
+	</div>
+    <div id="container"></div>
+  	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>月份</th>
+					<th>水费</th>
+					<th>电费</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>一月份</td>
+					<td>40.2</td>
+					<td>180</td>
+				</tr>
+				<tr>
+					<td>二月份</td>
+					<td>23.2</td>
+					<td>230</td>
+				</tr>
+				<tr>
+					<td>三月份</td>
+					<td>45.2</td>
+					<td>340</td>
+				</tr>
+				<tr>
+					<td>四月份</td>
+					<td>23.2</td>
+					<td>150</td>
+				</tr>
+				<tr>
+					<td>五月份</td>
+					<td>43.2</td>
+					<td>350</td>
+				</tr>
+			</tbody>
+					
+      </table>
+    </div>
+    <script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+    // title: {
+    //     text: '水电费折线图'
+    // },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['水费','电费']
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '6%',
+        bottom: '3%',
+        containLabel: true
+    },
+    color:['#009EFF','#EF6612'],
+
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['一月份','二月份','三月份','四月份','五月份','六月份','七月份','八月份','九月份','十月份','十一月份','十二月份']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+       
+        {
+            name:'水费',
+            type:'line',
+            stack: '总量',
+            areaStyle: {normal: {}},
+            data:[320, 332, 301, 334, 390,320, 332, 301, 334, 390, 330, 320]
+        },
+        {
+            name:'电费',
+            type:'line',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top',
+                }
+            },
+            areaStyle: {normal: {}},
+            data:[820, 932, 901, 934, 1290,460, 762, 681, 894, 1456, 465, 750]
+        }
+    ]
+};
+
+
+
+    if (option && typeof option === "object") {
+        var startTime = +new Date();
+        myChart.setOption(option, true);
+        var endTime = +new Date();
+        var updateTime = endTime - startTime;
+        console.log("Time used:", updateTime);
+    }
+    </script>
+</body>

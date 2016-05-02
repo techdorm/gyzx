@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>个人中心</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="static/css/buttons.css">
+	<link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/bootstrap/js/bootstrap.js"></script>
+	<!-- <script src="static/js/jquery.form-validator.js"></script> -->
+	<style type="text/css">
+	/* ——————————————
+	RESET
+	——————————————— */
+	body, div,
+	h1, h2, h3, h4, h5, h6,
+	p, blockquote, pre, dl, dt, dd, ol, ul, li, hr,
+	fieldset, form, label, legend, th, td,
+	article, aside, figure, footer, header, hgroup, menu, nav, section,
+	summary, hgroup {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	}
+	body{
+	font-size:1.5em;
+	}
+	a,a:active,a:hover {
+	outline: 0;
+	text-decoration: none;
+	color:#FFF;
+	}
+	html,body { height:100%; }
+* {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+   
+    /** 设置默认字体 **/
+
+    body,
+    input,
+    select,
+    textarea
+    /* for ie */
+
+    {
+        font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif;
+    }
+    fieldset,
+    img {
+        border: 0;
+    }
+    /* img 搭车：让链接里的 img 无边框 */
+
+    button,
+    input,
+    select,
+    textarea {
+        font-size: 100%;
+    }
+    /* 使得表单元素在 ie 下能继承字体大小 */
+    /* 注：optgroup 无法扶正 */
+    /** 重置表格元素 **/
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    /* 清除浮动 */
+
+    .ks-clear:after,
+    .clear:after {
+        content: '\20';
+        display: block;
+        height: 0;
+        clear: both;
+    }
+
+    .ks-clear,
+    .clear {
+        *zoom: 1;
+    }
+
+
+
+	/*basic css*/
+	body{
+		background-color: #F0F0F0;
+	}
+	.header {
+    position: fixed;
+    z-index: 1060;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 45px;
+    border-bottom: 1px solid #43A382;
+    background-color: #45A673;
+    -webkit-box-shadow: 0 1px 1px rgba(98,98,98,.3);
+    box-shadow: 0 1px 1px rgba(98,98,98,.3);
+	}
+
+	.header h1 {
+    color: #fff;
+    font-size: 18px;
+    line-height: 44px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+    text-align: center;
+    font-family:"YouYuan";
+	}
+	
+	.header .navbar-left {
+	    float: left;
+	    /*color: #fff;*/
+	}
+    .navbar-left>* {
+        display: table-cell;
+        height: 45px;
+        padding-right: 10px;
+        padding-left: 10px;
+        vertical-align: middle;
+    }
+	.pull-right {
+	        float: right;
+	    }
+	.back {
+        color: #FFF;
+        font-size: 2.5em;
+    }
+    .vertical{
+    	vertical-align: middle;
+    }
+
+    .content{
+    	position: fixed;
+	    z-index: 1060;
+	    top: 45px;
+	    right: 0;
+	    left: 0;
+    	background-color: #FFF;
+    }
+    .enter{
+    	 font-size:21px;
+        color: #717C80;
+        padding-top: 7px;
+        top: 50%;
+        left: 50%;
+        padding-left: 20px;
+        padding-right: 5px;
+    }
+
+	.item #touxiang{
+		 vertical-align: middle;
+	}
+	.item{
+		border-bottom: 0.5px solid #ddd;
+        margin-left: 3.125%;
+    }
+    span {
+        line-height: 40px; 
+        padding-left: 5px;
+        font-size: 13px;
+    }
+    .type{
+        color:#BABABA;
+        font-size: 12px;
+        padding-left:3.125%;
+        /*margin-left: 5px;*/
+
+    }
+	</style>
+
+</head>
+
+<body>
+		<div class="header">
+	        <div class="navbar-left">
+	           <a href="index.html"><i class="fa fa-angle-left back"></i></a>
+	        </div>
+	        <h1>个人资料</h1>
+    	</div>
+    	<div class="content">
+            <p class="type">基本资料</p>
+			<div id="userpic" class="item">
+				<span>头像</span>
+				 <div class="pull-right vertical">
+				 <img id="touxiang" class="img-circle" src="static/images/id.png" width="30" hight="30">
+				 <span><i class="enter fa fa-angle-right"></i></span>
+				 </div>
+			</div>
+			<div id="username" class="item">
+				<span> 昵称</span>
+				 <div class="pull-right vertical">
+				 <span >echo</span>
+				 <span><i class="enter fa fa-angle-right"></i></span>
+				 </div>
+			</div>
+
+            <p class="type" style="margin-top: 20px;">个人信息</p>
+            <div id="realname" class="item">
+                <span>姓名</span>
+                 <div class="pull-right vertical">
+                 <span >乐思翔</span>
+                 <i class="enter fa fa-angle-right"></i>
+                 </div>
+            </div>
+            <div id="stuid" class="item">
+                <span>学号</span>
+                 <div class="pull-right vertical">
+                 <span >14084101</span>
+                 <i class="enter fa fa-angle-right"></i>
+                 </div>
+            </div>
+             <div id="dept" class="item">
+                <span>学院</span>
+                 <div class="pull-right vertical">
+                 <span >通信学院</span>
+                 <i class="enter fa fa-angle-right"></i>
+                 </div>
+            </div>
+            
+			<div id="building" class="item">
+				<span>楼号</span>
+				 <div class="pull-right vertical">
+				 <span >13幢</span>
+				 <i class="enter fa fa-angle-right"></i>
+				 </div>
+			</div>
+			<div id="username" class="item">
+				<span> 寝室号</span>
+				 <div class="pull-right vertical">
+				 <span >501</span>
+				 <i class="enter fa fa-angle-right"></i>
+				 </div>
+			</div>
+            <div id="mobile" class="item">
+                <span> 手机号</span>
+                 <div class="pull-right vertical">
+                 <span >15958031806</span>
+                 <i class="enter fa fa-angle-right"></i>
+                 </div>
+            </div>
+            
+
+		</div>
+</body>
+
+<script type="text/javascript">
+
+
+</script>
+
+</html>

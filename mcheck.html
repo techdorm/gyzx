@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+     <title>水电费查询</title>
+    <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/echart/echarts.min.js"></script>
+    <style type="text/css">
+    /* ------------------------------------------
+      RESET  
+    --------------------------------------------- */
+    body, div,
+    h1, h2, h3, h4, h5, h6,
+    p, blockquote, pre, dl, dt, dd, ol, ul, li, hr,
+    fieldset, form, label, legend, th, td,
+    article, aside, figure, footer, header, hgroup, menu, nav, section,
+    summary, hgroup {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    body{
+        font-size:1.5em;
+    }   
+    a,a:active,a:hover {
+      outline: 0;
+      text-decoration: none;
+     /* color:#FFF;*/
+    }
+    html,body { height:100%; }
+   
+	/* basic css */
+    #container{
+		padding-bottom: 20px;
+		height:60%;
+    }
+     .header {
+    position: fixed;
+    z-index: 1060;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 45px;
+    border-bottom: 1px solid #43A382;
+    background-color: #45A673;
+    -webkit-box-shadow: 0 1px 1px rgba(98,98,98,.3);
+    box-shadow: 0 1px 1px rgba(98,98,98,.3);
+    }
+
+    .header h1 {
+    color: #fff;
+    font-size: 18px;
+    line-height: 44px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+    text-align: center;
+    font-family:"YouYuan";
+    }
+    
+    .header .navbar-left {
+        float: left;
+        /*color: #fff;*/
+    }
+    .navbar-left>* {
+        display: table-cell;
+        height: 45px;
+        padding-right: 10px;
+        padding-left: 10px;
+        vertical-align: middle;
+    }
+    .pull-right {
+            float: right;
+        }
+    .back {
+        color: #FFF;
+        font-size: 2.5em;
+    }
+    .now{
+        padding-top: 45px;
+    }
+    .fa-calendar{
+        padding-top: 4px;
+        color:#949594;
+    } 
+   
+
+    </style>
+   
+</head>
+
+<body>
+    <div class="header">
+        <div class="navbar-left">
+           <a href="card.html"><i class="fa fa-angle-left back"></i></a>
+        </div>
+        <h1>月账单</h1>
+    </div>
+    <div class="now"> 
+      <div class="panel panel-default">
+          <div class="panel-heading"><span class="month">04</span>/2016
+               <span id="calender">
+               <i class="fa fa-calendar pull-right" aria-hidden="true"></i>
+               </span>
+          </div>
+
+
+              <div class="panel-body">
+                  <div class="water">
+                    <span >本月消费总额</span>
+                    <div class="pull-right sum">￥1224.28</div>
+                  </div>
+                </div>
+      </div>
+    </div>
+
+    <div id="container"></div>
+    <script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+    // title: {
+    //     text: '水电费折线图'
+    // },
+    tooltip : {
+        trigger: 'axis'
+    },
+    // legend: {
+    //     data:['消费额']
+    // },
+    // toolbox: {
+    //     feature: {
+    //         saveAsImage: {}
+    //     }
+    // },
+    grid: {
+        left: '1%',
+        top:'3%',
+        right: '3%',
+        bottom: '3%',
+        containLabel: true
+    },
+    color:['#009EFF'],
+
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['一月份','二月份','三月份','四月份','五月份','六月份','七月份','八月份','九月份','十月份','十一月份','十二月份']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'消费额',
+            type:'line',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top',
+                }
+            },
+            areaStyle: {normal: {}},
+            data:[820, 932, 901, 934, 1290,460, 762, 681, 894, 1456, 465, 750]
+        }
+    ]
+};
+
+
+
+    if (option && typeof option === "object") {
+        var startTime = +new Date();
+        myChart.setOption(option, true);
+        var endTime = +new Date();
+        var updateTime = endTime - startTime;
+        console.log("Time used:", updateTime);
+    }
+    </script>
+
+    
+</body>
+ <script type="text/javascript">
+       
+        $(document).ready(function() {
+             $("#celender").click(function() {
+                alert("Hello world!");
+                 });
+       });
+    </script>
+
+</html>
