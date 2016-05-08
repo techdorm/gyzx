@@ -4,8 +4,9 @@
    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-     <title>账单</title>
+     <title>水电费</title>
     <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/echart/echarts.min.js"></script>
     <style type="text/css">
@@ -28,12 +29,60 @@
     a,a:active,a:hover {
       outline: 0;
       text-decoration: none;
-      color:#333;
-       opacity: 0.5;
     }
     html,body { height:100%; }
    
 	/* basic css */
+
+    .header {
+  position: fixed;
+  z-index: 1060;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 45px;
+  border-bottom: 1px solid #43A382;
+  background-color: #45A673;
+  -webkit-box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
+  box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3); }
+  .header h1 {
+    color: #fff;
+    font-size: 18px;
+    line-height: 44px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    text-align: center;
+    font-family: "YouYuan"; }
+  .header .navbar-left {
+    float: left;
+    /*color: #fff;*/ }
+    .header .navbar-left .back {
+      color: #FFF;
+      font-size: 2.5em; }
+  .header .navbar-left > * {
+    display: table-cell;
+    height: 45px;
+    padding-right: 10px;
+    padding-left: 10px;
+    vertical-align: middle; }
+
+    .now {
+  padding-top: 45px; 
+  }
+  .now .panel{
+    margin-bottom: 0;
+  }
+  .now .month {
+    font-size: 2rem; }
+  .now .fa-calendar {
+    color: #949594;
+    display: table-cell;
+    height: 45px;
+    padding-left: 10px;
+    vertical-align: middle;
+    font-size: 2em; }
+
 	 .panel-body{
 	padding:5px 15px;
     }
@@ -41,16 +90,29 @@
 		padding-bottom: 20px;
 		height:60%;
     }
-    .table-responsive{
-        padding-bottom: 20px;
-    }
+
+
     </style>
 </head>
 
 <body>
-	<div class="now"> 
+    <div class="header">
+        <div class="navbar-left">
+           <a href="index.html"><i class="fa fa-angle-left back"></i></a>
+        </div>
+        <h1>水电费</h1>
+    </div>
+     <div class="now"> 
+      <div class="panel panel-default">
+          <div class="panel-heading"><span class="month">04</span>/2016
+               <span id="calender">
+               <i class="fa fa-calendar pull-right" aria-hidden="true"></i>
+               </span>
+          </div>
+      </div>
+    </div>
+	<div class="cost"> 
 	  <div class="panel panel-default">
-		  <div class="panel-heading">本月账单</div>
 		  <div class="panel-body">
 			  <div class="water">
 			  	<span >水费</span>
@@ -66,45 +128,6 @@
 
 	</div>
     <div id="container"></div>
-  	<div class="table-responsive">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>月份</th>
-					<th>水费</th>
-					<th>电费</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>一月份</td>
-					<td>40.2</td>
-					<td>180</td>
-				</tr>
-				<tr>
-					<td>二月份</td>
-					<td>23.2</td>
-					<td>230</td>
-				</tr>
-				<tr>
-					<td>三月份</td>
-					<td>45.2</td>
-					<td>340</td>
-				</tr>
-				<tr>
-					<td>四月份</td>
-					<td>23.2</td>
-					<td>150</td>
-				</tr>
-				<tr>
-					<td>五月份</td>
-					<td>43.2</td>
-					<td>350</td>
-				</tr>
-			</tbody>
-					
-      </table>
-    </div>
     <script type="text/javascript">
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom);
@@ -120,11 +143,11 @@
     legend: {
         data:['水费','电费']
     },
-    toolbox: {
-        feature: {
-            saveAsImage: {}
-        }
-    },
+    // toolbox: {
+    //     feature: {
+    //         saveAsImage: {}
+    //     }
+    // },
     grid: {
         left: '3%',
         right: '6%',

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+     <title>寝室卫生</title>
+    <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/ui-dialog.css">
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/dialog-min.js"></script>
+    <script src="static/js/echart/echarts.min.js"></script>
+    <style type="text/css">
+    /* ------------------------------------------
+      RESET  
+    --------------------------------------------- */
+    body, div,
+    h1, h2, h3, h4, h5, h6,
+    p, blockquote, pre, dl, dt, dd, ol, ul, li, hr,
+    fieldset, form, label, legend, th, td,
+    article, aside, figure, footer, header, hgroup, menu, nav, section,
+    summary, hgroup {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    body{
+        font-size:1.5em;
+    }   
+    a,a:active,a:hover {
+      outline: 0;
+      text-decoration: none;
+    }
+    html,body { height:100%; }
+   
+	/* basic css */
+
+    .header {
+  position: fixed;
+  z-index: 1060;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 45px;
+  border-bottom: 1px solid #43A382;
+  background-color: #45A673;
+  -webkit-box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
+  box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3); }
+  .header h1 {
+    color: #fff;
+    font-size: 18px;
+    line-height: 44px;
+    position: absolute;
+    left: 50%;
+
+    -webkit-transform: translate(-50%, 0);
+    text-align: center;
+    font-family: "YouYuan"; }
+  .header .navbar-left {
+    float: left;
+    /*color: #fff;*/ }
+    .header .navbar-left .back {
+      color: #FFF;
+      font-size: 2.5em; }
+  .header .navbar-left > * {
+    display: table-cell;
+    height: 45px;
+    padding-right: 10px;
+    padding-left: 10px;
+    vertical-align: middle; }
+
+    .now {
+  padding-top: 45px; 
+  }
+  .now .panel{
+    margin-bottom: 0;
+  }
+  .now .day {
+    font-size: 2rem; }
+  .now .fa-calendar {
+    color: #949594;
+    display: table-cell;
+    height: 45px;
+    padding-left: 10px;
+    vertical-align: middle;
+    font-size: 2em; }
+
+	 .panel-body{
+	padding:5px 15px;
+    }
+
+    #container{
+    padding:20px 10px;
+		height:70%;
+    width:100%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="navbar-left">
+           <a href="index.html"><i class="fa fa-angle-left back"></i></a>
+        </div>
+        <h1>寝室卫生</h1>
+    </div>
+    <div class="now"> 
+      <div class="panel panel-default">
+          <div class="panel-heading"><span class="day">第1周/</span>2016
+               <span id="calender">
+               <i class="fa fa-calendar pull-right" aria-hidden="true" data-event="test"></i>
+              <!--  <button data-event="test">open dialog</button> -->
+               </span>
+          </div>
+      </div>
+    </div>
+  	<div class="cost"> 
+  	  <div class="panel panel-default">
+          <div class="panel-heading">
+            <span >总分</span>
+            <div class="pull-right score">95</div>
+          </div>     
+  		    <div class="panel-body">
+  			  <div class="sum">
+            <div class="illegal">
+               <span>无违规电器</span>
+               <div class="pull-right ">20</div>
+            </div>
+  	      </div>
+          </div>
+      </div>
+    </div>
+
+    <div id="container"></div>
+    <script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    myChart.showLoading({text: "图表数据正在努力加载..."});
+    option = null;
+    option = {
+        title : {
+            text: '寝室卫生',
+        },
+        tooltip : {
+            show: "ture",  
+        },
+        calculable : true,
+        color:['#FF7F50'],
+
+        polar : [
+           {
+               indicator : [
+                   { text: '地面干净垃圾清除', max: 10},
+                   { text: '无卫生死角', max: 10},
+                   { text: '爬梯整洁', max: 5},
+                   { text: '卫生间干净无异味', max: 10},
+                   { text: '门窗干净', max: 5},
+                   { text: '阳台干净', max: 10}
+                ],
+                radius : 120,
+                center : ['50%', '50%'],
+            }
+        ],
+        calculable : true,
+        series : [
+            {
+                name: "寝室卫生",
+                type: "radar",
+                data : [
+                    {
+                        value : [10,8,3,7,5,9],
+                        name : "卫生分数"
+                    }
+                ]
+            }
+        ]
+    };
+     
+    // if (option && typeof option === "object") {
+    //     var startTime = +new Date();
+        // myChart.setOption(option, true);
+    //     var endTime = +new Date();
+    //     var updateTime = endTime - startTime;
+    //     console.log("Time used:", updateTime);
+    // }
+
+    CheckMessage=function(){
+            $.ajax({
+                type: "GET",
+                async: false,
+                url: 'static/json/clean.json',
+                dataType: "json",
+                success: function (result) {
+                   console.log("success");
+                    if(result.status ==200){
+
+                        option.series = result.series[0];
+                        // console.log(option.series);
+                        myChart.hideLoading();
+                        myChart.setOption(option);
+                    }
+                },
+                error: function (errorMsg) {
+                  alert("数据加载失败，请刷新")
+                }
+            });
+        window.setTimeout(CheckMessage,5000);
+    }
+
+    $(document).ready(function() {
+        CheckMessage();
+    }); 
+    </script>
+    <script type="text/javascript">
+      $('i[data-event=test]').on('click', function () {
+        var d = dialog({
+          title: '消息',
+          content: '请选择日期',
+          height: 200,
+          width: 300,
+          okValue: '确 定',
+          ok: function () {
+            // dialog()
+            // .title('请选择日期')
+            // .content('hello world')
+            // .button([{
+            //  value: '打开',
+            //  autofocus: true,
+            //  callback: function () {
+            //    dialog()
+            //    .title('提示')
+            //    .showModal();
+            //  }
+            // }])
+            // .show();
+            alert("hello");
+            return false;
+          },
+          cancelValue: '取消',
+          cancel: function () {}
+        });
+
+        d.showModal();
+      });
+    </script>
+    
+</body>

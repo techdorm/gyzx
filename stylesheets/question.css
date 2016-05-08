@@ -1,0 +1,293 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, input, textarea, th, td {
+  margin: 0;
+  padding: 0; }
+
+/** 设置默认字体 **/
+body, input, select, textarea {
+  font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; }
+
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+address, cite, dfn, em, var {
+  font-style: normal; }
+
+/* 将斜体扶正 */
+code, kbd, pre, samp {
+  font-family: courier new, courier, monospace; }
+
+/* 统一等宽字体 */
+small {
+  font-size: 12px; }
+
+a {
+  text-decoration: none;
+  color: white; }
+  a:hover {
+    text-decoration: none; }
+
+legend {
+  color: #000; }
+
+/* for ie6 */
+fieldset, img {
+  border: 0; }
+
+/* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea {
+  font-size: 100%; }
+
+/* 使得表单元素在 ie 下能继承字体大小 */
+/* 注：optgroup 无法扶正 */
+/** 重置表格元素 **/
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* 清除浮动 */
+.ks-clear:after, .clear:after {
+  content: '\20';
+  display: block;
+  height: 0;
+  clear: both; }
+
+.ks-clear, .clear {
+  *zoom: 1; }
+
+.g-header {
+  position: fixed;
+  z-index: 1060;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 45px;
+  border-bottom: 1px solid #45A673;
+  background-color: #45A673; }
+  .g-header .m-menu {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    line-height: 24px;
+    margin-top: 9px;
+    font-family: "YouYuan";
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+    width: 145px;
+    border-radius: 25px;
+    border: 1px solid #FFF;
+    background-color: #45A673; }
+    .g-header .m-menu .u-selected {
+      color: #333;
+      background-color: #FFF; }
+    .g-header .m-menu .u-found {
+      border-radius: 25px 0 0 25px; }
+    .g-header .m-menu .u-mine {
+      border-radius: 0 25px 25px 0; }
+
+.u-question {
+  margin-top: 9px;
+  color: #333;
+  font-size: 18px;
+  line-height: 24px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  text-align: center;
+  font-family: "YouYuan"; }
+
+ul > li {
+  display: block;
+  float: left;
+  width: 50%;
+  font-size: 13px;
+  color: #FFF; }
+
+.g-header .u-navbar-left {
+  float: left; }
+  .g-header .u-navbar-left .u-back {
+    font-size: 2.5em;
+    color: #FFF; }
+
+.g-header .u-navbar-right {
+  float: right; }
+  .g-header .u-navbar-right .u-search {
+    margin-left: 5px;
+    font-size: 1.6em;
+    color: #FFF; }
+
+.g-header .u-navbar-left > *, .g-header .u-navbar-right > * {
+  display: table-cell;
+  height: 45px;
+  padding-right: 10px;
+  padding-left: 10px;
+  vertical-align: middle; }
+
+.g-comment {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding-top: 45px;
+  background-color: #FFF; }
+
+input:focus ~ .input-bar:before {
+  left: 0;
+  width: 51%; }
+
+input:focus ~ .input-bar:after {
+  right: 0;
+  width: 50%; }
+
+.input-bar {
+  display: block;
+  width: 92%;
+  height: 1px;
+  position: relative;
+  margin: -6px 10px 0 10px; }
+
+.input-bar:before {
+  left: 50%; }
+
+.input-bar:after {
+  right: 50%; }
+
+.input-bar:after, .input-bar:before {
+  content: '';
+  height: 1px;
+  width: 0;
+  bottom: -1px;
+  position: absolute;
+  background-color: #4DCC89;
+  border-radius: 1px;
+  -webkit-transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.g-content {
+  padding-top: 45px;
+  background-color: #FFF; }
+  .g-content .u-item {
+    border-bottom: 1px solid #ddd;
+    text-decoration: none;
+    color: #333; }
+    .g-content .u-item .u-liulan {
+      display: block;
+      height: 15px;
+      line-height: 20px;
+      padding-left: 3.125%;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ddd;
+      font-size: 11px;
+      color: #999; }
+    .g-content .u-item img {
+      display: block;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #ddd; }
+    .g-content .u-item h3 {
+      line-height: 20px;
+      padding: 3.125%;
+      padding-bottom: 0;
+      overflow: hidden;
+      max-height: 45px;
+      min-height: 20px;
+      font-size: 1.1em;
+      font-family: "YouYuan"; }
+
+.date {
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  padding-left: 3.125%;
+  border-bottom: 1px solid #ddd;
+  color: #999; }
+
+.opacity {
+  -webkit-animation: opacity 0.3s linear;
+  animation: opacity 0.3s linear; }
+
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes opacity {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.g-footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  float: right;
+  bottom: 5%;
+  right: 5%;
+  text-decoration: none; }
+  .g-footer .u-edit {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 2px 2px 7px #45A673;
+    -moz-border-radius: 25px;
+    background: #45A673; }
+    .g-footer .u-edit .u-fa-pencil {
+      padding-top: 32%;
+      padding-left: 10%;
+      font-size: 2em;
+      color: white; }
+
+.u-send {
+  font-size: 20px;
+  color: #FFF; }
+
+.m-questitle {
+  width: 92%;
+  height: 30px;
+  line-height: 1.5;
+  margin: 5px 10px;
+  padding-top: 5px;
+  border: none;
+  border-bottom: 1px #C7D0CB solid;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  font-size: 17px; }
+
+.u-test_box {
+  margin: 0;
+  padding: 3px;
+  padding-top: 8px;
+  outline: 0;
+  min-height: 100px;
+  max-height: 300px;
+  font-size: 14px;
+  word-wrap: break-word;
+  overflow: hidden; }
+  .u-test_box[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #ADB7B2; }
+
+.u-unread {
+  display: inline-block;
+  width: 14px;
+  margin-left: 4px;
+  padding: 3px 3px;
+  border-radius: 7px;
+  font-weight: 500;
+  line-height: 8px;
+  text-align: center;
+  white-space: nowrap;
+  color: #333;
+  background: #fff; }
