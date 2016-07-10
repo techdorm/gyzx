@@ -1,26 +1,56 @@
 {
 	"status":  200,
-    "series": [
-    	 {
-            "name": "寝室卫生",
-            "type": "radar",
-            "data" : [
-                {
-                    "value" : [10,8,3,7,5,9],
-                    "name" : "'卫生分数'"
-                }
-            ]
-        },
-        {
-            "name": "寝室卫生",
-            "type": "radar",
-            "data" : [
-                {
-                    "value" : [7,5,5,5,5,2],
-                    "name" : "'卫生分数'"
-                }
-            ]
-        }
-
+    "data": [
+            { 
+                "week":[
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [10,8,3,7,5,9],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [4,6,2,8,5,10],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [8,6,4,6,4,7],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [9,2,4,8,1,6],"name" : "'卫生分数'"}]}
+               ]
+             
+                 
+            }, 
+           
+            { 
+                "week":[
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [4,4,4,4,4,1],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [4,4,4,4,4,2],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [4,4,4,4,4,3],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [4,4,4,4,4,4],"name" : "'卫生分数'"}]}
+               ]
+             
+                 
+            }, 
+            { 
+                "week":[
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [3,3,3,3,3,1],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [3,3,3,3,3,2],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [3,3,3,3,3,3],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [3,3,3,3,3,4],"name" : "'卫生分数'"}]}
+               ]
+             
+                 
+            }, 
+            {
+                
+                "week":[
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [2,2,2,2,2,1],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [2,2,2,2,2,2],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [2,2,2,2,2,3],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [2,2,2,2,2,4],"name" : "'卫生分数'"}]}    
+               ]
+                
+            },
+            { 
+                "week":[
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [1,1,1,1,1,1],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [1,1,1,1,1,2],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [1,1,1,1,1,3],"name" : "'卫生分数'"}]},
+                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [1,1,1,1,1,4],"name" : "'卫生分数'"}]}
+               ]
+             
+                 
+            }
     ]
 }

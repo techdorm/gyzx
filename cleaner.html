@@ -76,7 +76,7 @@
   .now .panel{
     margin-bottom: 0;
   }
-  .now .day {
+  .now .week,.now .month,.now .year{
     font-size: 2rem; }
   .now .fa-calendar {
     color: #949594;
@@ -107,7 +107,7 @@
     </div>
     <div class="now"> 
       <div class="panel panel-default">
-          <div class="panel-heading"><span class="day">第1周/</span>2016
+          <div class="panel-heading"><span class="year">2016</span>/<span class="month">4</span>/第<span class="week">1</span>周
                <span id="calender">
                <i class="fa fa-calendar pull-right" aria-hidden="true" data-event="test"></i>
               <!--  <button data-event="test">open dialog</button> -->
@@ -125,7 +125,7 @@
   			  <div class="sum">
             <div class="illegal">
                <span>无违规电器</span>
-               <div class="pull-right ">20</div>
+               <div class="pull-right electr">20</div>
             </div>
   	      </div>
           </div>
@@ -151,12 +151,12 @@
         polar : [
            {
                indicator : [
-                   { text: '地面干净垃圾清除', max: 10},
-                   { text: '无卫生死角', max: 10},
-                   { text: '爬梯整洁', max: 5},
-                   { text: '卫生间干净无异味', max: 10},
-                   { text: '门窗干净', max: 5},
-                   { text: '阳台干净', max: 10}
+                   { text: '地面10分', max: 10},
+                   { text: '死角10分', max: 10},
+                   { text: '爬梯5分', max: 5},
+                   { text: '卫生间10分', max: 10},
+                   { text: '门窗5分', max: 5},
+                   { text: '阳台10分', max: 10}
                 ],
                 radius : 120,
                 center : ['50%', '50%'],
@@ -164,16 +164,16 @@
         ],
         calculable : true,
         series : [
-            {
-                name: "寝室卫生",
-                type: "radar",
-                data : [
-                    {
-                        value : [10,8,3,7,5,9],
-                        name : "卫生分数"
-                    }
-                ]
-            }
+            // {
+            //     name: "寝室卫生",
+            //     type: "radar",
+            //     data : [
+            //         {
+            //             value : [10,8,3,7,5,9],
+            //             name : "卫生分数"
+            //         }
+            //     ]
+            // }
         ]
     };
      
@@ -193,19 +193,21 @@
                 dataType: "json",
                 success: function (result) {
                    console.log("success");
+                   
                     if(result.status ==200){
-
-                        option.series = result.series[0];
-                        // console.log(option.series);
+                        option.series = result.data[0].week[0];
+                        console.log(option.series);
                         myChart.hideLoading();
                         myChart.setOption(option);
                     }
                 },
                 error: function (errorMsg) {
-                  alert("数据加载失败，请刷新")
+                  alert("数据加载失败，请刷新");
+                 // console.log("error");
+
                 }
             });
-        window.setTimeout(CheckMessage,5000);
+            // window.setTimeout(CheckMessage,5000);
     }
 
     $(document).ready(function() {
@@ -214,28 +216,48 @@
     </script>
     <script type="text/javascript">
       $('i[data-event=test]').on('click', function () {
-        var d = dialog({
-          title: '消息',
-          content: '请选择日期',
-          height: 200,
+          var d = dialog({
+          title: '请选择月份',
+          content: ' <input id="user_date" class="form-control" type="month" min="2016-1" max="2016-6"/> <div class="form-group"><label class="control-label">选择周数</label><select class="form-control" id="week" name="week" data-validation="select_required"><option value="0" selected disabled>请选择第几周</option><option value="1">第1周</option><option value="2">第2周</option><option value="3">第3周</option><option value="4">第4周</option></select></div> ',
+          height: 100,
           width: 300,
           okValue: '确 定',
           ok: function () {
-            // dialog()
-            // .title('请选择日期')
-            // .content('hello world')
-            // .button([{
-            //  value: '打开',
-            //  autofocus: true,
-            //  callback: function () {
-            //    dialog()
-            //    .title('提示')
-            //    .showModal();
-            //  }
-            // }])
-            // .show();
-            alert("hello");
-            return false;
+            var x=$("#user_date").val();
+            console.log(x);
+            $(".month")[0].innerText=x[5]+x[6];
+            $(".year")[0].innerText=x[0]+x[1]+x[2]+x[3]; 
+            var y=$("#week").val();
+            console.log(y);
+            $(".week")[0].innerText=y[0];
+            var m=parseInt(x[5]+x[6]);
+            console.log(m);
+            var a=new Date;
+            var nowmonth=a.getMonth();
+             console.log(nowmonth+1-m);
+            d.close().remove();
+            CheckMessage=function(){
+              $.ajax({
+                  type: "GET",
+                  async: false,
+                  url: 'static/json/clean.json',
+                  dataType: "json",
+                  success: function (result) {
+                     console.log("success");
+                      if(result.status ==200){
+                          option.series = result.data[nowmonth+1-m].week[y-1];
+                           console.log(option.series);
+                          myChart.hideLoading();
+                          myChart.setOption(option);
+                      }
+                  },
+                  error: function (errorMsg) {
+                    alert("数据加载失败，请刷新")
+                  }
+              });
+            } 
+            CheckMessage();
+
           },
           cancelValue: '取消',
           cancel: function () {}
@@ -243,6 +265,8 @@
 
         d.showModal();
       });
+
+       
     </script>
     
 </body>

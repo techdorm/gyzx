@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.css">
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/buttons.css"> -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.js"></script>
+    <script src="static/js/jquery.form-validator.js"></script>
+	<title>数字杭电绑定</title>
+	<style type="text/css">
+	 /* ------------------------------------------
+      RESET  
+    --------------------------------------------- */
+    body, div,
+    h1, h2, h3, h4, h5, h6,
+    p, blockquote, pre, dl, dt, dd, ol, ul, li, hr,
+    fieldset, form, label, legend, th, td,
+    article, aside, figure, footer, header, hgroup, menu, nav, section,
+    summary, hgroup {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    body{
+        font-size:1.5em;
+    }   
+    a,a:active,a:hover {
+      outline: 0;
+      text-decoration: none;
+      color:#333;
+       opacity: 0.5;
+    }
+    html,body { height:100%; }
+	/* basic css */
+	body{
+		text-align: center;
+        background: url(static/images/bd_back.jpg) 50% 50% / cover no-repeat fixed;
+        font-family: "Microsoft YaHei", helvetica;
+        font-weight: lighter;
+	}
+	.title{
+		margin-top: 20%;
+	}
+    .title p {
+        font-size: 1.5em;
+        color: white;
+        text-align:center;
+        margin-bottom: 10px;
+    }
+    .title img {
+        width: 30%;
+    }
+    .form-group {
+        position: relative;
+        margin-bottom: 0px;
+        text-align: start;
+    }
+    .form-group  img {
+        cursor: default;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        padding-top: 7%;
+        padding-bottom: 3.3%;
+        padding-left: 7.5%;
+    }
+    .form-group span ,{
+        cursor: default;
+        position: absolute;
+        top: 0;
+        color: white;
+        opacity: 0.5;
+        height: 100%;
+        padding-top: 7%;
+        padding-bottom: 3.3%;
+        padding-left: 18%;
+    }
+    .form-control {
+    	font-size: 16px;
+    	padding-left: 0;
+        height: 100%;
+        border: none;
+        box-shadow: none;
+        outline: none;
+        border-radius: initial;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        background: transparent;
+        color: white;
+        font-weight: normal;
+        /*font-family: "Avenir LT 45 Book";*/
+      
+        padding-bottom: 0px;
+    }
+    .form-control:focus {
+        box-shadow: none;
+        border-bottom: 1px solid rgba(255,255,255,0.5);
+    }
+    .have_problem {
+        padding: 10px;
+        text-align: right;
+    }
+    .have_problem a {
+        color: #fff;
+        opacity: 0.5;
+        font-size: 13px;
+    }
+    .login_btn {
+        width: 100%;
+        background-color: #5ea27b;
+        font-family: "Microsoft YaHei", helvetica;
+        font-weight: lighter;
+        border-radius:20px;
+        color:#D0D0D0;
+        height:40px;
+        font-size: 16px;
+    }
+	
+     .login_btn:focus{outline-style: none; } 
+
+
+    .login_btn:hover{
+        color:#D0D0D0;
+    }
+    .submite{
+    	 background-color:#3fb974;
+    	 color:#fff;
+    }
+    .footer{
+    	position:fixed;
+		bottom:0;
+		width: 100%;
+
+    }
+    .footer p *{
+        color: white;
+        text-align: center;
+        
+    }
+    .footer p span {
+        opacity: 0.5;
+        text-align: center;
+    }
+    
+.has-success .form-control,.has-success .form-control:focus{
+        border-color: #fff; 
+        box-shadow:none;
+
+    }
+.has-error .form-control,.has-error .form-control:focus{
+        border-bottom: 1px rgba(255, 255, 255, 0.48) solid;
+        box-shadow:none; 
+    }
+.has-error .help-block {
+     display: inline;
+     color:rgb(254, 124, 14);
+     margin-top:-28px;
+     float:right;
+}
+
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="title">
+	    <p>绑定教务系统</p>
+	   <img  class="img-circle" style="width:90px;height:90px; margin-top: 10px;" src="static/images/user.jpg">
+	 </div>
+	<form action="#" method="post" role="form" class="toggle-disabled">
+        <div class="form-group">
+            <input type="text"  data-validation="number" data-validation-error-msg="请输入8位学号" class="form-control" id="stuid" name="stuid" placeholder="学号">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="password" name="password" placeholder="密码" data-validation="required" data-validation-error-msg="请输入数字杭电密码" >
+        </div>
+        <div class="have_problem"><a href="other.html">忘记密码</a></div>  
+         <button type="button" class="btn login_btn">确认</button>
+	</form>
+
+</div>
+ <div class="footer">
+        <p><span>Powered by </span><a href="http://www.baidu.com">宿管会</a></p>
+</div>
+
+	
+</body>
+<script type="text/javascript">
+	 $(document).ready(function() {
+        var wh = $(window).height();
+        // console.log(wh);
+        $(".title").height(wh*0.3);
+        $(".form-group").height(wh*0.08);
+        // $(".have_problem").height(wh*0.05);
+        var stuid=false;
+        var password=false;
+
+        
+        
+        // if(stuid && password){
+        //         $(".login_btn").addClass('submite');
+        //     }
+
+        $('form').get(0).reset();
+        var stuid=$('#stuid');
+        var password=$('#password');
+        $.validate({
+          // modules : 'toggleDisabled',
+          // disabledFormFilter : 'form.toggle-disabled',
+          // showErrorDialogs : false
+        });
+
+          $('button').click(function(){
+           if(stuid && password){
+                $(".login_btn").addClass('submite');
+                $('form').submit();
+           } 
+           else{
+               $(".login_btn").removeClass('submite');
+           }
+        });     
+});
+</script>
+</html>
