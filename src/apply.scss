@@ -1,0 +1,66 @@
+body,html{
+	padding:0;
+	margin:0;
+	height:100%;
+	background-color:#ddd;
+}
+//div浮动和颜色
+@mixin flt_bgco($flr,$bgcolor){
+	width:95px;
+	height:95px;
+	float:$flr;
+	background-color:$bgcolor;
+}
+//div位置和颜色
+@mixin pos_bgco($top,$left,$bgcolor){
+	position:absolute;
+	top:$top;
+	left:$left;
+	background-color:$bgcolor;
+}
+.all{
+	width:200px;
+	height:200px;
+	@include pos_bgco(50%,50%,#ddd);
+	margin-top:-100px;
+	margin-left:-100px;
+}
+.first{
+	@include flt_bgco(left,#fc6dab);
+}
+.second{
+	@include flt_bgco(right,#827eec);
+}
+
+.third{
+	@include flt_bgco(left,#2ab8a0);
+	margin-top:10px;
+}
+.fourth{
+	@include flt_bgco(right,#ed7d33);
+	margin-top:10px;
+}
+//圆角
+@mixin round($radius){
+	border-radius:$radius;
+	-moz-border-radius:$radius;
+	-webkit-border-radius:$radius;
+}
+.bgcircle{
+	width:106px;
+	height:106px;
+	z-index:333;
+	@include pos_bgco(50%,50%,#ddd);
+	margin-top:-53px;
+	margin-left:-53px;
+	@include round(53px);
+}
+.circle{
+	width:96px;
+	height:96px;
+	z-index:666;
+	@include pos_bgco(50%,50%,#37a9dd);
+	margin-top:-48px;
+	margin-left:-48px;
+	@include round(48px);
+}

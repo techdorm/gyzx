@@ -1,7 +1,7 @@
 {
   "name": "task",
   "version": "1.0.0",
-  "description": "1、学习scss语法 http://www.ruanyifeng.com/blog/2012/06/sass.html  百度，google还有很多，自己去找教程。",
+  "description": "",
   "main": "index.html",
   "dependencies": {},
   "devDependencies": {},
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techdorm/task.git"
+    "url": "git+https://github.com/techdorm/gyzx.git"
   },
   "author": "echo",
   "license": "ISC",

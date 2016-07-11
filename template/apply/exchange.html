@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> 换宿申请</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="../../static/bootstrap/css/bootstrap.css">
+	<script type="text/javascript" src="../../static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="../../static/js/jquery.form-validator.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../static/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../stylesheets/exchange.css">
+
+	</head>
+<body>
+	 <div class="header">
+        <div class="navbar-left">
+           <a href="apply.html"><i class="fa fa-angle-left back"></i></a>
+        </div>
+        <h1>调换寝室申请</h1>
+    </div>
+	<div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form id="form" action="<?php echo($this->createMobileUrl('submit')); ?>" method="post">
+                    <div class="form-group">
+                        <label for="realname" class="control-label">姓名</label>
+                        <input type="text" class="form-control" name="realname" id="realname" placeholder="请输入姓名" data-validation="required" data-validation-error-msg="请填写姓名">
+                    </div>
+                    <div class="form-group">
+                    	<label for="stuid" class="control-label">学号</label>
+                    	<input type="text" class="form-control" name="stuid" id="stuid" placeholder="请输入学号" data-validation="number_string" data-validation-length="8">
+                	</div>
+                	<div class="form-group">
+	                    <label for="academy" class="control-label">学院</label>
+	                    <select class="form-control" id="academy" name="academy" data-validation="select_required">
+	                        <option value="0" selected disabled>请选择学院</option>
+	                        <option value="1">机械工程学院</option>
+	                        <option value="2">电子信息学院</option>
+	                        <option value="3">通信工程学院</option>
+	                        <option value="4">自动化学院</option>
+	                        <option value="5">计算机学院</option>
+	                        <option value="6">生命信息与仪器工程学院</option>
+	                        <option value="7">材料与环境工程学院</option>
+	                        <option value="8">软件工程学院</option>
+	                        <option value="9">理学院</option>
+	                        <option value="10">经济学院</option>
+	                        <option value="11">管理学院</option>
+	                        <option value="12">会计学院</option>
+	                        <option value="13">外国语学院</option>
+	                        <option value="14">数字媒体与艺术设计学院</option>
+	                        <option value="15">人文与法学院</option>
+	                        <option value="16">马克思主义学院</option>
+	                        <option value="17">卓越学院</option>
+	                        <option value="18">国际教育学院</option>
+	                        <option value="19">继续教育学院</option>
+	                        <option value="20">信息工程学院</option>
+	                    </select>
+                	</div>
+                    <!-- <div class="form-group">
+                        <label for="building" class="control-label">原寝室楼号</label>
+                        <select class="form-control" id="building" name="building" data-validation="select_required">
+                            <option value="1">2号楼</option>
+                            <option value="2">3号楼</option>
+                            <option value="3">4号北楼</option>
+                            <option value="4">4号南楼</option>
+                            <option value="5">5号北楼</option>
+                            <option value="6">5号南楼</option>
+                            <option value="7">6号北楼</option>
+                            <option value="8">6号南楼</option>
+                            <option value="9">8号楼</option>
+                            <option value="10">10号北楼</option>
+                            <option value="11">10号南楼</option>
+                            <option value="12">11号北楼</option>
+                            <option value="13">11号南楼</option>
+                            <option value="14">12号北楼</option>
+                            <option value="15">12号南楼</option>
+                            <option value="16">13号楼</option>
+                            <option value="17">14号楼</option>
+                            <option value="18">15号楼</option>
+                            <option value="19">16号楼</option>
+                            <option value="20">18号楼</option>
+                            <option value="21">21号楼</option>
+                            <option value="22">22号楼</option>
+                            <option value="23">27号楼</option>
+                            <option value="24">28号楼</option>
+                            <option value="25">29号楼</option>
+                            <option value="26">30号楼</option>
+                            <option value="27">31号楼</option>
+                            <option value="28">32号东楼</option>
+                            <option value="29">32号西楼</option>
+                            <option value="30">33号东一</option>
+                            <option value="31">33号西二</option>
+                            <option value="32">34号东一</option>
+                            <option value="33">34号西二</option>
+                            <option value="34">35号楼</option>
+                            <option value="35">36号东一</option>
+                            <option value="36">36号西二</option>
+                            <option value="37">37号东一</option>
+                            <option value="38">37号西二</option>
+                            <option value="39">38号东一</option>
+                            <option value="40">38号西二</option>
+                            <option value="41">东校区13</option>
+                            <option value="42">东校区14</option>
+                        </select>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="dorm1" class="control-label">原楼号寝室号</label>
+                        <input type="text" class="form-control" name="dorm1" id="dorm1" placeholder="请输入原楼号寝室号"  data-validation-error-msg="请填写原楼号寝室号">
+                    </div>
+                    <div class="form-group">
+                        <label for="dorm2" class="control-label">转入楼号寝室号</label>
+                        <input type="text" class="form-control" name="dorm2" id="dorm2" placeholder="请输入转入楼号寝室号"  data-validation-error-msg="请填写转入楼号寝室号">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobile_long" class="control-label">手机</label>
+                        <input type="tel" class="form-control" name="mobile_long" id="mobile_long" placeholder="请输入手机长号" data-validation="number_string" data-validation-length="11">
+                    </div>
+                    <div class="form-group">
+                    <label for="resume" class="control-label">申请理由</label>
+                    <textarea name="resume" class="form-control" id="resume" rows="5" placeholder="填写申请调换宿舍理由" data-validation="required" data-validation-error-msg="必须填写申请理由"></textarea>
+                    <p style="float: right;color: #8d8d8d;">还可以输入<span id="maxlength">300</span>字</p>
+                </div>
+                    <div class="form-group" id="button">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        if ('{$state}'=='already') {
+            $('input').prop('disabled',true);
+            $('select').prop('disabled',true);
+            $("form").attr('id', 'already_form');
+            // $('#building').val('{$res["building"]}');
+            $('#dorm1').val('{$res["dorm1"]}');
+            $('#dorm2').val('{$res["dorm2"]}');
+            $('#realname').val('{$res["realname"]}');
+            $('#stuid').val('{$res["stuid"]}');
+            $('#academy').val('{$res["academy"]}');
+            $('#mobile_long').val('{$res["mobile_long"]}');
+            $('#resume').val('{$res["resume"]}');
+            $('<input type="submit" class="btn btn-info" id="modify" style="margin-right:10px;" value="修改">').appendTo('#button');
+        } else{
+            $('<input type="submit" class="btn btn-default" id="submit" style="margin-right:10px;" value="提交">\n<input type="reset" class="btn btn-danger" value="重置">').appendTo('#button');
+            form_validate();
+        };
+
+        $("#already_form").submit(function(event) {
+            event.preventDefault();
+            $(this).unbind('submit');
+            $(this).removeAttr('id');
+            $('input').prop('disabled',false);
+            $('select').prop('disabled',false);
+            $("#button").empty();
+            $('<input type="submit" class="btn btn-default" id="submit" style="margin-right:10px;" value="提交">\n<input type="reset" class="btn btn-danger" value="重置">').appendTo('#button');
+            form_validate();
+        });
+
+        function form_validate () {
+            var zh_cn = {
+                lengthBadStart: '必须是 ',
+                lengthBadEnd: ' 位',
+            }
+            $.validate({
+                language : zh_cn,
+            });
+            $("textarea[name='resume']").restrictLength($('#maxlength'));
+        }
+    });
+    </script>
+</body>
+</html>

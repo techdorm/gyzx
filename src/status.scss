@@ -1,0 +1,132 @@
+body,html{width: 100%;height: 100%;padding:0;margin: 0;background-color: #ddd;}
+.fl{float:left;}
+.fr{float:right;}
+@mixin wid_hei($width:100%,$height:50px,$bg_color:#fff){
+	width:$width;
+	height:$height;
+	text-align:center;
+	line-height:$height;
+	background-color:$bg-color;
+}
+header{
+	text-align:center;
+	color:#fff;
+}
+header .navbar{
+	@include wid_hei(100%,50px,#45A673);
+	font-size:18px;
+}
+header nav a {
+	position:absolute;
+	display:inline-block;
+	@include wid_hei(50px,50px,#45A673);
+	color:#fff;
+	font-size:1.5em;
+	left:-10px;	
+}
+header nav h1{
+	display:inline-block;
+	margin-top:5px;
+	font-size:20px;
+	font-weight:bold;
+}
+.content{
+	position:relative;
+	top:0;
+	min-height:100%;
+	width:100%;
+	font-size:14px;
+	background-color:#fff;
+	color:#ccc;
+}
+.content_box{
+	width:100%;
+	height:500px;
+}
+@mixin div_size($width,$height){
+	width:$width;
+	height:$height;
+	background-color:#ddd;
+}
+@mixin div_pos($top,$left){
+	position:absolute;
+	top:$top;
+	left:$left;
+}
+@mixin round(){
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+.content_box{
+	div:nth-of-type(2n){
+		@include div_size(18px,18px);
+		@include round();
+	}
+	div:nth-of-type(2n+1){
+		@include div_size(2px,101px);
+	}
+	div:nth-of-type(1){		
+		@include div_pos(50px,50px);
+	}
+	div:nth-of-type(2){	
+		@include div_pos(151px,42px);		
+	}
+	div:nth-of-type(3){
+		@include div_pos(169px,50px);
+	}
+	div:nth-of-type(4){
+		@include div_pos(270px,42px);
+	}
+	div:nth-of-type(5){
+		@include div_pos(289px,50px);
+	}
+	div:nth-of-type(6){
+		@include div_pos(390px,42px);
+	}
+	p:nth-of-type(1){
+		@include div_pos(150px,70px);
+	}
+	p:nth-of-type(2){
+		@include div_pos(270px,70px);
+	}
+	p:nth-of-type(3){
+		@include div_pos(390px,70px);
+	}
+	p{
+		width: 70%;
+		border-bottom:1px solid #ccc;
+		padding-bottom:5px;
+		padding-left:5px;
+	}
+	p span{
+		font-size: 12px;
+	}
+	p.active{
+		color: #45A673;
+	}
+	div.active{
+		background-color:#45A673;
+	}
+	div.active1{
+		width: 20px;
+		height: 20px;
+		box-shadow:0 0 2px 2px #66bb6a,0 0 5px 5px #81c784;
+		z-index: 333; 
+	}
+}
+footer{
+	@include wid_hei(100%,50px,#ccc);
+	font-size:16px;
+	position:fixed;
+	left:0;
+	bottom:0;
+}
+footer .ft_lf{
+	@include wid_hei(50%,50px,#ddd);
+}
+footer .ft_rg{
+	@include wid_hei(50%,50px,#fdd835);
+}
+
