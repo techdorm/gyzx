@@ -4,25 +4,25 @@
 
 - gyzx
 	- src 
-	  + .scss
-	- static
+	  + .scss   //scss文件
+	- static    //  静态文件
 		+ bootstrap
 		+ font-awesome
 		+iconfonts
 		+images
 		+js
-	- stylesheets
+	- stylesheets //编译后的css文件
 	  + .css  
-	- template 
+	- template   //具体功能页面
 		+ apply
-		 		+ exchange.html
-		 		+ status.html
+		 		- exchange.html
+		 		- status.html
 		+ ...
 		+ ...
   - README.md
   - gulpfile.js 
   - package.json 
-  - index.html 
+  - index.html  //主页面
   - hd.html 
   - ...
 
