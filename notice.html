@@ -173,6 +173,8 @@
         var swiper = new Swiper('.swiper-container', {
             pagination: '.swiper-pagination',
             paginationClickable: true,
+            longSwipesRatio: 0.3,
+            observer:true,//修改swiper自己或子元素时，自动初始化swiper
         });
         $.ajax({
             type: 'GET',
