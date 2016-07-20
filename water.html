@@ -255,11 +255,10 @@
                   success: function (result) {
                      console.log("success");
                       if(result.status ==200){
-<<<<<<< HEAD
+
                           option.series = [result.month[1].one[0],result.month[1].one[1]];
-=======
-                          option.series = [result.month[0].drink[y-1],result.month[2].elect[y-1]];
->>>>>>> e8aaba4b01fd22c39ac900b3caabca6ee8220c82
+
+
                           myChart.hideLoading();
                           myChart.setOption(option);
                       }
