@@ -309,14 +309,7 @@
                           myChart.setOption(option);
 
                          $('.photo').on('click', function () {
-                            var y = dialog({
-                              title: '卫生检查照片',
-                              content: '<img src="" style="width:250px;" id="photo" alt="" />',
-                              cancelValue: '关闭',
-                              cancel: function () { y.close().remove();}
-                            });
                             $("#photo").attr("src",picurl);
-                            y.show();
                           });
                       }
                   },
