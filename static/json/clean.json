@@ -3,53 +3,38 @@
     "data": [
             { 
                 "week":[
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [10,8,3,7,5,9],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [4,6,2,8,5,10],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [8,6,4,6,4,7],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [9,2,4,8,1,6],"name" : "'卫生分数'"}]}
+                    { "value" : [10,8,3,7,5,9,20],"personal":"22","notes":"被子没有叠","pic": "http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao42v45cdf3ojq8a6kcj1ajb9.jpg"},
+                    { "value" : [4,6,2,8,5,10,0],"personal":"21","notes":"被子没有叠","pic": "http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao42v45cdf3ojq8a6kcj1ajb9.jpg"},
+                    { "value" : [8,6,4,6,4,7,12],"personal":"12","notes":"被子没有叠","pic": "http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao42v45cdf3ojq8a6kcj1ajb9.jpg"},
+                    { "value" : [9,2,4,8,1,6,11],"personal":"20","notes":"被子没有叠","pic": "http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao42v45cdf3ojq8a6kcj1ajb9.jpg"}
                ]
-             
-                 
-            }, 
-           
-            { 
-                "week":[
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [4,4,4,4,4,1],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [4,4,4,4,4,2],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [4,4,4,4,4,3],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [4,4,4,4,4,4],"name" : "'卫生分数'"}]}
-               ]
-             
                  
             }, 
             { 
                 "week":[
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [3,3,3,3,3,1],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [3,3,3,3,3,2],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [3,3,3,3,3,3],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [3,3,3,3,3,4],"name" : "'卫生分数'"}]}
+                    { "value" : [1,1,1,1,1,1,3],"personal":"23","notes":"阳台没有打扫","pic": "http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao42v45cdf3ojq8a6kcj1ajb9.jpg"},
+                    { "value" : [2,2,2,2,2,2,11],"personal":"24","notes":"阳台没有打扫","pic": "http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao42v45cdf3ojq8a6kcj1ajb9.jpg"},
+                    { "value" : [8,6,4,6,4,7,9],"personal":"22","notes":"阳台没有打扫","pic": "http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao42v45cdf3ojq8a6kcj1ajb9.jpg"},
+                    { "value" : [9,2,4,8,1,6,3],"personal":"13","notes":"阳台没有打扫","pic": "http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao42v45cdf3ojq8a6kcj1ajb9.jpg"}
                ]
-             
                  
             }, 
-            {
-                
-                "week":[
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [2,2,2,2,2,1],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [2,2,2,2,2,2],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [2,2,2,2,2,3],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [2,2,2,2,2,4],"name" : "'卫生分数'"}]}    
-               ]
-                
-            },
             { 
                 "week":[
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [1,1,1,1,1,1],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [1,1,1,1,1,2],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [1,1,1,1,1,3],"name" : "'卫生分数'"}]},
-                    { "name": "寝室卫生","type": "radar","data" : [{"value" : [1,1,1,1,1,4],"name" : "'卫生分数'"}]}
+                    { "value" : [10,8,3,7,5,9,4],"personal":"26","notes":"垃圾没有倒","pic":"http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao4dhsug18nu8p8vms1t06ult9.jpg"},
+                    { "value" : [4,6,2,8,5,10,12],"personal":"23","notes":"垃圾没有倒","pic":"http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao4dhsug18nu8p8vms1t06ult9.jpg"},
+                    { "value" : [8,6,4,6,4,7,20],"personal":"30","notes":"垃圾没有倒","pic":"http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao4dhsug18nu8p8vms1t06ult9.jpg"},
+                    { "value" : [9,2,4,8,1,6,20],"personal":"20","notes":"垃圾没有倒","pic":"http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao4dhsug18nu8p8vms1t06ult9.jpg"}
                ]
-             
+                 
+            }, 
+            { 
+                "week":[
+                    { "value" : [5,5,5,5,5,5,12],"notes":"桌面不整洁","pic":"http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao4dhsug18nu8p8vms1t06ult9.jpg"},
+                    { "value" : [4,6,2,8,5,10,19],"notes":"桌面不整洁","pic":"http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao4dhsug18nu8p8vms1t06ult9.jpg"},
+                    { "value" : [8,6,4,6,4,7,13],"notes":"桌面不整洁","pic":"http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao4dhsug18nu8p8vms1t06ult9.jpg"},
+                    { "value" : [9,2,4,8,1,6,18],"notes":"桌面不整洁","pic":"http://7xt5up.com2.z0.glb.qiniucdn.com/o_1ao4dhsug18nu8p8vms1t06ult9.jpg"}
+               ]
                  
             }
     ]

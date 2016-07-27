@@ -115,22 +115,28 @@
           </div>
       </div>
     </div>
-  	<div class="cost"> 
-  	  <div class="panel panel-default">
+  	  <div class="panel panel-default" style="margin-bottom:30px;">
           <div class="panel-heading">
-            <span >总分</span>
+            <span>总分</span>
             <div class="pull-right score">95</div>
           </div>     
   		    <div class="panel-body">
-  			  <div class="sum">
-            <div class="illegal">
-               <span>无违规电器</span>
-               <div class="pull-right electr">20</div>
+            <div>
+               <span>个人得分</span>
+               <div class="pull-right personal">30</div>
             </div>
-  	      </div>
-          </div>
+            <div >
+               <span>备注</span>
+               <div class="pull-right notes">阳台没打扫</div>
+            </div>
+          </div> 
+           <div class="photo" >
+                <i class="fa fa-picture-o fa-2x pull-right" style="padding:5px 10px 10px 0;"></i>
+         </div>
       </div>
-    </div>
+     
+     
+   
 
     <div id="container"></div>
     <script type="text/javascript">
@@ -142,12 +148,30 @@
         title : {
             text: '寝室卫生',
         },
+        calculable : true, //载入时的动态效果
+        color:['#FF7F50'],
+        
         tooltip : {
             show: "ture",  
         },
-        calculable : true,
-        color:['#FF7F50'],
-
+        // toolbox: {
+        //     show : true,
+        //     orient: 'horizontal',      
+        //     x: 'right',              
+        //     y: 'top',    
+        //     padding: 15,             
+        //     showTitle: true,       
+        //     feature : {
+        //         myTool : {
+        //             show : true,
+        //             title : '查看照片',
+        //             icon :   'image://static/images/photo.png',
+        //             onclick : function (){
+        //                 alert('myToolHandler');
+        //             }
+        //         }
+        //     }               
+        // },   
         polar : [
            {
                indicator : [
@@ -156,35 +180,27 @@
                    { text: '爬梯5分', max: 5},
                    { text: '卫生间10分', max: 10},
                    { text: '门窗5分', max: 5},
-                   { text: '阳台10分', max: 10}
+                   { text: '阳台10分', max: 10},
+                   { text: '违禁电器20分',max:20}
                 ],
-                radius : 120,
+                radius : 80,
                 center : ['50%', '50%'],
             }
         ],
         calculable : true,
         series : [
-            // {
-            //     name: "寝室卫生",
-            //     type: "radar",
-            //     data : [
-            //         {
-            //             value : [10,8,3,7,5,9],
-            //             name : "卫生分数"
-            //         }
-            //     ]
-            // }
+            {
+                name: "寝室卫生",
+                type: "radar",
+                data : [
+                    {
+                        value : []
+                    }
+                ]
+            }
         ]
     };
      
-    // if (option && typeof option === "object") {
-    //     var startTime = +new Date();
-        // myChart.setOption(option, true);
-    //     var endTime = +new Date();
-    //     var updateTime = endTime - startTime;
-    //     console.log("Time used:", updateTime);
-    // }
-
     CheckMessage=function(){
             $.ajax({
                 type: "GET",
@@ -195,11 +211,41 @@
                    console.log("success");
                    
                     if(result.status ==200){
-                        option.series = result.data[0].week[0];
-                        console.log(option.series);
+                        option.series[0].data[0].value= result.data[0].week[0].value;
+                        $('.notes')[0].innerHTML=result.data[0].week[0].notes;
+                        $('.personal')[0].innerHTML=result.data[0].week[0].personal;
+                          var arr=option.series[0].data[0].value;
+                          console.log(arr);
+                          var sum = 0;
+                          for (var i = 0; i < arr.length; i++){
+                              sum += parseInt(arr[i]);
+                          }
+                          sum+=parseInt($('.personal')[0].innerHTML);
+                          console.log(sum);
+                          $('.score')[0].innerHTML=sum;
+
+                        // console.log(result.data[0].week[0].notes);
+                       //  console.log(option.series);
+                       // console.log(result.data[0].week[0].pic);
+                       var picurl=result.data[0].week[0].pic;
                         myChart.hideLoading();
                         myChart.setOption(option);
+
+                         $('.photo').on('click', function () {
+                        var x = dialog({
+                          title: '卫生检查照片',
+                          content: '<img src="" style="width:250px;" id="photo" alt="" />',
+                          okValue: '确 定',
+                          quickClose: true,
+                          cancelValue: '关闭',
+                          cancel: function () {}
+                        });
+                        $("#photo").attr("src",picurl);
+                        x.show();
+                      });
+
                     }
+                   
                 },
                 error: function (errorMsg) {
                   alert("数据加载失败，请刷新");
@@ -236,7 +282,6 @@
             var nowmonth=a.getMonth();
              console.log(nowmonth+1-m);
             d.close().remove();
-            CheckMessage=function(){
               $.ajax({
                   type: "GET",
                   async: false,
@@ -245,19 +290,40 @@
                   success: function (result) {
                      console.log("success");
                       if(result.status ==200){
-                          option.series = result.data[nowmonth+1-m].week[y-1];
-                           console.log(option.series);
+                          option.series[0].data[0].value = result.data[nowmonth+1-m].week[y-1].value;
+                          $('.notes')[0].innerHTML=result.data[nowmonth+1-m].week[y-1].notes;
+                          $('.personal')[0].innerHTML=result.data[nowmonth+1-m].week[y-1].personal;
+                          var arr=option.series[0].data[0].value;
+                          console.log(arr);
+                          var sum = 0;
+                          for (var i = 0; i < arr.length; i++){
+                              sum += parseInt(arr[i]);
+                          }
+                          sum+=parseInt($('.personal')[0].innerHTML);
+                          console.log(sum);
+                          $('.score')[0].innerHTML=sum;
+                           // console.log(option.series); 
+                           //  console.log(result.data[nowmonth+1-m].week[y-1].pic);
+                           var picurl=result.data[nowmonth+1-m].week[y-1].pic;
                           myChart.hideLoading();
                           myChart.setOption(option);
+
+                         $('.photo').on('click', function () {
+                            var y = dialog({
+                              title: '卫生检查照片',
+                              content: '<img src="" style="width:250px;" id="photo" alt="" />',
+                              cancelValue: '关闭',
+                              cancel: function () { y.close().remove();}
+                            });
+                            $("#photo").attr("src",picurl);
+                            y.show();
+                          });
                       }
                   },
                   error: function (errorMsg) {
                     alert("数据加载失败，请刷新")
                   }
               });
-            } 
-            CheckMessage();
-
           },
           cancelValue: '取消',
           cancel: function () {}
@@ -265,6 +331,11 @@
 
         d.showModal();
       });
+
+
+
+
+
 
        
     </script>
