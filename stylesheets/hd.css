@@ -90,7 +90,7 @@ a {
       width: 110px;
       height: 65px; }
     .container .swiper-container .event-list .swiper-slide .event-content .event-body {
-      line-height: 1.3;
+      line-height: 1;
       color: #7d7d7d; }
     .container .swiper-container .event-list .swiper-slide .event-content .event-body > .event-title {
       height: 36px;
