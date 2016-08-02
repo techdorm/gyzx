@@ -24,8 +24,8 @@
             <div class="panel-body">
                 <form id="form" action="<?php echo($this->createMobileUrl('submit')); ?>" method="post">
                     <div class="form-group">
-                        <label for="type" class="control-label">报修分类</label>
-                        <select class="form-control" id="type" name="type" data-validation="select_required">
+                        <label for="bcatalogId" class="control-label">报修分类</label>
+                        <select class="form-control" id="bcatalogId" name="bcatalogId" data-validation="select_required">
                             <option value="1">网络</option>
                             <option value="2">供暖</option>
                             <option value="3">电</option>
@@ -38,8 +38,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="building" class="control-label">楼号</label>
-                        <select class="form-control" id="building" name="building" data-validation="select_required">
+                        <label for="lh" class="control-label">楼号</label>
+                        <select class="form-control" id="lh" name="lh" data-validation="select_required">
                             <option value="1">2号楼</option>
                             <option value="2">3号楼</option>
                             <option value="3">4号北楼</option>
@@ -85,25 +85,25 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="dorm" class="control-label">寝室号</label>
-                        <input type="text" class="form-control" name="dorm" id="dorm" placeholder="请输入寝室号"  data-validation-error-msg="请填写寝室号">
+                        <label for="fjh" class="control-label">寝室号</label>
+                        <input type="text" class="form-control" name="fjh" id="fjh" placeholder="请输入寝室号"  data-validation-error-msg="请填写寝室号">
                     </div>
                     <div class="form-group">
-                        <label for="realname" class="control-label">报修人</label>
-                        <input type="text" class="form-control" name="realname" id="realname" placeholder="请输入姓名" data-validation="required" data-validation-error-msg="请填写姓名">
+                        <label for="contact" class="control-label">报修人</label>
+                        <input type="text" class="form-control" name="contact" id="contact" placeholder="请输入姓名" data-validation="required" data-validation-error-msg="请填写姓名">
                     </div>
                     <div class="form-group">
-                        <label for="mobile_long" class="control-label">手机</label>
-                        <input type="tel" class="form-control" name="mobile_long" id="mobile_long" placeholder="请输入手机长号" data-validation="number_string" data-validation-length="11">
+                        <label for="phone" class="control-label">手机</label>
+                        <input type="tel" class="form-control" name="phone" id="phone" placeholder="请输入手机长号" data-validation="number_string" data-validation-length="11">
                     </div>
                     <div class="form-group">
-                        <label for="resume" class="control-label">详细情况</label>
-                        <textarea name="resume" class="form-control" id="resume" rows="5" placeholder="填写报修内容" data-validation="required" data-validation-error-msg="必须填写报修内容"></textarea>
+                        <label for="remark" class="control-label">详细情况</label>
+                        <textarea name="remark" class="form-control" id="remark" rows="5" placeholder="填写报修内容" data-validation="required" data-validation-error-msg="必须填写报修内容"></textarea>
                         <p style="float: right;color: #8d8d8d;">还可以输入<span id="maxlength">100</span>字</p>
                     </div>
                     <div class="form-group">
                         <label for="file" class="control-label">报修图片</label>
-                        <input type="file" name="file">
+                        <input type="file" name="file" id="file" >
                     </div>
                     <div class="form-group" id="button">
                     </div>
@@ -117,14 +117,13 @@
             $('input').prop('disabled',true);
             $('select').prop('disabled',true);
             $("form").attr('id', 'already_form');
-            $('#type').val('{$res["type"]}');
-            $('#building').val('{$res["building"]}');
-            $('#dorm').val('{$res["dorm1"]}');
-            $('#realname').val('{$res["realname"]}');
-            // $('#stuid').val('{$res["stuid"]}');
-            // $('#academy').val('{$res["academy"]}');
-            $('#mobile_long').val('{$res["mobile_long"]}');
-            $('#resume').val('{$res["resume"]}');
+            $('#bcatalogId').val('{$res["bcatalogId"]}');
+            $('#lh').val('{$res["lh"]}');
+            $('#fjh').val('{$res["fjh1"]}');
+            $('#contact').val('{$res["contact"]}');
+            $('#phone').val('{$res["phone"]}');
+            $('#remark').val('{$res["remark"]}');
+            $('#file').val('{res["file"]}');
             $('<input type="submit" class="btn btn-info" id="modify" style="margin-right:10px;" value="修改">').appendTo('#button');
         } else{
             $('<input type="submit" class="btn btn-default" id="submit" style="margin-right:10px;" value="提交">\n<input type="reset" class="btn btn-danger" value="重置">').appendTo('#button');
@@ -150,8 +149,13 @@
             $.validate({
                 language : zh_cn,
             });
-            $("textarea[name='resume']").restrictLength($('#maxlength'));
+            $("textarea[name='remark']").restrictLength($('#maxlength'));
         }
+
+        $('#submit').click(function(event) {
+            console.log($('#file').val());
+           alert($('#form').serialize());
+        });
     });
     </script>
 </body>
