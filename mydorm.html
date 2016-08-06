@@ -7,46 +7,77 @@
 <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="static/css/buttons.css">
+<link rel="stylesheet" type="text/css" href="src/mydorm.scss">
 <script src="static/js/jquery.min.js"></script>
 <script src="static/bootstrap/js/bootstrap.js"></script>
 <!-- <script src="static/js/jquery.form-validator.js"></script> -->
 <title>我的寝室</title>
-<style type="text/css">
-/* ——————————————
-RESET
-——————————————— */
-body, div,
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, dl, dt, dd, ol, ul, li, hr,
-fieldset, form, label, legend, th, td,
-article, aside, figure, footer, header, hgroup, menu, nav, section,
-summary, hgroup {
-margin: 0;
-padding: 0;
-border: 0;
-}
-
-a,a:active,a:hover {
-outline: 0;
-text-decoration: none;
-color:#333;
-opacity: 0.5;
-}
-html,body { height:100%; }
-
-</style>
 </head>
 <body>
-<button class="btn btn-primary"><a href="template/apply/apply.html">寝室相关业务申请</a></button>
-
-
-
+<div id="formbackground" style="position:absolute; z-index:-1;"><img src="static/images/background.png" height="100%" width="100%"/></div>
+<button class="btn btn-default zdiv">我的寝室</button>
+<div class="row">
+<button type="button" class="btn btn-default col-md-4 div1">
+	<div class="unit-box">
+		<div class="pd-item-name">
+			<img class="pd-img" src="static/images/7.png"/>
+			<h3>水电费</h3>
+		</div>
+	</div>
+</button>
+<button type="button" class="btn btn-default col-md-4 div2">
+	<div class="unit-box">
+		<div class="pd-item-name">
+			<img class="pd-img" src="static/images/8.png"/>
+			<h3>寝室卫生</h3>
+		</div>
+	</div>
+</button>
+</div>
+<div class="row">
+<button type="button" class="btn btn-default col-md-4 div3">
+	<div class="unit-box">
+		<div class="pd-item-name">
+			<img class="pd-img" src="static/images/9.png"/>
+			<h3>报修</h3>
+		</div>
+	</div>
+</button>
+<button type="button" class="btn btn-default col-md-4 div4">
+	<div class="unit-box">
+		<div class="pd-item-name">
+			<img class="pd-img" src="static/images/10.png"/>
+			<h3>住宿相关申请</h3>
+		</div>
+	</div>
+</button>
+</div>
+<div class="row">
+<button type="button" class="btn btn-default col-md-4 div5">
+	<div class="unit-box">
+		<div class="pd-item-name">
+			<img class="pd-img" src="static/images/11.png"/>
+			<h3>默认联系人</h3>
+		</div>
+	</div>
+</button>
+<button type="button" class="btn btn-default col-md-4 div6">
+	<div class="unit-box">
+		<div class="pd-item-name">
+			<img class="pd-img" src="static/images/12.png"/>
+			<h3>查看个人公寓资产</h3>
+		</div>
+	</div>
+</button>
+</div>
 </body>
 
 <script type="text/javascript">
-
-//js代码
-
+$(function(){
+    $('#formbackground').height($(window).height());
+    $('#formbackground').width($(window).width());
+});
 </script>
 
 </html>
+
