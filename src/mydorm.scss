@@ -1,0 +1,66 @@
+	 p, body, div,
+    h1, h2, h3, h4, h5, h6,
+    p, blockquote, pre, dl, dt, dd, ol, ul, li, hr,
+    fieldset, form, label, legend, th, td,
+    article, aside, figure, footer, header, hgroup, menu, nav, section,
+    summary, hgroup {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    html,body { height:100%; }
+.row{margin:0;}
+.col-lg-1,.col-lg-10,.col-lg-11,.col-lg-12,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-md-1,.col-md-10,.col-md-11,.col-md-12,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-sm-1,.col-sm-10,.col-sm-11,.col-sm-12,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-xs-1,.col-xs-10,.col-xs-11,.col-xs-12,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9{padding:0;}/* Fuck 15px for iPhone Over */ 
+html,body { height:100%; }
+a,a:active,a:hover {
+outline: 0;
+text-decoration: none;
+color:#333;
+opacity: 0.5;
+font-size: 25px;
+}
+.btn-default{
+font-size: 50%;
+}
+.header {
+    background-color: #45a673;
+    border-bottom: 1px solid #43a382;
+    box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
+    height: 45px;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1060;
+    height:70px;
+}
+.header .navbar-left .back {
+    color: #fff;
+    font-size: 2.5em;
+}
+.header h1 {
+    color: #fff;
+    font-family: "YouYuan";
+    font-size: 30px;
+    left: 50%;
+    line-height: 44px;
+    position: absolute;
+    text-align: center;
+    margin-top:10px;
+    margin-left:-55px;
+}
+.pd-img{
+    margin-bottom:5px;
+    margin-top:5px;
+    width:90px;
+    height:90px;
+}
+.col-md-6 {
+	height:170px;
+	font-size: 40px;
+	margin-top:15px;
+    width:45%;
+}
+.div1,.div3,.div5{
+    margin-left:4%;
+    margin-right:2%;
+}
