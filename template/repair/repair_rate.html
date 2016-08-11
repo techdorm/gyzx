@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>js星级评论打分功能</title>
+<title>维修评价</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1, maximum-scale=1, user-scalable=no" />
@@ -67,7 +67,7 @@ body {
 	position:absolute;
 	width:600px;
 	top:80%;
-	left:20%;
+	left:10%;
 	height:24px;
 }
 #star ul, #star span {
@@ -89,7 +89,7 @@ body {
 }
 #star strong {
 	color:#f60;
-	padding-left:10px;
+/*	padding-left:10px;*/
 }
 #star li.on {
 	background-position:0 -28px;
@@ -166,10 +166,9 @@ body {
 				//浮动层显示
 				oP.style.display = "block";
 				//计算浮动层位置
-				oP.style.left = oUl.offsetLeft + this.index * this.offsetWidth - 10 + "px";
+				oP.style.left = oUl.offsetLeft + this.index * this.offsetWidth - 40 + "px";
 				//匹配浮动层文字内容
-				oP.innerHTML = "<em>" + aMsg[this.index - 1] + "</em>"
-				
+				oP.innerHTML = "<em>" + aMsg[this.index - 1]+ "</em>";
 
 			};
 			
@@ -184,7 +183,8 @@ body {
 			aLi[i - 1].onclick = function (){
 				iStar = this.index;
 				oP.style.display = "none";
-				oSpan.innerHTML = "<strong>" + (this.index) + " 分</strong>"
+				// oSpan.innerHTML = "<strong>" + (this.index) + " 分</strong>"+"<strong>" + aMsg[this.index - 1]+ "</strong>";
+				oSpan.innerHTML = "<strong>" + aMsg[this.index - 1]+ "</strong>";
 			}
 		}
 		
@@ -196,6 +196,18 @@ body {
 		}
 		
 	};
+$('#submit').click(function(event){
+	 console.log(iStar);
+	 // ajax
+	   $.post("vote.php",{
+	            vote: iStar,
+	            },function(data){
+	            console.log("success");
+	   });           
+});
+ 
+
+
 </script>
 </body>
 </html>
