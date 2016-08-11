@@ -116,23 +116,26 @@
       </div>
     </div>
   	  <div class="panel panel-default" style="margin-bottom:30px;">
-          <div class="panel-heading">
-            <span>总分</span>
-            <div class="pull-right score">95</div>
-          </div>     
+           
   		    <div class="panel-body">
+             <div >
+              <span>总分</span>
+              <div class="pull-right score">95</div>
+            </div>   
             <div>
-               <span>个人得分</span>
+               <span>个人</span>
                <div class="pull-right personal">30</div>
             </div>
-            <div >
+            <div>
                <span>备注</span>
-               <div class="pull-right notes">阳台没打扫</div>
+              <!--  <div class="pull-right notes">阳台没打扫</div> -->
+               <div class="photo" style="display:inline">
+                <i class="fa fa-picture-o  pull-right" style="padding:5px 0  5px 0;"></i>
+              </div>
             </div>
+            
           </div> 
-           <div class="photo" >
-                <i class="fa fa-picture-o fa-2x pull-right" style="padding:5px 10px 10px 0;"></i>
-         </div>
+           
       </div>
      
      
@@ -212,7 +215,7 @@
                    
                     if(result.status ==200){
                         option.series[0].data[0].value= result.data[0].week[0].value;
-                        $('.notes')[0].innerHTML=result.data[0].week[0].notes;
+                        // $('.notes')[0].innerHTML=result.data[0].week[0].notes;
                         $('.personal')[0].innerHTML=result.data[0].week[0].personal;
                           var arr=option.series[0].data[0].value;
                           console.log(arr);
@@ -234,13 +237,14 @@
                          $('.photo').on('click', function () {
                         var x = dialog({
                           title: '卫生检查照片',
-                          content: '<img src="" style="width:250px;" id="photo" alt="" />',
+                          content: '<img src="" style="width:250px;" id="photo" alt="" />'+'<div>'+'<span>'+"备注"+'</span>'+'<div class="pull-right notes">'+'</div>'+'</div>',
                           okValue: '确 定',
                           quickClose: true,
                           cancelValue: '关闭',
                           cancel: function () {}
                         });
                         $("#photo").attr("src",picurl);
+                        $('.notes')[0].innerHTML=result.data[0].week[0].notes;
                         x.show();
                       });
 
@@ -291,7 +295,7 @@
                      console.log("success");
                       if(result.status ==200){
                           option.series[0].data[0].value = result.data[nowmonth+1-m].week[y-1].value;
-                          $('.notes')[0].innerHTML=result.data[nowmonth+1-m].week[y-1].notes;
+                          // $('.notes')[0].innerHTML=result.data[nowmonth+1-m].week[y-1].notes;
                           $('.personal')[0].innerHTML=result.data[nowmonth+1-m].week[y-1].personal;
                           var arr=option.series[0].data[0].value;
                           console.log(arr);
@@ -310,6 +314,7 @@
 
                          $('.photo').on('click', function () {
                             $("#photo").attr("src",picurl);
+                            $('.notes')[0].innerHTML=result.data[nowmonth+1-m].week[y-1].notes;
                           });
                       }
                   },

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>js星级评论打分功能</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="../../static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../static/css/buttons.css">
+<link rel="stylesheet" type="text/css" href="../../static/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../stylesheets/reset.css">
+<script src="../../static/js/jquery.min.js"></script>
+<style type="text/css">
+* {
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+body {
+	color:#666;
+	font:12px/1.5 Arial;
+}
+.header {
+    position: fixed;
+    z-index: 1060;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 45px;
+    border-bottom: 1px solid #43A382;
+    background-color: #45A673;
+    -webkit-box-shadow: 0 1px 1px rgba(98,98,98,.3);
+    box-shadow: 0 1px 1px rgba(98,98,98,.3);
+	}
+
+	.header h1 {
+    color: #fff;
+    font-size: 18px;
+    line-height: 44px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+    text-align: center;
+    font-family:"YouYuan";
+	}
+	
+	.header .navbar-left {
+	    float: left;
+	    /*color: #fff;*/
+	}
+    .navbar-left>* {
+        display: table-cell;
+        height: 45px;
+        padding-right: 10px;
+        padding-left: 10px;
+        vertical-align: middle;
+    }
+	.back {
+        color: #FFF;
+        font-size: 2.5em;
+    }
+
+
+
+/* star */
+#star {
+	position:fixed;
+	width:600px;
+	top:80%;
+	left:20%;
+	height:24px;
+}
+#star ul, #star span {
+	float:left;
+	display:inline;
+	height:19px;
+	line-height:19px;
+}
+#star ul {
+	margin:0 10px;
+}
+#star li {
+	float:left;
+	width:30px;
+	cursor:pointer;
+	text-indent:-9999px;
+	background:url(../../static/images/star.png) no-repeat;
+}
+#star strong {
+	color:#f60;
+	padding-left:10px;
+}
+#star li.on {
+	background-position:0 -28px;
+}
+#star p {
+	position:absolute;
+	top:60px;
+	width:159px;
+	height:20px;
+	display:none;
+	/*background:url(../images/icon.gif) no-repeat;*/
+	padding:7px 10px 0;
+}
+#star p em {
+	color:#f60;
+	display:block;
+	font-style:normal;
+}
+
+</style>
+</head>
+<body>
+<div class="header">
+        <div class="navbar-left">
+           <a href="index.html"><i class="fa fa-angle-left back"></i></a>
+        </div>
+        <h1>维修评价</h1>
+ </div>
+<div id="star"> <span>请为师傅打分</span>
+  <ul>
+    <li><a href="javascript:;">1</a></li>
+    <li><a href="javascript:;">2</a></li>
+    <li><a href="javascript:;">3</a></li>
+    <li><a href="javascript:;">4</a></li>
+    <li><a href="javascript:;">5</a></li>
+  </ul>
+  <span></span>
+  <p></p>
+</div>
+<script type="text/javascript"> 
+	window.onload = function (){
+
+		var oStar = document.getElementById("star");
+		var aLi = oStar.getElementsByTagName("li");
+		var oUl = oStar.getElementsByTagName("ul")[0];
+		var oSpan = oStar.getElementsByTagName("span")[1];
+		var oP = oStar.getElementsByTagName("p")[0];
+		var i = iScore = iStar = 0;
+		var aMsg = [
+					"很不满意",
+					"不满意",
+					"一般",
+					"满意",
+					"非常满意"
+					]
+		
+		for (i = 1; i <= aLi.length; i++){
+			aLi[i - 1].index = i;
+			
+			//鼠标移过显示分数
+			aLi[i - 1].onmouseover = function (){
+				fnPoint(this.index);
+				//浮动层显示
+				oP.style.display = "block";
+				//计算浮动层位置
+				oP.style.left = oUl.offsetLeft + this.index * this.offsetWidth - 10 + "px";
+				//匹配浮动层文字内容
+				oP.innerHTML = "<em>" + aMsg[this.index - 1] + "</em>"
+				
+
+			};
+			
+			//鼠标离开后恢复上次评分
+			aLi[i - 1].onmouseout = function (){
+				fnPoint();
+				//关闭浮动层
+				oP.style.display = "none"
+			};
+			
+			//点击后进行评分处理
+			aLi[i - 1].onclick = function (){
+				iStar = this.index;
+				oP.style.display = "none";
+				oSpan.innerHTML = "<strong>" + (this.index) + " 分</strong>"
+			}
+		}
+		
+		//评分处理
+		function fnPoint(iArg){
+			//分数赋值
+			iScore = iArg || iStar;
+			for (i = 0; i < aLi.length; i++) aLi[i].className = i < iScore ? "on" : "";	
+		}
+		
+	};
+</script>
+</body>
+</html>
