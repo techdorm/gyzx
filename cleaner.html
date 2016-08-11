@@ -126,7 +126,7 @@
                <span>个人</span>
                <div class="pull-right personal">30</div>
             </div>
-            <div>
+            <div class="artdia">
                <span>备注</span>
               <!--  <div class="pull-right notes">阳台没打扫</div> -->
                <div class="photo" style="display:inline">
@@ -234,7 +234,7 @@
                         myChart.hideLoading();
                         myChart.setOption(option);
 
-                         $('.photo').on('click', function () {
+                         $('.artdia').on('click', function () {
                         var x = dialog({
                           title: '卫生检查照片',
                           content: '<img src="" style="width:250px;" id="photo" alt="" />'+'<div>'+'<span>'+"备注"+'</span>'+'<div class="pull-right notes">'+'</div>'+'</div>',
@@ -312,7 +312,7 @@
                           myChart.hideLoading();
                           myChart.setOption(option);
 
-                         $('.photo').on('click', function () {
+                         $('.artdia').on('click', function () {
                             $("#photo").attr("src",picurl);
                             $('.notes')[0].innerHTML=result.data[nowmonth+1-m].week[y-1].notes;
                           });
