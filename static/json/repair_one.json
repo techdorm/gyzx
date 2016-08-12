@@ -1,0 +1,25 @@
+{
+	"result": [
+	{
+	"id": 45,
+	"xq": "杭州电子科技大学",
+	"lh": "13号楼",
+	"fjh": "501",
+	"bx_username": "14084101",
+	"assign_username": null,
+	"phone": "15958031806",
+	"contact": "乐思翔",
+	"remark": "日光灯不会亮了",
+	"state": "0",
+	"datetime": "2016-08-06 15:23:26",
+	"assign_datetime": null,
+	"xfdatetime": null,
+	"vote": null,
+	"photo": "/bxPic/2016/0806152326-75647.png",
+	"vote_remark": null,
+	"bcatalogName": "电",
+	"position": "",
+	"wx_time": ""
+	}
+]
+}
