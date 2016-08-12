@@ -128,7 +128,7 @@ body {
         </div>
         <h1>维修评价</h1>
  </div>
-<div id="star"> <span>请为师傅打分</span>
+<div id="star"> <span>维修评价</span>
   <ul>
     <li><a href="javascript:;">1</a></li>
     <li><a href="javascript:;">2</a></li>
@@ -149,28 +149,28 @@ body {
 		var oSpan = oStar.getElementsByTagName("span")[1];
 		var oP = oStar.getElementsByTagName("p")[0];
 		var i = iScore = iStar = 0;
-		var aMsg = [
-					"很不满意",
-					"不满意",
-					"一般",
-					"满意",
-					"非常满意"
-					]
+		// var aMsg = [
+		// 			"很不满意",
+		// 			"不满意",
+		// 			"一般",
+		// 			"满意",
+		// 			"非常满意"
+		// 			]
 		
 		for (i = 1; i <= aLi.length; i++){
 			aLi[i - 1].index = i;
 			
 			//鼠标移过显示分数
-			aLi[i - 1].onmouseover = function (){
-				fnPoint(this.index);
-				//浮动层显示
-				oP.style.display = "block";
-				//计算浮动层位置
-				oP.style.left = oUl.offsetLeft + this.index * this.offsetWidth - 40 + "px";
-				//匹配浮动层文字内容
-				oP.innerHTML = "<em>" + aMsg[this.index - 1]+ "</em>";
+			// aLi[i - 1].onmouseover = function (){
+			// 	fnPoint(this.index);
+			// 	//浮动层显示
+			// 	oP.style.display = "block";
+			// 	//计算浮动层位置
+			// 	oP.style.left = oUl.offsetLeft + this.index * this.offsetWidth - 40 + "px";
+			// 	//匹配浮动层文字内容
+			// 	oP.innerHTML = "<em>" + aMsg[this.index - 1]+ "</em>";
 
-			};
+			// };
 			
 			//鼠标离开后恢复上次评分
 			aLi[i - 1].onmouseout = function (){
@@ -181,10 +181,11 @@ body {
 			
 			//点击后进行评分处理
 			aLi[i - 1].onclick = function (){
+				fnPoint(this.index);
 				iStar = this.index;
 				oP.style.display = "none";
 				// oSpan.innerHTML = "<strong>" + (this.index) + " 分</strong>"+"<strong>" + aMsg[this.index - 1]+ "</strong>";
-				oSpan.innerHTML = "<strong>" + aMsg[this.index - 1]+ "</strong>";
+				oSpan.innerHTML ="<strong>" + (this.index) + " 星</strong>";
 			}
 		}
 		
