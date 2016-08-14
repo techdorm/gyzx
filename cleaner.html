@@ -235,17 +235,15 @@
                         myChart.setOption(option);
 
                          $('.artdia').on('click', function () {
-                        var x = dialog({
-                          title: '卫生检查照片',
-                          content: '<img src="" style="width:250px;" id="photo" alt="" />'+'<div>'+'<span>'+"备注"+'</span>'+'<div class="pull-right notes">'+'</div>'+'</div>',
-                          okValue: '确 定',
-                          quickClose: true,
-                          cancelValue: '关闭',
-                          cancel: function () {}
-                        });
+                          var x = dialog({
+                            title: '备注',
+                            content: '<img src="" style="width:250px;" id="photo" alt="" />'+'<div>'+'<div class="notes">'+'</div>'+'</div>',
+                            cancelValue: '关闭',
+                            cancel: function () {}
+                         });
                         $("#photo").attr("src",picurl);
                         $('.notes')[0].innerHTML=result.data[0].week[0].notes;
-                        x.show();
+                        x.showModal();
                       });
 
                     }
@@ -266,7 +264,7 @@
     </script>
     <script type="text/javascript">
       $('i[data-event=test]').on('click', function () {
-          var d = dialog({
+        var d = dialog({
           title: '请选择月份',
           content: ' <input id="user_date" class="form-control" type="month" min="2016-1" max="2016-6"/> <div class="form-group"><label class="control-label">选择周数</label><select class="form-control" id="week" name="week" data-validation="select_required"><option value="0" selected disabled>请选择第几周</option><option value="1">第1周</option><option value="2">第2周</option><option value="3">第3周</option><option value="4">第4周</option></select></div> ',
           height: 100,
@@ -285,7 +283,7 @@
             var a=new Date;
             var nowmonth=a.getMonth();
              console.log(nowmonth+1-m);
-            d.close().remove();
+            // d.close().remove();
               $.ajax({
                   type: "GET",
                   async: false,
