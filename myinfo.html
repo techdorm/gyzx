@@ -109,10 +109,14 @@
         margin-top:36px;
         margin-right:60px;
     }
-    #confirm{
+    .modify{
         margin-top: 20px;
         margin-bottom: 20px;
         width:160px;
+    }
+    .newkey{
+       margin-top: 20px;
+        margin-bottom: 20px;
     }
     .btn-default{
         margin-left: 23px;
@@ -124,6 +128,13 @@
         margin-right:60px;
 
     }
+    .btn-key{
+        float:right;
+        margin-top:4px;
+        margin-right:60px;
+
+    }
+
 </style>
 </head>
 
@@ -244,7 +255,7 @@ $(document).ready(function(){
     $('.mobile').on('click',function(){
         var y = dialog({
           title: '修改手机',
-          content:'<form id="reg" action="modify.php" method="post">'+'<input type="tel"  class="form-control" name="mobile" placeholder="请输入新绑定手机号" data-validation="number_string" data-validation-length="11">'+'<input type="number" class="form-control" id ="confirm" name="confirm" placeholder="请输入验证码" style="float:left">'+
+          content:'<form id="reg" action="modify.php" method="post">'+'<input type="tel"  class="form-control" name="mobile" placeholder="请输入新绑定手机号" data-validation="number_string" data-validation-length="11">'+'<input type="number" class="form-control modify" id ="confirm" name="confirm" placeholder="请输入验证码" style="float:left">'+
           '<button class="btn btn-default">'+"获取验证码"+'</button>'+'<input type="submit" class="btn btn-primary btn-phone" value="提交">'+'</form>',  
           height: 100,
           width: 280, 
@@ -252,17 +263,36 @@ $(document).ready(function(){
             cancel: function () {}
         });
         y.showModal();
-        $('').click(function(){
+        $('.btn-default').click(function(){
             alert("短信验证码已发送到手机"+$('input[type="number"]').val());
         });
 
-        $('input[type="submit"]').click(function(){
+        $('.btn-phone').click(function(){
             $('#mobile').html($('input[type="number"]').val());
             alert("绑定手机已更改");
         });
     });
-    
 
+    $('.key').on('click',function(){
+        var y = dialog({
+          title: '修改一卡通密码',
+          content:'<form id="reg" action="modify.php" method="post">'+'<input type="tel"  class="form-control" name="mobile" placeholder="手机号" data-validation="number_string" data-validation-length="11">'+'<input type="number" class="form-control modify" id ="confirm" name="confirm" placeholder="请输入验证码" style="float:left">'+
+          '<button class="btn btn-default">'+"获取验证码"+'</button>'+'<input type="key"  class="form-control newkey" name="key" placeholder="输入新密码">'+'<input type="key"  class="form-control newkey" name="key" placeholder="确认新密码">'+'<input type="submit" class="btn btn-primary btn-key" value="提交">'+'</form>',  
+          height: 200,
+          width: 280, 
+            cancelValue: '取消',
+            cancel: function () {}
+        });
+        y.showModal();
+        $('.btn-default').click(function(){
+            alert("短信验证码已发送到手机"+$('input[type="number"]').val());
+        });
+
+        $('.btn-phone').click(function(){
+            $('#mobile').html($('input[type="number"]').val());
+            alert("绑定手机已更改");
+        });
+    });
 
 });
 
