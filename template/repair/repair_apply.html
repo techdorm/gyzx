@@ -23,20 +23,6 @@
             <div class="panel-body">
                 <form id="form" action="<?php echo($this->createMobileUrl('submit')); ?>" method="post">
                     <div class="form-group">
-                        <label for="bcatalogId" class="control-label">报修分类</label>
-                        <select class="form-control" id="bcatalogId" name="bcatalogId" data-validation="select_required">
-                            <option value="1">网络</option>
-                            <option value="2">供暖</option>
-                            <option value="3">电</option>
-                            <option value="4">水</option>
-                            <option value="5">门窗</option>
-                            <option value="6">桌椅</option>
-                            <option value="7">床</option>
-                            <option value="8">衣柜</option>
-                            <option value="9">通讯</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label for="lh" class="control-label">楼号</label>
                         <select class="form-control" id="lh" name="lh" data-validation="select_required">
                             <option value="1">2号楼</option>
@@ -94,6 +80,20 @@
                     <div class="form-group">
                         <label for="phone" class="control-label">手机</label>
                         <input type="tel" class="form-control" name="phone" id="phone" placeholder="请输入手机长号" data-validation="number_string" data-validation-length="11">
+                    </div>
+                    <div class="form-group">
+                        <label for="bcatalogId" class="control-label">报修分类</label>
+                        <select class="form-control" id="bcatalogId" name="bcatalogId" data-validation="select_required">
+                            <option value="1">网络</option>
+                            <option value="2">供暖</option>
+                            <option value="3">电</option>
+                            <option value="4">水</option>
+                            <option value="5">门窗</option>
+                            <option value="6">桌椅</option>
+                            <option value="7">床</option>
+                            <option value="8">衣柜</option>
+                            <option value="9">通讯</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="remark" class="control-label">详细情况</label>

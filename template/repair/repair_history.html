@@ -97,12 +97,9 @@
    }
 
     .preloader {
-      color: #333;
-      text-align: center;
       line-height: 45px;
       height: 45px;
       width: 100%;
-      font-size: 14px;
       background: transparent; }
       .fa-wrench{
       	color:#333;
@@ -151,6 +148,30 @@
       .display{
         display:none;
       }
+      .g-footer {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      position: fixed;
+      float: right;
+      bottom: 5%;
+      right: 5%;
+      text-decoration: none; }
+     .u-edit {
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        text-align: center;
+        box-shadow: 2px 2px 7px #45A673;
+        -moz-border-radius: 25px;
+        background: #45A673; }
+       .u-fa-pencil {
+          padding-top: 32%;
+          padding-left: 10%;
+          font-size: 2em;
+          color: white; }
+
 </style>
 </head>
 <body>
@@ -161,34 +182,15 @@
     <h1>维修记录</h1>
 </div>
 <div class="wx-history">
- 	<div class="preloader"></div>
- 	  <!--  <div class="wx-item">
-            <div class="wx-content">
-            	<div class="wx-state">
-            	     <i class="fa fa-wrench"></i>
-            		<span class='text-muted'>已维修</span>
-            	</div>
-
-                <div class="wx-body font">
-                	<div class="wx-remark">
-                    	日光灯不会亮了
-                    </div>
-                    <div class="wx-type font">
-                    	报修分类: 
-                    	<span>电</span>
-                    </div>
-                    <div class="wx-time font">
-                    	报修时间: 
-                        <span>2016-08-06 15:23:26</span>
-                    </div>
-                    <div class="ratebtn">
-                     <a href="repair_rate.html">
-                        <input type="button" value="评价" class="btn unvote btn-xs">
-                        </a>
-                    </div>
-                </div>
-            </div>
-    </div> -->
+ 	  <div class="preloader"></div>
+ 	 
+</div>
+<div class="g-footer">
+    <a href="repair_apply.html">
+        <div class="u-edit">
+            <i class="fa fa-pencil-square-o u-fa-pencil"></i>
+        </div>
+    </a> 
 </div>
 <script type="text/javascript"> 
 
