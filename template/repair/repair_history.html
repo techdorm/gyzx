@@ -233,7 +233,7 @@ $(document).ready(function() {
                         '<span>'+data.result[i].datetime+'</span>'+
                     '</div>'+
                     '<div class="ratebtn">'+
-                     '<a href="#">'+
+                     '<a href="repair_rate.html">'+
                         '<input type="button" id="'+data.result[i].id+'" value="'+vote[0]+'" class="btn btn-xs '+vote[1]+'">'+
                         '</a>'+
                     '</div>'+
@@ -244,7 +244,7 @@ $(document).ready(function() {
       $('.wx-history').append(result);
       $("input[value='已评价']").attr("disabled", true);
         $('.unvote').click(function(e){
-           alert($(e.target).attr('id'));  
+           console.log($(e.target).attr('id'));  
            var wxid=$(e.target).attr('id');
           $.post("postid.php",{
               id:wxid,
