@@ -148,6 +148,9 @@
         margin-top: -1px;
         line-height: 1.48;
       }
+      .display{
+        display:none;
+      }
 </style>
 </head>
 <body>
@@ -200,13 +203,13 @@ $(document).ready(function() {
 			console.log("success");
 			var result = '';
       for(var i=0;i< data.result.length;i++){
-         var wxstate = ['',''];
+         var wxstate = ['','',''];
          var vote=['',''];
                 if (data.result[i].state == 0) 
-                  { wxstate = ["未修复","text-warning"];} 
+                  { wxstate = ["未修复","text-warning","display"];} 
                 else if (data.result[i].state == 2)
-                     { wxstate = ["已修复","text-muted"]; }
-                else { wxstate = ["已受理","text-warning"];
+                     { wxstate = ["已修复","text-muted",""]; }
+                else { wxstate = ["已受理","text-warning","display"];
                  }
 
                 if(data.result[i].vote==null)
@@ -231,7 +234,7 @@ $(document).ready(function() {
                     '<div class="ratebtn">'+
                      '<span class="wx-state '+wxstate[1]+'">'+wxstate[0]+'</span>'+
                      '<a href="repair_rate.html">'+
-                        '<input type="button" id="'+data.result[i].id+'" value="'+vote[0]+'" class="btn btn-xs '+vote[1]+'">'+
+                        '<input type="button" id="'+data.result[i].id+'" value="'+vote[0]+'" class="btn btn-xs '+vote[1]+' '+ wxstate[2]+'">'+
                         '</a>'+
                     '</div>'+
                 '</div>'+
