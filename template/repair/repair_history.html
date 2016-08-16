@@ -125,7 +125,7 @@
       	padding:5px;
       	line-height: 25px;
       }
-      .btn-rate{
+      .unvote{
       float:right;
       margin-right:5px;
       color:#ffa620;
@@ -133,13 +133,21 @@
       width:50px;
       background-color: #FFF;
       }
-      .btn-rate:focus,.btn-rate:active{
+      .unvote:focus,.unvote:active{
       	 color:#ffa620;
       	 border-radius: 3px;
       	 text-decoration: none;
       	 box-shadow: none;
       }
-
+      
+      .vote-done{
+       float:right;
+       margin-right:5px;
+       color:#333;
+       border-color: #333;
+       width:50px;
+       background-color: #FFF;
+      }
 </style>
 </head>
 <body>
@@ -150,11 +158,11 @@
     <h1>维修记录</h1>
 </div>
 <div class="wx-history">
- 	<div class="preloader">下拉刷新</div>
- 	<div class="wx-item">
+ 	<div class="preloader"></div>
+ 	<!--   <div class="wx-item">
             <div class="wx-content">
             	<div class="wx-state">
-            	     <i class="fa fa-wrench" ></i>
+            	     <i class="fa fa-wrench"></i>
             		<span class='text-muted'>已维修</span>
             	</div>
 
@@ -177,60 +185,68 @@
                     </div>
                 </div>
             </div>
-    </div>
-    <div class="wx-item">
-            <div class="wx-content">
-            	<div class="wx-state">
-            	     <i class="fa fa-wrench" ></i>
-            		<span class='text-warning'>未维修</span>
-            	</div>
-
-                <div class="wx-body">
-                	<div class="wx-remark">
-                    	水管漏了
-                    </div>
-                    <div class="wx-type font">
-                    	报修分类: 
-                    	<span>水</span>
-                    </div>
-                    <div class="wx-time font">
-                    	报修时间: 
-                        <span>2016-08-06 15:23:26</span>
-                    </div>
-                    <div class="ratebtn">
-                     <a href="repair_rate.html">
-                     <input type="button" value="评价" class="btn btn-rate btn-xs">
-                 	 </a>
-                     </div>
-                </div>
-            </div>
-    </div>
+    </div>-->
 </div>
 <script type="text/javascript"> 
 
 
-// $(document).ready(function() {
-// 	$.ajax({
-// 		type:'GET',
-// 		async:false,
-// 		url:'static/json/repair.json',
-// 		dataType:"json",
-// 		success:function(){
-// 			console.log("success");
-// 			var wxstate = ['',''];
-//                 if (result.state == 0) {
-//                     wxstate = ["未修复","text-warning"];
-//                 } else if (result.state == 2){
-//                     wxstate = ["已修复","text-muted"];
-//                     else { wxstate = ["已受理","text-warning"];}
-//                 }
-// 			var result='<div>'+'<span class="'+wxstate[1]+'">'+wxstate[0]+'</span>'+'</div>';
-// 			$('.wx-history').append(result);
+$(document).ready(function() {
+	$.ajax({
+		type:'GET',
+		async:false,
+		url:'../../static/json/repair.json',
+		dataType:"json",
+		success:function(data){
+			console.log("success");
+			var result = '';
+      for(var i=0;i< data.result.length;i++){
+         var wxstate = ['',''];
+         var vote=['',''];
+                if (data.result[i].state == 0) 
+                  { wxstate = ["未修复","text-warning"];} 
+                else if (data.result[i].state == 2)
+                     { wxstate = ["已修复","text-muted"]; }
+                else { wxstate = ["已受理","text-warning"];
+                 }
 
-// 		}
+                if(data.result[i].vote==null)
+                   vote=["评价","unvote"];
+                else
+                   {vote=["已评价","vote-done"];
+                  }
+            result +='<div class="wx-item">'+
+            '<div class="wx-content">'+
+              '<div class="wx-state">'+
+                   '<i class="fa fa-wrench"></i>'+
+                 '<span class="'+wxstate[1]+'">'+wxstate[0]+'</span>'+
+              '</div>'+
+                '<div class="wx-body">'+
+                  '<div class="wx-remark">'+
+                      data.result[i].remark+
+                    '</div>'+
+                    '<div class="wx-type font">'+
+                      '报修分类:'+ 
+                      '<span>'+data.result[i].bcatalogName+'</span>'+
+                    '</div>'+
+                    '<div class="wx-time font">'+
+                      '报修时间: '+
+                        '<span>'+data.result[i].datetime+'</span>'+
+                    '</div>'+
+                    '<div class="ratebtn">'+
+                     '<a href="repair_rate.html">'+
+                        '<input type="button" value="'+vote[0]+'" class="btn btn-xs '+vote[1]+'">'+
+                        '</a>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'+
+      '</div>'
+      }
+      $('.wx-history').append(result);
+      $("input[value='已评价']").attr("disabled", true); 
+		}
 
-// 	});
-// });
+	});
+});
 
 
 </script>
