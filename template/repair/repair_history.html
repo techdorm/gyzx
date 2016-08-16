@@ -19,7 +19,7 @@
 	body {
 		color:#666;
 		font:14px/1.5 Arial;
-		 background-color:#F3F3F3;;
+		background-color:#F3F3F3;
 	}
 	.header {
 	    position: fixed;
@@ -72,37 +72,31 @@
   }
     .wx-body {
       line-height: 1;
-      color: #7d7d7d; 
-    /*  background-color:#F5F4F4;*/
+     /* color: #7d7d7d; */
+     color:#333;
+    background-color: #FFF;
       width:100%;
     }
-    .wx-body > .wx-remark {
-      padding:5px;
-      padding-left: 10px;
-      height: 30px;
-      color: #333;
-      font-size:18px;
-      display: -webkit-box;
-      overflow: hidden; }
-       .wx-time,.wx-type {
+       .wx-remark, .wx-time,.wx-type {
       padding:5px;
       padding-left: 10px;
       margin-bottom: 2px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis; }
+       .wx-remark{
+        padding-top: 10px;
+       }
      .wx-state {
       font-size: 14px; 
       background-color: #FFF;
-      height:22px;
-      line-height: 22px;
+      height:20px;
+      line-height: 20px;
+      float:left;
+      padding-left: 5px;
    }
- 
-    .wx-state > span {
-      float: right;
-      padding-right: 10px;
-      }
-   .preloader {
+
+    .preloader {
       color: #333;
       text-align: center;
       line-height: 45px;
@@ -123,7 +117,9 @@
       	width:100%; 
       	height:30px;
       	padding:5px;
-      	line-height: 25px;
+      	line-height: 30px;
+        border-top:0.5px  dashed  #D6D4D4; 
+        /*border-top:0.5px  dotted  #D6D4D4;*/
       }
       .unvote{
       float:right;
@@ -132,6 +128,7 @@
       border-color: #ffa620;
       width:50px;
       background-color: #FFF;
+
       }
       .unvote:focus,.unvote:active{
       	 color:#ffa620;
@@ -139,7 +136,6 @@
       	 text-decoration: none;
       	 box-shadow: none;
       }
-      
       .vote-done{
        float:right;
        margin-right:5px;
@@ -147,6 +143,10 @@
        border-color: #333;
        width:50px;
        background-color: #FFF;
+      }
+      .btn-xs{
+        margin-top: -1px;
+        line-height: 1.48;
       }
 </style>
 </head>
@@ -159,14 +159,14 @@
 </div>
 <div class="wx-history">
  	<div class="preloader"></div>
- 	<!--   <div class="wx-item">
+ 	  <!--  <div class="wx-item">
             <div class="wx-content">
             	<div class="wx-state">
             	     <i class="fa fa-wrench"></i>
             		<span class='text-muted'>已维修</span>
             	</div>
 
-                <div class="wx-body">
+                <div class="wx-body font">
                 	<div class="wx-remark">
                     	日光灯不会亮了
                     </div>
@@ -180,12 +180,12 @@
                     </div>
                     <div class="ratebtn">
                      <a href="repair_rate.html">
-                        <input type="button" value="评价" class="btn btn-rate btn-xs">
+                        <input type="button" value="评价" class="btn unvote btn-xs">
                         </a>
                     </div>
                 </div>
             </div>
-    </div>-->
+    </div> -->
 </div>
 <script type="text/javascript"> 
 
@@ -216,13 +216,9 @@ $(document).ready(function() {
                   }
             result +='<div class="wx-item">'+
             '<div class="wx-content">'+
-              '<div class="wx-state">'+
-                   '<i class="fa fa-wrench"></i>'+
-                 '<span class="'+wxstate[1]+'">'+wxstate[0]+'</span>'+
-              '</div>'+
                 '<div class="wx-body">'+
-                  '<div class="wx-remark">'+
-                      data.result[i].remark+
+                  '<div class="wx-remark font">'+'报修详情: '+
+                      '<span>'+data.result[i].remark+'</span>'+
                     '</div>'+
                     '<div class="wx-type font">'+
                       '报修分类:'+ 
@@ -233,6 +229,7 @@ $(document).ready(function() {
                         '<span>'+data.result[i].datetime+'</span>'+
                     '</div>'+
                     '<div class="ratebtn">'+
+                     '<span class="wx-state '+wxstate[1]+'">'+wxstate[0]+'</span>'+
                      '<a href="repair_rate.html">'+
                         '<input type="button" id="'+data.result[i].id+'" value="'+vote[0]+'" class="btn btn-xs '+vote[1]+'">'+
                         '</a>'+
