@@ -233,8 +233,8 @@ $(document).ready(function() {
                         '<span>'+data.result[i].datetime+'</span>'+
                     '</div>'+
                     '<div class="ratebtn">'+
-                     '<a href="repair_rate.html">'+
-                        '<input type="button" value="'+vote[0]+'" class="btn btn-xs '+vote[1]+'">'+
+                     '<a href="#">'+
+                        '<input type="button" id="'+data.result[i].id+'" value="'+vote[0]+'" class="btn btn-xs '+vote[1]+'">'+
                         '</a>'+
                     '</div>'+
                 '</div>'+
@@ -242,9 +242,17 @@ $(document).ready(function() {
       '</div>'
       }
       $('.wx-history').append(result);
-      $("input[value='已评价']").attr("disabled", true); 
+      $("input[value='已评价']").attr("disabled", true);
+        $('.unvote').click(function(e){
+           alert($(e.target).attr('id'));  
+           var wxid=$(e.target).attr('id');
+          $.post("postid.php",{
+              id:wxid,
+              },function(data){
+              console.log("success");
+          });  
+       });
 		}
-
 	});
 });
 
@@ -252,3 +260,4 @@ $(document).ready(function() {
 </script>
 </body>
 </html>
+
