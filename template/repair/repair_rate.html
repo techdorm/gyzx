@@ -9,7 +9,9 @@
 <link rel="stylesheet" type="text/css" href="../../static/css/buttons.css">
 <link rel="stylesheet" type="text/css" href="../../static/font-awesome/css/font-awesome.css">
 <link rel="stylesheet" type="text/css" href="../../stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="../../static/css/ui-dialog.css">
 <script src="../../static/js/jquery.min.js"></script>
+<script src="../../static/js/dialog-min.js"></script>
 <style type="text/css">
 	* {
 		margin:0;
@@ -19,7 +21,7 @@
 	body {
 		color:#666;
 		font:14px/1.5 Arial;
-		 background-color:#F9F9F9;
+		 background-color:#F7F7F7;/*#F9F9F9;*/
 	}
 	.header {
 	    position: fixed;
@@ -122,80 +124,45 @@
 	.text-muted {
     color: #62b651;
     } 
-    .wx-content {
+     .wx-content {
     /*  padding-top: 15px;*/
       padding-bottom: 15px; 
   }
     .wx-body {
       line-height: 1;
-      color: #7d7d7d; 
-    /*  background-color:#F5F4F4;*/
+     /* color: #7d7d7d; */
+      color:#333;
+      background-color: #FFF;
       width:100%;
+      height:300px;
     }
-    .wx-body > .wx-remark {
-      padding:5px;
-      padding-left: 10px;
-      height: 30px;
-      color: #333;
-      font-size:18px;
-      display: -webkit-box;
-      overflow: hidden; }
-       .wx-time,.wx-type {
+   /* .wx-pic{
+    	margin-top: 10px;
+    }*/
+      .wx-layout {
       padding:5px;
       padding-left: 10px;
       margin-bottom: 2px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis; }
-     .wx-state {
-      font-size: 14px; 
-      background-color: #FFF;
-      height:22px;
-      line-height: 22px;
-   }
- 
-    .wx-state > span {
-      float: right;
-      padding-right: 10px;
-      }
-   .preloader {
-      color: #333;
-      text-align: center;
+
+    .preloader {
       line-height: 45px;
       height: 45px;
       width: 100%;
-      font-size: 14px;
       background: transparent; }
       .fa-wrench{
       	color:#333;
-      	padding-left: 15px;
+      	padding:5px 15px;
+      	font-size: 1.5em;
       }
       .font{
       	font-size: 15px;
-      	color:;
+      	color:#5F5F5F;;
       }
-      .ratebtn{
-      	background-color: #FFF;
-      	width:100%; 
-      	height:30px;
-      	padding:5px;
-      	line-height: 25px;
-      }
-      .btn-rate{
-      float:right;
-      margin-right:5px;
-      color:#ffa620;
-      border-color: #ffa620;
-      width:50px;
-      background-color: #FFF;
-      }
-      .btn-rate:focus,.btn-rate:active{
-      	 color:#ffa620;
-      	 border-radius: 3px;
-      	 text-decoration: none;
-      	 box-shadow: none;
-      }
-
+	 .fa-picture-o{font-size:1.5em;
+	 padding:5px 10px 5px 0;}
        
 
 </style>
@@ -209,33 +176,47 @@
 </div>
 <div class="wx-history">
  	<div class="preloader">下拉刷新</div>
- 	<div class="wx-item">
+ 	<!-- <div class="wx-item">
             <div class="wx-content">
-            	<div class="wx-state">
+            	<div class="wx-pic">
             	     <i class="fa fa-wrench" ></i>
-            		<span class='text-muted'>已维修</span>
+            		    <div class="photo" style="display:inline">
+		              		<i class="fa fa-picture-o artdia pull-right"></i>
+		                </div>
             	</div>
-
                 <div class="wx-body">
-                	<div class="wx-remark">
-                    	日光灯不会亮了
+                	<div class="wx-layout font">
+                    	报修详情：
+                    	<span>电灯不会亮了</span>
                     </div>
-                    <div class="wx-type font">
+                    <div class="wx-layout font">
                     	报修分类: 
                     	<span>电</span>
                     </div>
-                    <div class="wx-time font">
+                    <div class="wx-layout font">
                     	报修时间: 
                         <span>2016-08-06 15:23:26</span>
                     </div>
-                  <!--   <div class="ratebtn">
-                     <a href="repair.html">
-                        <input type="button" value="评价" class="btn btn-rate btn-xs">
-                        </a>
-                    </div> -->
+                    <div class="wx-layout font">
+                        维修状态:
+                    	<span class='text-muted'>已维修</span>
+                    </div>
+                    <div class="wx-layout font">
+                        维修师傅:
+                    	<span>陈师傅</span>
+                    </div>
+                    <div class="wx-layout font">
+                        师傅手机:
+                    	<span>15958038800</span>
+                    </div>
+                    <div class="wx-layout font">
+                        维修评价:
+                    </div>
+                    <textarea id="vote_remark" class="form-control" rows="5" placeholder="客官，对此次维修还满意吗"></textarea>
+                    
                 </div>
             </div>
-    </div>
+    </div> -->
 </div>
 <div id="star"> <span>维修评价</span>
   <ul>
@@ -284,14 +265,14 @@ window.onload = function (){
 		aLi[i - 1].onmouseout = function (){
 			fnPoint();
 			//关闭浮动层
-			oP.style.display = "none"
+			// oP.style.display = "none"
 		};
 		
 		//点击后进行评分处理
 		aLi[i - 1].onclick = function (){
 			fnPoint(this.index);
 			iStar = this.index;
-			oP.style.display = "none";
+			// oP.style.display = "none";
 			// oSpan.innerHTML = "<strong>" + (this.index) + " 分</strong>"+"<strong>" + aMsg[this.index - 1]+ "</strong>";
 			oSpan.innerHTML ="<strong>" + (this.index) + " 星</strong>";
 		}
@@ -305,6 +286,9 @@ window.onload = function (){
 	}
 	
 };
+
+
+
 $('#submit').click(function(event){
 	 console.log(iStar);
 	 // ajax
@@ -314,6 +298,87 @@ $('#submit').click(function(event){
 	            console.log("success");
 	   });           
 });
+
+$(document).ready(function(){
+
+	$.ajax({
+		type:"GET",
+		async:false,
+		url:'../../static/json/repair_one.json',
+		dataType:"json",
+		success:function(data){
+			console.log("success");
+			// if(data.result[0].vote!=null)
+
+			var wxstate = ['',''];	        
+			wxstate = ["已修复","text-muted"]; 
+	         
+			var result = '';
+			result +=
+			'<div class="wx-item">'+
+	            '<div class="wx-content">'+
+	            	'<div class="wx-pic">'+
+	            	     '<i class="fa fa-wrench" ></i>'+
+	            		    '<div class="photo" style="display:inline">'+
+			              		'<i class="fa fa-picture-o artdia pull-right"></i>'+
+			                '</div>'+
+	            	'</div>'+
+	                '<div class="wx-body">'+
+	                	'<div class="wx-layout font">'+
+	                    	'报修详情：'+
+	                    	'<span>'+data.result[0].remark+'</span>'+
+	                    '</div>'+
+	                    '<div class="wx-layout font">'+
+	                    	'报修分类: '+
+	                    	'<span>'+data.result[0].bcatalogName+'</span>'+
+	                    '</div>'+
+	                    '<div class="wx-layout font">'+
+	                    	'报修时间: '+
+	                       '<span>'+data.result[0].datetime+'</span>'+
+	                    '</div>'+
+	                    '<div class="wx-layout font">'+
+	                        '维修状态:'+
+	                    	'<span class="'+wxstate[1]+'">'+wxstate[0]+'</span>'+
+	                    '</div>'+
+	                    '<div class="wx-layout font">'+
+	                        '维修师傅:'+
+	                    	'<span>'+data.result[0].wxsf+'</span>'+
+	                    '</div>'+
+	                    '<div class="wx-layout font">'+
+	                        '师傅手机:'+
+	                    	'<span>'+data.result[0].sfphone+'</span>'+
+	                    '</div>'+
+	                    '<div class="wx-layout font">'+
+	                        '维修评价:'+
+	                    '</div>'+
+	                    '<textarea id="vote_remark" class="form-control" rows="5" placeholder="客官，对此次维修还满意吗">'+data.result[0].vote_remark+'</textarea>'+
+	                '</div>'+
+	            '</div>'+
+            '</div>';
+		
+
+		var picurl=data.result[0].photo;
+		$('.wx-history').append(result);
+		$('.artdia').on('click', function () {
+          var x = dialog({
+            title: '备注',
+            content: '<img src="" style="width:250px;" id="photo" alt="" />',
+            cancelValue: '关闭',
+            cancel: function () {}
+         });
+        $("#photo").attr("src",picurl);
+        x.showModal();
+  		});
+
+		}
+
+	})
+})
+
+
+ 
+
+
 
 
 </script>

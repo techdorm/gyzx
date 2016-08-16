@@ -14,12 +14,14 @@
 	"datetime": "2016-08-06 15:23:26",
 	"assign_datetime": null,
 	"xfdatetime": null,
-	"vote": null,
-	"photo": "/bxPic/2016/0806152326-75647.png",
-	"vote_remark": null,
+	"vote": "4",
+	"photo": "../../static/images/1.jpg",
+	"vote_remark": "师傅人特别好",
 	"bcatalogName": "电",
 	"position": "",
-	"wx_time": ""
+	"wx_time": "",
+	"wxsf":"吴师傅",
+	"sfphone":"15267382230"
 	}
 ]
 }
