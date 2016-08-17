@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+    <link rel="stylesheet" type="text/css" href="static/css/green.css">
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/js/icheck.min.js"></script>
+    <title>新生测试</title>
+<style type="text/css">
+    body {
+        font-size: 1.5em;
+        font-family: "YouYuan";
+    }
+    
+    a:active,
+    a:hover {
+        outline: 0;
+    }
+    
+    li {
+        list-style-type: none;
+    }
+    /* ------------------------------------------
+      BASE DEMO STYLES
+    --------------------------------------------- */
+    .header {
+      position: fixed;
+      z-index: 1060;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 45px;
+      border-bottom: 1px solid #43A382;
+      background-color: #45A673;
+      -webkit-box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
+      box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3); }
+      .header h1 {
+        color: #fff;
+        font-size: 18px;
+        line-height: 44px;
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        text-align: center;
+        font-family: "YouYuan"; }
+  .header .navbar-left {
+    float: left;
+    color: #fff; }
+    .header .navbar-left .back {
+      color: white;
+      font-size: 2em; }
+  .header .navbar-left > * {
+    display: table-cell;
+    height: 45px;
+    padding-right: 10px;
+    padding-left: 10px;
+    vertical-align: middle; }
+
+    .img-responsive {
+        width: 100%;
+    }
+    
+    #cover {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: white;
+        z-index: 10;
+        text-align: center;
+    }
+    
+    .container {
+        padding: 0;
+        margin-top: 45px;
+    }
+    
+    .exam-body {
+        /*box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);*/
+        box-shadow: 0 1px 5px -1px rgba(0, 0, 0, 0.4);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        margin-bottom: 15px;
+        background-color: #fff;
+    }
+    
+    .exam-footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 5;
+        line-height: 3em;
+        height: 3em;
+        background-color: #45A673;
+    }
+    
+    #exam-button {
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        background-color: #45A673;
+        color:#FFF;
+    }
+</style>
+</head>
+
+<body>
+    <!-- <div id="cover">
+        <i class="fa fa-spinner fa-pulse"></i>loading...
+    </div> -->
+    <div class="header">
+        <div class="navbar-left">
+           <a href="index.html"><i class="fa fa-angle-left back"></i></a>
+        </div>
+        <h1>寝室安全知识测试</h1>
+    </div>
+    <div class="container">
+        <div class="exam-header">
+            <ul class="list-group">
+                <li class="list-group-item" style="padding:0">
+                    <div class="exam-wrapper">
+                        <img class="img-responsive center-block" src="static/images/1.jpg">
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div id="exam-time" style="font-size:1em">
+                        答题时间：8月25日 8:00—9月30日 24:00
+                    </div>
+                </li>
+            </ul>
+        </div>        <form action="<?php echo($this->createMobileUrl('submit')); ?>" id="exam-form" method="POST" role="form">
+            <div class="exam-body">
+                <ul class="list-group">
+                    {loop $exam_list $each}
+                    <li class="list-group-item" style="padding-bottom:1em;">
+                        <div class="item-content">
+                            {$each['eid']}. {$each['content']}
+                        </div>
+                        <div class="item-opition">
+                            {loop $each['choice'] $key $each_opition}
+                            <div class="exam-radio">
+                                <label class="radio">
+                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}"> {$key}. {$each_opition}
+                                </label>
+                            </div>
+                            {/loop}
+                        </div>
+                    </li>
+                    {/loop}
+                </ul>
+            </div>
+            <div class="exam-footer">
+                <!-- <input name="imgbtn" type="image" src="static/images/submit.png" width="50px" height="50px" border="0"> -->
+                <button id="exam-button" class="btn">提交</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.flat-radio input').iCheck(); //初始化
+    // $("#cover").hide();
+
+    $('input').iCheck({
+        radioClass: 'iradio_flat-green'
+    });
+
+    $('#exam-form').submit(function(event) {
+        event.preventDefault();
+        if ($(":checked").length != 10) {
+            alert('请先全部完成后再提交');
+        } else {
+            if (confirm('确定要提交吗')) {
+                document.getElementById("exam-form").submit()
+            };
+        };
+    });
+});
+</script>
+
+</html>
