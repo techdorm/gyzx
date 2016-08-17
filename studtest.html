@@ -110,6 +110,12 @@
         background-color: #45A673;
         color:#FFF;
     }
+    .iradio_flat-green{
+            margin-right: 10px;
+    }
+    .radio{
+        line-height: 2em;
+    }
 </style>
 </head>
 
@@ -125,7 +131,7 @@
     </div>
     <div class="container">
         <div class="exam-header">
-            <ul class="list-group">
+            <ul >
                 <li class="list-group-item" style="padding:0">
                     <div class="exam-wrapper">
                         <img class="img-responsive center-block" src="static/images/1.jpg">
@@ -140,26 +146,57 @@
         </div>        <form action="<?php echo($this->createMobileUrl('submit')); ?>" id="exam-form" method="POST" role="form">
             <div class="exam-body">
                 <ul class="list-group">
-                    {loop $exam_list $each}
+                   <!--  {loop $exam_list $each} -->
                     <li class="list-group-item" style="padding-bottom:1em;">
                         <div class="item-content">
-                            {$each['eid']}. {$each['content']}
+                            1.学生在寝室内要注意文明言行，自觉做到不抽烟、不酗酒、不讲闲言秽语
                         </div>
                         <div class="item-opition">
-                            {loop $each['choice'] $key $each_opition}
+                          <!--   {loop $each['choice'] $key $each_opition} -->
                             <div class="exam-radio">
                                 <label class="radio">
-                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}"> {$key}. {$each_opition}
+                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}">正确
                                 </label>
                             </div>
-                            {/loop}
+                            <div class="exam-radio">
+                                <label class="radio">
+                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}">不正确
+                                </label>
+                            </div>
+                           <!--  {/loop} -->
                         </div>
                     </li>
-                    {/loop}
+                    <!-- {/loop} -->
+                     <li class="list-group-item" style="padding-bottom:1em;">
+                        <div class="item-content">
+                          2.以下哪项不是桶装水及饮水机的注意事项
+                        </div>
+                        <div class="item-opition">
+                            <div class="exam-radio">
+                                <label class="radio">
+                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}">桶装水开封后应7天内喝完，最好不超过15天 
+                                </label>
+                            </div>
+                            <div class="exam-radio">
+                                <label class="radio">
+                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}">饮水机放置点应选择阴凉、通风、干燥处，避免阳光直射
+                                </label>
+                            </div>
+                            <div class="exam-radio">
+                                <label class="radio">
+                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}">可以直接使用自来水
+                                </label>
+                            </div>
+                            <div class="exam-radio">
+                                <label class="radio">
+                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}">不使用时应及时将桶退回水站
+                                </label>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="exam-footer">
-                <!-- <input name="imgbtn" type="image" src="static/images/submit.png" width="50px" height="50px" border="0"> -->
                 <button id="exam-button" class="btn">提交</button>
             </div>
         </form>
