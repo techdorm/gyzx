@@ -21,6 +21,13 @@
 		font:14px/1.5 Arial;
 		background-color:#F3F3F3;
 	}
+  a{
+    color:#666;
+    text-decoration:none
+  }
+  a:active,a:hover, a:focus {
+    color: #666;
+  }
 	.header {
 	    position: fixed;
 	    z-index: 1060;
@@ -107,7 +114,6 @@
       }
       .font{
       	font-size: 15px;
-      	color:;
       }
       .ratebtn{
       	background-color: #FFF;
@@ -177,9 +183,9 @@
 <body>
 <div class="header">
     <div class="navbar-left">
-       <a href="repair.html"><i class="fa fa-angle-left back"></i></a>
+       <a href="../../index.html"><i class="fa fa-angle-left back"></i></a>
     </div>
-    <h1>维修记录</h1>
+    <h1>报修记录</h1>
 </div>
 <div class="wx-history">
  	  <div class="preloader"></div>
@@ -219,7 +225,7 @@ $(document).ready(function() {
                 else
                    {vote=["已评价","vote-done"];
                   }
-            result +='<div class="wx-item">'+
+            result +='<a href="repair_rate.html">'+'<div class="wx-item">'+
             '<div class="wx-content">'+
                 '<div class="wx-body">'+
                   '<div class="wx-remark font">'+'报修详情: '+
@@ -241,7 +247,8 @@ $(document).ready(function() {
                     '</div>'+
                 '</div>'+
             '</div>'+
-      '</div>'
+      '</div>'+
+      '</a>'
       }
       $('.wx-history').append(result);
       $("input[value='已评价']").attr("disabled", true);
