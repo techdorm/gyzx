@@ -142,12 +142,17 @@
                     </div>
                 </li>
                 <li class="list-group-item">
-                    <div id="exam-time" style="font-size:1em">
-                        答题时间：8月25日 8:00—9月30日 24:00
+                     <div id="exam-tip" style="font-size:1em">
+                            注意: 必须完成本测试方可进入系统。
                     </div>
                 </li>
+                <!-- <li class="list-group-item">
+                   
+               </li> -->
             </ul>
-        </div>        <form action="<?php echo($this->createMobileUrl('submit')); ?>" id="exam-form" method="POST" role="form">
+        </div>   
+
+        <form action="<?php echo($this->createMobileUrl('submit')); ?>" id="exam-form" method="POST" role="form">
             <div class="exam-body">
                 <ul class="list-group">
                    <!--  {loop $exam_list $each} -->
