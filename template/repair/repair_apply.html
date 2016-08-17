@@ -24,7 +24,7 @@
                 <form id="form" action="<?php echo($this->createMobileUrl('submit')); ?>" method="post">
                     <div class="form-group">
                         <label for="lh" class="control-label">楼号</label>
-                        <select class="form-control" id="lh" name="lh" data-validation="select_required">
+                        <select class="form-control" id="lh" name="lh" data-validation="select_required" disabled>
                             <option value="1">2号楼</option>
                             <option value="2">3号楼</option>
                             <option value="3">4号北楼</option>
@@ -40,7 +40,7 @@
                             <option value="13">11号南楼</option>
                             <option value="14">12号北楼</option>
                             <option value="15">12号南楼</option>
-                            <option value="16">13号楼</option>
+                            <option value="16" selected>13号楼</option>
                             <option value="17">14号楼</option>
                             <option value="18">15号楼</option>
                             <option value="19">16号楼</option>
@@ -71,11 +71,11 @@
                     </div>
                     <div class="form-group">
                         <label for="fjh" class="control-label">寝室号</label>
-                        <input type="text" class="form-control" name="fjh" id="fjh" placeholder="请输入寝室号"  data-validation-error-msg="请填写寝室号">
+                        <input type="text" class="form-control" name="fjh" id="fjh" placeholder="请输入寝室号"  data-validation-error-msg="请填写寝室号"  value="501" disabled>
                     </div>
                     <div class="form-group">
                         <label for="contact" class="control-label">报修人</label>
-                        <input type="text" class="form-control" name="contact" id="contact" placeholder="请输入姓名" data-validation="required" data-validation-error-msg="请填写姓名">
+                        <input type="text" class="form-control" name="contact" id="contact" placeholder="请输入姓名" data-validation="required" data-validation-error-msg="请填写姓名" value="乐思翔" disabled>
                     </div>
                     <div class="form-group">
                         <label for="phone" class="control-label">手机</label>
