@@ -1,0 +1,176 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, input, textarea, th, td {
+  margin: 0;
+  padding: 0; }
+
+/** 设置默认字体 **/
+body, input, select, textarea {
+  font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; }
+
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+address, cite, dfn, em, var {
+  font-style: normal; }
+
+/* 将斜体扶正 */
+code, kbd, pre, samp {
+  font-family: courier new, courier, monospace; }
+
+/* 统一等宽字体 */
+small {
+  font-size: 12px; }
+
+a {
+  text-decoration: none;
+  color: white; }
+
+a:hover {
+  text-decoration: none; }
+
+legend {
+  color: #000; }
+
+/* for ie6 */
+fieldset, img {
+  border: 0; }
+
+/* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea {
+  font-size: 100%; }
+
+/* 使得表单元素在 ie 下能继承字体大小 */
+/* 注：optgroup 无法扶正 */
+/** 重置表格元素 **/
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* 清除浮动 */
+.ks-clear:after, .clear:after {
+  content: '\20';
+  display: block;
+  height: 0;
+  clear: both; }
+
+.ks-clear, .clear {
+  *zoom: 1; }
+
+a, a:active, a:hover {
+  outline: 0;
+  text-decoration: none; }
+
+html, body {
+  height: 100%; }
+
+/*basic css*/
+#container {
+  padding-bottom: 20px;
+  height: 40%; }
+
+.header {
+  position: fixed;
+  z-index: 1060;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 45px;
+  border-bottom: 1px solid #43A382;
+  background-color: #45A673;
+  -webkit-box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
+  box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3); }
+  .header h1 {
+    color: #fff;
+    font-size: 18px;
+    line-height: 44px;
+    position: absolute;
+    left: 33%;
+    -webkit-transform: translate(-50%, 0);
+    text-align: center;
+    font-family: "YouYuan"; }
+  .header .navbar-left {
+    float: left;
+    /*color: #fff;*/ }
+    .header .navbar-left .back {
+      color: #FFF;
+      font-size: 2.5em; }
+  .header .navbar-left > * {
+    display: table-cell;
+    height: 45px;
+    padding-right: 10px;
+    padding-left: 10px;
+    vertical-align: middle; }
+
+span {
+  line-height: 35px;
+  padding-left: 5px;
+  font-size: 13px; }
+
+.btn {
+  margin-top: 60px;
+  width: 30%;
+  height: 50px;
+  position: absolute;
+  left: 35%;
+  text-align: center; }
+
+.btn-circle {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 40px;
+  left: 36%;
+  margin-top: 70px;
+  background-color: #45A673; }
+
+.content {
+  /* position: fixed;*/
+  z-index: 1000;
+  /*  top: 80px;
+    right: 0;*/
+  background-color: #FFF;
+  padding-bottom: 40px;
+  margin-top: 10px; }
+  .content .item {
+    box-align: center;
+    padding: 0.125%;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+    text-decoration: none; }
+    .content .item img {
+      width: 30px;
+      height: 30px;
+      border: none;
+      margin-left: 20px; }
+    .content .item h3 {
+      /*margin: 0 10px;*/
+      font-size: 2.0rem;
+      color: #00E3E3;
+      margin-left: 5%;
+      margin-top: 13px; }
+    .content .item .date {
+      color: #999;
+      margin-bottom: 8px;
+      margin-right: 30px; }
+
+.opacity {
+  -webkit-animation: opacity 0.3s linear;
+  animation: opacity 0.3s linear; }
+
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes opacity {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
