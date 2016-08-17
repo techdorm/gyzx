@@ -4,6 +4,7 @@
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>  
     <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
@@ -155,41 +156,68 @@
                           <!--   {loop $each['choice'] $key $each_opition} -->
                             <div class="exam-radio">
                                 <label class="radio">
-                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}">正确
+                                    <input type="radio" class="flat-radio" name="1" value="{$key}">正确
                                 </label>
                             </div>
                             <div class="exam-radio">
                                 <label class="radio">
-                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}">不正确
+                                    <input type="radio" class="flat-radio" name="1" value="{$key}">不正确
                                 </label>
                             </div>
                            <!--  {/loop} -->
                         </div>
                     </li>
                     <!-- {/loop} -->
-                     <li class="list-group-item" style="padding-bottom:1em;">
+                    <li class="list-group-item" style="padding-bottom:1em;">
                         <div class="item-content">
                           2.以下哪项不是桶装水及饮水机的注意事项
                         </div>
                         <div class="item-opition">
                             <div class="exam-radio">
                                 <label class="radio">
-                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}">桶装水开封后应7天内喝完，最好不超过15天 
+                                    <input type="radio" class="flat-radio" name="2" value="{$key}">桶装水开封后应7天内喝完，最好不超过15天 
                                 </label>
                             </div>
                             <div class="exam-radio">
                                 <label class="radio">
-                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}">饮水机放置点应选择阴凉、通风、干燥处，避免阳光直射
+                                    <input type="radio" class="flat-radio" name="2" value="{$key}">饮水机放置点应选择阴凉、通风、干燥处，避免阳光直射
                                 </label>
                             </div>
                             <div class="exam-radio">
                                 <label class="radio">
-                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}">可以直接使用自来水
+                                    <input type="radio" class="flat-radio" name="2" value="{$key}">可以直接使用自来水
                                 </label>
                             </div>
                             <div class="exam-radio">
                                 <label class="radio">
-                                    <input type="radio" class="flat-radio" name="eid{$each['eid']}" value="{$key}">不使用时应及时将桶退回水站
+                                    <input type="radio" class="flat-radio" name="2" value="{$key}">不使用时应及时将桶退回水站
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item" style="padding-bottom:1em;">
+                        <div class="item-content">
+                          3.学生发现险情或突发状况，应立即报警，打急救电话 校园110的电话
+                        </div>
+                        <div class="item-opition">
+                            <div class="exam-radio">
+                                <label class="radio">
+                                    <input type="radio" class="flat-radio" name="3" value="{$key}">86915110
+                                </label>
+                            </div>
+                            <div class="exam-radio">
+                                <label class="radio">
+                                    <input type="radio" class="flat-radio" name="3" value="{$key}">86878555
+                                </label>
+                            </div>
+                            <div class="exam-radio">
+                                <label class="radio">
+                                    <input type="radio" class="flat-radio" name="3" value="{$key}">86919017
+                                </label>
+                            </div>
+                            <div class="exam-radio">
+                                <label class="radio">
+                                    <input type="radio" class="flat-radio" name="3" value="{$key}">86919017
                                 </label>
                             </div>
                         </div>
