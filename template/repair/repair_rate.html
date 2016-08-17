@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../stylesheets/reset.css">
 <link rel="stylesheet" type="text/css" href="../../static/css/ui-dialog.css">
 <script src="../../static/js/jquery.min.js"></script>
+<script src="../../static/bootstrap/js/bootstrap.min.js"></script>
 <script src="../../static/js/dialog-min.js"></script>
 <style type="text/css">
 	* {
@@ -97,20 +98,6 @@
 	#star li.on {
 		background-position:0 -28px;
 	}
-	#star p {
-		position:absolute;
-		top:80%;
-		width:159px;
-		height:20px;
-		display:none;
-		/*background:url(../images/icon.gif) no-repeat;*/
-		padding:7px 10px 0;
-	}
-	#star p em {
-		color:#f60;
-		display:block;
-		font-style:normal;
-	}
 	#submit {
 		position:absolute;
 		bottom:0;
@@ -139,9 +126,6 @@
       width:100%;
       height:300px;
     }
-   /* .wx-pic{
-    	margin-top: 10px;
-    }*/
       .wx-layout {
       padding:5px;
       padding-left: 10px;
@@ -179,47 +163,7 @@
 </div>
 <div class="wx-history">
  	<div class="preloader"></div>
- 	<!-- <div class="wx-item">
-            <div class="wx-content">
-            	<div class="wx-pic">
-            	     <i class="fa fa-wrench" ></i>
-            		    <div class="photo" style="display:inline">
-		              		<i class="fa fa-picture-o artdia pull-right"></i>
-		                </div>
-            	</div>
-                <div class="wx-body">
-                	<div class="wx-layout font">
-                    	报修详情：
-                    	<span>电灯不会亮了</span>
-                    </div>
-                    <div class="wx-layout font">
-                    	报修分类: 
-                    	<span>电</span>
-                    </div>
-                    <div class="wx-layout font">
-                    	报修时间: 
-                        <span>2016-08-06 15:23:26</span>
-                    </div>
-                    <div class="wx-layout font">
-                        维修状态:
-                    	<span class='text-muted'>已维修</span>
-                    </div>
-                    <div class="wx-layout font">
-                        维修师傅:
-                    	<span>陈师傅</span>
-                    </div>
-                    <div class="wx-layout font">
-                        师傅手机:
-                    	<span>15958038800</span>
-                    </div>
-                    <div class="wx-layout font">
-                        维修评价:
-                    </div>
-                    <textarea id="vote_remark" class="form-control" rows="5" placeholder="客官，对此次维修还满意吗"></textarea>
-                    
-                </div>
-            </div>
-    </div> -->
+
 </div>
 <div id="star"> <span>维修评价</span>
   <ul>
@@ -230,53 +174,42 @@
     <li><a href="javascript:;">5</a></li>
   </ul>
   <span></span>
-  <p></p>
 </div>
 <input type="submit" class="btn btn-default" id="submit" value="提交">	
 <script type="text/javascript"> 
-window.onload = function (){
+
+$('#submit').click(function(event){
+	 // ajax
+	   $.post("vote.php",{
+	            vote: iStar,
+	            vote_remark: $('#vote_remark').val(),
+	            },function(data){
+	            console.log("success");
+	   });           
+});
+
+$(document).ready(function(){
 	var oStar = document.getElementById("star");
 	var aLi = oStar.getElementsByTagName("li");
 	var oUl = oStar.getElementsByTagName("ul")[0];
 	var oSpan = oStar.getElementsByTagName("span")[1];
 	var oP = oStar.getElementsByTagName("p")[0];
 	var i = iScore = iStar = 0;
-	// var aMsg = [
-	// 			"很不满意",
-	// 			"不满意",
-	// 			"一般",
-	// 			"满意",
-	// 			"非常满意"
-	// 			]
+	
 	
 	for (i = 1; i <= aLi.length; i++){
 		aLi[i - 1].index = i;
 		
-		//鼠标移过显示分数
-		// aLi[i - 1].onmouseover = function (){
-		// 	fnPoint(this.index);
-		// 	//浮动层显示
-		// 	oP.style.display = "block";
-		// 	//计算浮动层位置
-		// 	oP.style.left = oUl.offsetLeft + this.index * this.offsetWidth - 40 + "px";
-		// 	//匹配浮动层文字内容
-		// 	oP.innerHTML = "<em>" + aMsg[this.index - 1]+ "</em>";
-
-		// };
 		
 		//鼠标离开后恢复上次评分
 		aLi[i - 1].onmouseout = function (){
 			fnPoint();
-			//关闭浮动层
-			// oP.style.display = "none"
 		};
 		
 		//点击后进行评分处理
 		aLi[i - 1].onclick = function (){
 			fnPoint(this.index);
 			iStar = this.index;
-			// oP.style.display = "none";
-			// oSpan.innerHTML = "<strong>" + (this.index) + " 分</strong>"+"<strong>" + aMsg[this.index - 1]+ "</strong>";
 			oSpan.innerHTML ="<strong>" + (this.index) + " 星</strong>";
 		}
 	}
@@ -287,22 +220,7 @@ window.onload = function (){
 		iScore = iArg || iStar;
 		for (i = 0; i < aLi.length; i++) aLi[i].className = i < iScore ? "on" : "";	
 	}
-	
-};
 
-
-
-$('#submit').click(function(event){
-	 console.log(iStar);
-	 // ajax
-	   $.post("vote.php",{
-	            vote: iStar,
-	            },function(data){
-	            console.log("success");
-	   });           
-});
-
-$(document).ready(function(){
 
 	$.ajax({
 		type:"GET",
@@ -311,7 +229,6 @@ $(document).ready(function(){
 		dataType:"json",
 		success:function(data){
 			console.log("success");
-			// if(data.result[0].vote!=null)
 
 			var wxstate = ['',''];	        
 			wxstate = ["已修复","text-muted"]; 
@@ -362,9 +279,17 @@ $(document).ready(function(){
 
 		var picurl=data.result[0].photo;
 		$('.wx-history').append(result);
+		if(data.result[0].vote!=null)
+			{fnPoint(data.result[0].vote);
+		    $('input[type="submit"]').attr("value","已评价"); 
+		    $('input[type="submit"]').attr("disabled", true);
+		    $('#vote_remark').attr("disabled", true);
+		    // $('li').prop("disabled", true);
+			}
+
 		$('.artdia').on('click', function () {
           var x = dialog({
-            title: '备注',
+            title: '报修照片',
             content: '<img src="" style="width:250px;" id="photo" alt="" />',
             cancelValue: '关闭',
             cancel: function () {}
