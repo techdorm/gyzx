@@ -122,13 +122,25 @@
             </ul>
         </div> 
             <div class="contact-body-one">
-              <!--   <ul class="list-group">
+               <!--  <ul class="list-group">
                   <div class="item-cw">1号床</div>
                     <li class="list-group-item" style="padding-bottom:1em;">
                         <div class="item">
                             <span>姓名</span>
                             <div class="pull-right">
                                 <span id="realname">乐思翔</span>
+                            </div>
+                        </div>
+                         <div class="item">
+                            <span>学院</span>
+                            <div class="pull-right">
+                                <span id="xy">通信工程学院</span>
+                            </div>
+                        </div>
+                         <div class="item">
+                            <span>专业</span>
+                            <div class="pull-right">
+                                <span id="zy">信息安全</span>
                             </div>
                         </div>
                          <div  class="item">
@@ -144,8 +156,8 @@
                              </div>
                         </div>
                     </li>
-                </ul>
-                <ul class="list-group">
+                </ul> -->
+               <!--  <ul class="list-group">
                     <div  class="item-cw">2号床</div>
                      <li class="list-group-item" style="padding-bottom:1em;">
                         <div class="item">
@@ -281,8 +293,19 @@ $(document).ready(function(){
                                     '<span id="realname">'+data.result[i-1].name+'</span>'+
                                 '</div>'+
                             '</div>'+
-                             '<div  class="item">'+
-                                '<span> 手机</span>'+
+                            '<div  class="item">'+
+                                '<span>学院</span>'+
+                                 '<div class="pull-right">'+
+                                 '<span id="mobile">'+data.result[i-1].xy+'</span>'+
+                                 '</div>'+
+                            '</div>'+'<div  class="item">'+
+                                '<span>专业</span>'+
+                                 '<div class="pull-right">'+
+                                 '<span id="mobile">'+data.result[i-1].zy+'</span>'+
+                                 '</div>'+
+                            '</div>'+
+                            '<div  class="item">'+
+                                '<span>手机</span>'+
                                  '<div class="pull-right">'+
                                  '<span id="mobile">'+data.result[i-1].phone+'</span>'+
                                  '</div>'+
