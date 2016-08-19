@@ -11,9 +11,11 @@
     <link rel="stylesheet" type="text/css" href="static/css/dropload.css">
      <link rel="stylesheet" href="static/css/ui-dialog.css">
      <link rel="stylesheet" type="text/css" href="stylesheets/orderwater.css">
+     <link rel="stylesheet" type="text/css" href="static/css/buttons.css">
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/dialog-min.js"></script>
     <script src="static/js/echart/echarts.min.js"></script>
+    <script type="text/javascript" src="static/js/prefixfree.min.js"></script>
 </head>
 
 <body>
@@ -24,8 +26,9 @@
         <h1>历史订单详情</h1>
     </div>
       <div id="container">
-              <button type="button" class="btn btn-default btn-circle"><h2>刷水</h2></button>
-      </div>
+       <a class="button button-glow button-rounded button-raised button-primary button-circle button-giant">刷水</a>
+  </div>
+  
       <div class="content">
         <div class="lists">
             <a class="item" href="#">
@@ -156,7 +159,5 @@
             threshold : 50
         });
     });
-
 </script>
-
 </html>
