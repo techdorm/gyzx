@@ -80,8 +80,6 @@
     }
     
     .contact-body-one {
-        /*box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);*/
-        box-shadow: 0 1px 5px -1px rgba(0, 0, 0, 0.4);
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
@@ -136,7 +134,146 @@
                 </div>
         </div>
         <div class="contact-body-one">
-    
+            <div class="panel">
+                <div class="panel-heading item-cw" id="1">1号床</div>
+                <li class="list-group-item">
+                    <div class="item">
+                        <span>姓名</span>
+                        <div class="pull-right">
+                            <span id="realname">唐笑冰</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>学院</span>
+                        <div class="pull-right">
+                            <span id="mobile">通信工程学院</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>专业</span>
+                        <div class="pull-right">
+                            <span id="mobile">信息安全</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>手机</span>
+                        <div class="pull-right">
+                            <span id="mobile"> 15911111111</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span> 邮箱</span>
+                        <div class="pull-right">
+                            <span id="email"> tang@qq.com</span>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div class="panel">
+                <div class="panel-heading item-cw" id="2">2号床</div>
+                <li class="list-group-item">
+                    <div class="item">
+                        <span>姓名</span>
+                        <div class="pull-right">
+                            <span id="realname">吴秋艳</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>学院</span>
+                        <div class="pull-right">
+                            <span id="mobile">通信工程学院</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>专业</span>
+                        <div class="pull-right">
+                            <span id="mobile">信息安全</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>手机</span>
+                        <div class="pull-right">
+                            <span id="mobile"> 15922222222</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span> 邮箱</span>
+                        <div class="pull-right">
+                            <span id="email"> wu@qq.com</span>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div class="panel">
+                <div class="panel-heading item-cw" id="3">3号床</div>
+                <li class="list-group-item">
+                    <div class="item">
+                        <span>姓名</span>
+                        <div class="pull-right">
+                            <span id="realname">石新蕾</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>学院</span>
+                        <div class="pull-right">
+                            <span id="mobile">通信工程学院</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>专业</span>
+                        <div class="pull-right">
+                            <span id="mobile">信息安全</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>手机</span>
+                        <div class="pull-right">
+                            <span id="mobile"> 15933333333</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span> 邮箱</span>
+                        <div class="pull-right">
+                            <span id="email"> shi@qq.com</span>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div class="panel">
+                <div class="panel-heading item-cw" id="4">4号床</div>
+                <li class="list-group-item">
+                    <div class="item">
+                        <span>姓名</span>
+                        <div class="pull-right">
+                            <span id="realname">郑颖</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>学院</span>
+                        <div class="pull-right">
+                            <span id="mobile">通信工程学院</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>专业</span>
+                        <div class="pull-right">
+                            <span id="mobile">信息安全</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span>手机</span>
+                        <div class="pull-right">
+                            <span id="mobile"> 15944444444</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span> 邮箱</span>
+                        <div class="pull-right">
+                            <span id="email"> zhen@qq.com</span>
+                        </div>
+                    </div>
+                </li>
+            </div>
         </div>
         <div class="contact-body-two">
             <div class="panel">
@@ -159,63 +296,4 @@
         </div>
     </div>
 </body>
-<script type="text/javascript">
-$(document).ready(function() {
-    $.ajax({
-        type: 'GET',
-        async: false,
-        url: 'static/json/contact.json',
-        dataType: "json",
-        success: function(data) {
-            console.log("success");
-            var result = '';
-            for (i = 1; i <= data.result.length; i++) {
-                result += '<a href="#">' + '<div class="panel">' +
-                    '<div class="panel-heading item-cw" id="' + i + '">' + i + '号床' + '</div>' +
-                    '<li class="list-group-item">' +
-                    '<div class="item">' +
-                    '<span>姓名</span>' +
-                    '<div class="pull-right">' +
-                    '<span id="realname">' + data.result[i - 1].name + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div  class="item">' +
-                    '<span>学院</span>' +
-                    '<div class="pull-right">' +
-                    '<span id="mobile">' + data.result[i - 1].xy + '</span>' +
-                    '</div>' +
-                    '</div>' + '<div  class="item">' +
-                    '<span>专业</span>' +
-                    '<div class="pull-right">' +
-                    '<span id="mobile">' + data.result[i - 1].zy + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div  class="item">' +
-                    '<span>手机</span>' +
-                    '<div class="pull-right">' +
-                    '<span id="mobile">' + data.result[i - 1].phone + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="item">' +
-                    '<span> 邮箱</span>' +
-                    '<div class="pull-right">' +
-                    '<span id="email">' + data.result[i - 1].email + '</span>' +
-                    '</div>' +
-                    '</div>' +
-                    '</li>' +
-                    '</div>' +
-                    '</a>'
-            }
-            $('.contact-body-one').append(result);
-
-            for(var i=1;i<=data.result.length;i++){
-               if(data.result[i-1].me)
-               $('div[id="'+i+'"]').parent().parent().attr("href","myinfo.html"); 
-            }
-        }
-
-    });
-});
-</script>
-
 </html>
