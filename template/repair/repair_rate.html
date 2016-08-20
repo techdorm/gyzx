@@ -71,8 +71,10 @@
 	#star {
 		position:absolute;
 		top:80%;
-		left:10%;
-		height:24px;
+	    left:50%;
+		width:240px;
+	    margin-left:-120px;
+		border-bottom:height:24px;
 	}
 	#star ul, #star span {
 		float:left;
@@ -148,10 +150,16 @@
       	font-size: 15px;
       	color:#5F5F5F;;
       }
-	 .fa-picture-o{font-size:1.5em;
-	 padding:5px 10px 5px 0;}
+	 .fa-picture-o{
+	 	font-size:1.5em;
+	  padding:5px 10px 5px 0;
+	}
        
-
+    textarea.form-control {
+     width:95%;
+     margin-left: 10px;
+     margin-top: 0;
+}
 </style>
 </head>
 <body>
@@ -193,7 +201,6 @@ $(document).ready(function(){
 	var aLi = oStar.getElementsByTagName("li");
 	var oUl = oStar.getElementsByTagName("ul")[0];
 	var oSpan = oStar.getElementsByTagName("span")[1];
-	var oP = oStar.getElementsByTagName("p")[0];
 	var i = iScore = iStar = 0;
 	
 	
@@ -210,7 +217,7 @@ $(document).ready(function(){
 		aLi[i - 1].onclick = function (){
 			fnPoint(this.index);
 			iStar = this.index;
-			oSpan.innerHTML ="<strong>" + (this.index) + " 星</strong>";
+			// oSpan.innerHTML ="<strong>" + (this.index) + " 星</strong>";
 		}
 	}
 	
@@ -271,7 +278,9 @@ $(document).ready(function(){
 	                    '<div class="wx-layout font">'+
 	                        '维修评价:'+
 	                    '</div>'+
+	                    '<div style="width:100%">'+
 	                    '<textarea id="vote_remark" class="form-control" rows="5" placeholder="客官，对此次维修还满意吗">'+data.result[0].vote_remark+'</textarea>'+
+	                    '</div>'+
 	                '</div>'+
 	            '</div>'+
             '</div>';
@@ -300,7 +309,7 @@ $(document).ready(function(){
 
 		}
 
-	})
+	});
 })
 
 
