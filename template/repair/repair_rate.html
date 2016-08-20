@@ -154,17 +154,10 @@
 	 	font-size:1.5em;
 	  padding:5px 10px 5px 0;
 	}
-       
-/*    textarea.form-control {
-     width:95%;
-     margin-left: 10px;
-     margin-top: 0;
-}*/
-
-.txtarea{
-	padding-left: 10px;
-	padding-right:10px;
-}
+	.txtarea{
+		padding-left: 10px;
+		padding-right:10px;
+	}
 </style>
 </head>
 <body>
@@ -281,61 +274,11 @@ $(document).ready(function(){
 		url:'../../static/json/repair_one.json',
 		dataType:"json",
 		success:function(data){
-			console.log("success");
-
-			var wxstate = ['',''];	        
-			wxstate = ["已修复","text-muted"]; 
-	         
-			// var result = '';
-			// result +=
-			// '<div class="wx-item">'+
-	  //           '<div class="wx-content">'+
-	  //           	'<div class="wx-pic">'+
-	  //           	     '<i class="fa fa-wrench" ></i>'+
-	  //           		    '<div class="photo" style="display:inline">'+
-			//               		'<i class="fa fa-picture-o artdia pull-right"></i>'+
-			//                 '</div>'+
-	  //           	'</div>'+
-	  //               '<div class="wx-body">'+
-	  //               	'<div class="wx-layout font">'+
-	  //                   	'报修详情：'+
-	  //                   	'<span>'+data.result[0].remark+'</span>'+
-	  //                   '</div>'+
-	  //                   '<div class="wx-layout font">'+
-	  //                   	'报修分类: '+
-	  //                   	'<span>'+data.result[0].bcatalogName+'</span>'+
-	  //                   '</div>'+
-	  //                   '<div class="wx-layout font">'+
-	  //                   	'报修时间: '+
-	  //                      '<span>'+data.result[0].datetime+'</span>'+
-	  //                   '</div>'+
-	  //                   '<div class="wx-layout font">'+
-	  //                       '维修状态:'+
-	  //                   	'<span class="'+wxstate[1]+'">'+wxstate[0]+'</span>'+
-	  //                   '</div>'+
-	  //                   '<div class="wx-layout font">'+
-	  //                       '维修师傅:'+
-	  //                   	'<span>'+data.result[0].wxsf+'</span>'+
-	  //                   '</div>'+
-	  //                   '<div class="wx-layout font">'+
-	  //                       '师傅手机:'+
-	  //                   	'<a>'+data.result[0].sfphone+'</a>'+
-	  //                   '</div>'+
-	  //                   '<div class="wx-layout font">'+
-	  //                       '维修评价:'+
-	  //                   '</div>'+
-	  //                   '<div class="txtarea">'+
-	  //                   '<textarea id="vote_remark" class="form-control" rows="5" placeholder="客官，对此次维修还满意吗">'+data.result[0].vote_remark+'</textarea>'+
-	  //                   '</div>'+
-	  //               '</div>'+
-	  //           '</div>'+
-   //          '</div>';
-		
-
 		var picurl=data.result[0].photo;
-		// $('.wx-history').append(result);
-		if(data.result[0].vote!=null)
-			{fnPoint(data.result[0].vote);
+		
+		if(data.result[0].vote!=null)//展示星星数，禁止提交
+			{
+			fnPoint(data.result[0].vote);
 		    $('input[type="submit"]').attr("value","已评价"); 
 		    $('input[type="submit"]').attr("disabled", true);
 		    $('#vote_remark').attr("disabled", true);
@@ -357,11 +300,6 @@ $(document).ready(function(){
 
 	});
 })
-
-
- 
-
-
 
 
 </script>
