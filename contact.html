@@ -208,10 +208,10 @@ $(document).ready(function() {
             }
             $('.contact-body-one').append(result);
 
-            // for(i=1;i<=data.result.length;i++){
-            //    if(data.result[i-1].self)
-            //    $('div[id=i]').parent().parent().attr("href","myinfo.html"); 
-            // }
+            for(var i=1;i<=data.result.length;i++){
+               if(data.result[i-1].me)
+               $('div[id="'+i+'"]').parent().parent().attr("href","myinfo.html"); 
+            }
         }
 
     });

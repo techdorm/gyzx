@@ -10,22 +10,21 @@
       "xh": "14084104",
       "xy": "通信工程学院",
       "zy": "信息安全",
-      "email":"tang@qq.com",
-       "self": "false"
+      "email": "tang@qq.com",
+      "me": false
     },
     {
-     
       "bj": "14083611",
       "fdy_id": null,
       "fdy_name": "曹淼",
       "name": "吴秋艳",
       "number": "14084106",
-       "phone": 15922222222,
+      "phone": 15922222222,
       "xh": "14084106",
       "xy": "通信工程学院",
       "zy": "信息安全",
-      "email":"wu@qq.com",
-       "self": "false"
+      "email": "wu@qq.com",
+      "me": false
     },
     {
       "bj": "14083611",
@@ -37,8 +36,8 @@
       "xh": "14084103",
       "xy": "通信工程学院",
       "zy": "信息安全",
-      "email":"shi@qq.com",
-       "self": "false"
+      "email": "shi@qq.com",
+      "me": false
     },
     {
       "bj": "14083611",
@@ -50,8 +49,8 @@
       "xh": "14084108",
       "xy": "通信工程学院",
       "zy": "信息安全",
-      "email":"zheng@qq.com",
-      "self": "false"
+      "email": "zheng@qq.com",
+      "me": false
     },
     {
       "bj": "14083611",
@@ -63,8 +62,8 @@
       "xh": "14084101",
       "xy": "通信工程学院",
       "zy": "信息安全",
-      "email":"1245447460@qq.com",
-      "self":"true"
+      "email": "1245447460@qq.com",
+      "me": true
     }
   ]
 }
