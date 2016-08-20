@@ -4,13 +4,13 @@
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no"/>  
+    <meta name="format-detection" content="telephone=no" />
     <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
     <script src="static/js/jquery.min.js"></script>
     <title>寝室成员与联系人</title>
-<style type="text/css">
+    <style type="text/css">
     body {
         font-size: 15px;
         font-family: "YouYuan";
@@ -27,18 +27,21 @@
     /* ------------------------------------------
       BASE DEMO STYLES
     --------------------------------------------- */
+    
     .header {
-      position: fixed;
-      z-index: 1060;
-      top: 0;
-      right: 0;
-      left: 0;
-      height: 45px;
-      border-bottom: 1px solid #43A382;
-      background-color: #45A673;
-      -webkit-box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
-      box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3); }
-      .header h1 {
+        position: fixed;
+        z-index: 1060;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 45px;
+        border-bottom: 1px solid #43A382;
+        background-color: #45A673;
+        -webkit-box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
+        box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
+    }
+    
+    .header h1 {
         color: #fff;
         font-size: 18px;
         line-height: 44px;
@@ -46,20 +49,27 @@
         left: 50%;
         -webkit-transform: translate(-50%, 0);
         text-align: center;
-        font-family: "YouYuan"; }
-  .header .navbar-left {
-    float: left;
-    color: #fff; }
+        font-family: "YouYuan";
+    }
+    
+    .header .navbar-left {
+        float: left;
+        color: #fff;
+    }
+    
     .header .navbar-left .back {
-      color: white;
-      font-size: 2em; }
-  .header .navbar-left > * {
-    display: table-cell;
-    height: 45px;
-    padding-right: 10px;
-    padding-left: 10px;
-    vertical-align: middle; }
-
+        color: white;
+        font-size: 2em;
+    }
+    
+    .header .navbar-left > * {
+        display: table-cell;
+        height: 45px;
+        padding-right: 10px;
+        padding-left: 10px;
+        vertical-align: middle;
+    }
+    
     .img-responsive {
         width: 100%;
     }
@@ -69,7 +79,7 @@
         margin-top: 45px;
     }
     
-    .contact-body-one{
+    .contact-body-one {
         /*box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);*/
         box-shadow: 0 1px 5px -1px rgba(0, 0, 0, 0.4);
         border-top-left-radius: 4px;
@@ -79,252 +89,133 @@
         margin-bottom: 15px;
         background-color: #fff;
     }
-    .contact-body-two{
-         margin-bottom: 45px;
+    
+    .contact-body-two {
+        margin-bottom: 45px;
     }
+    
    
-    .list-group{
-        border-bottom: 2px solid #02B0B7;
-    }
-  
-    .list-group-item{
+    .list-group-item {
         padding: 15px;
-        border:0;
+        border: 0;
     }
-    .item-cw{
+    
+    .item-cw {
         font-weight: 700;
         font-size: 16px;
-        padding:  5px 15px;
-        border-top:  1px solid #ddd;
+        padding: 5px 15px;
+      /*  border-top: 1px solid #ddd;*/
         background-color: #02B0B7;
-        color:#FFF;
+        color: #FFF;
     }
-
-
-</style>
+    .panel{
+        border: 1px solid #02B0B7;
+        border-top: 0;
+        margin: 10px;
+    }
+    .panel-body{
+        padding:0;
+    }
+    .contact-type{
+        padding: 5px 15px 0 15px;
+    }
+    </style>
 </head>
 
 <body>
     <div class="header">
         <div class="navbar-left">
-           <a href="index.html"><i class="fa fa-angle-left back"></i></a>
+            <a href="index.html"><i class="fa fa-angle-left back"></i></a>
         </div>
         <h1>寝室成员与联系人</h1>
     </div>
     <div class="container">
-        <div class="zclist-header">
-            <ul >
-                <li class="list-group-item">
-                     <div id="zclist-tip" style="font-size:1em">
-                     寝室成员
+        <div class="contact-header">
+                <div class="contact-type">
+                        寝室成员
+                </div>
+        </div>
+        <div class="contact-body-one">
+    
+        </div>
+        <div class="contact-body-two">
+            <div class="panel">
+                <div class="panel-heading item-cw">其他联系人</div>
+                <li class="list-group-item" >
+                    <div class="fdy_name">
+                        <span>辅导员</span>
+                        <div class="pull-right">
+                            <span id="fdy">曹淼</span>
+                        </div>
+                    </div>
+                    <div class="shlh_name">
+                        <span>生活老师</span>
+                        <div class="pull-right">
+                            <span id="shls">王洪</span>
+                        </div>
                     </div>
                 </li>
             </ul>
-        </div> 
-            <div class="contact-body-one">
-               <!--  <ul class="list-group">
-                  <div class="item-cw">1号床</div>
-                    <li class="list-group-item" style="padding-bottom:1em;">
-                        <div class="item">
-                            <span>姓名</span>
-                            <div class="pull-right">
-                                <span id="realname">乐思翔</span>
-                            </div>
-                        </div>
-                         <div class="item">
-                            <span>学院</span>
-                            <div class="pull-right">
-                                <span id="xy">通信工程学院</span>
-                            </div>
-                        </div>
-                         <div class="item">
-                            <span>专业</span>
-                            <div class="pull-right">
-                                <span id="zy">信息安全</span>
-                            </div>
-                        </div>
-                         <div  class="item">
-                            <span> 手机</span>
-                             <div class="pull-right">
-                             <span id="mobile">15958031806</span>
-                             </div>
-                        </div>
-                        <div class="item">
-                            <span> 邮箱</span>
-                             <div class="pull-right">
-                             <span id="email">1245447460@qq.com</span>
-                             </div>
-                        </div>
-                    </li>
-                </ul> -->
-               <!--  <ul class="list-group">
-                    <div  class="item-cw">2号床</div>
-                     <li class="list-group-item" style="padding-bottom:1em;">
-                        <div class="item">
-                            <span>姓名</span>
-                            <div class="pull-right">
-                                <span id="realname">乐思翔</span>
-                            </div>
-                        </div>
-                         <div  class="item">
-                            <span> 手机</span>
-                             <div class="pull-right">
-                             <span id="mobile">15958031806</span>
-                             </div>
-                        </div>
-                        <div class="item">
-                            <span> 邮箱</span>
-                             <div class="pull-right">
-                             <span id="email">1245447460@qq.com</span>
-                             </div>
-                        </div>
-                    </li>
-                </ul> 
-                <ul class="list-group">
-                    <div  class="item-cw">3号床</div>
-                     <li class="list-group-item" style="padding-bottom:1em;">
-                        <div class="item">
-                            <span>姓名</span>
-                            <div class="pull-right">
-                                <span id="realname">乐思翔</span>
-                            </div>
-                        </div>
-                         <div  class="item">
-                            <span> 手机</span>
-                             <div class="pull-right">
-                             <span id="mobile">15958031806</span>
-                             </div>
-                        </div>
-                        <div class="item">
-                            <span> 邮箱</span>
-                             <div class="pull-right">
-                             <span id="email">1245447460@qq.com</span>
-                             </div>
-                        </div>
-                    </li>
-                </ul> 
-                <ul class="list-group">
-                    <div  class="item-cw">4号床</div>
-                     <li class="list-group-item" style="padding-bottom:1em;">
-                        <div class="item">
-                            <span>姓名</span>
-                            <div class="pull-right">
-                                <span id="realname">乐思翔</span>
-                            </div>
-                        </div>
-                         <div  class="item">
-                            <span> 手机</span>
-                             <div class="pull-right">
-                             <span id="mobile">15958031806</span>
-                             </div>
-                        </div>
-                        <div class="item">
-                            <span> 邮箱</span>
-                             <div class="pull-right">
-                             <span id="email">1245447460@qq.com</span>
-                             </div>
-                        </div>
-                    </li>
-                </ul> 
-                <ul class="list-group">
-                    <div  class="item-cw">5号床</div>
-                     <li class="list-group-item" style="padding-bottom:1em;">
-                        <div class="item">
-                            <span>姓名</span>
-                            <div class="pull-right">
-                                <span id="realname">乐思翔</span>
-                            </div>
-                        </div>
-                         <div  class="item">
-                            <span> 手机</span>
-                             <div class="pull-right">
-                             <span id="mobile">15958031806</span>
-                             </div>
-                        </div>
-                        <div class="item">
-                            <span> 邮箱</span>
-                             <div class="pull-right">
-                             <span id="email">1245447460@qq.com</span>
-                             </div>
-                        </div>
-                    </li>
-                </ul>  -->
-            </div>
-            <div class="contact-body-two">
-                <ul class="list-group">
-                  <div class="item-cw">其他联系人</div>
-                    <li class="list-group-item" style="padding-bottom:1em;">
-                        <div class="fdy_name">
-                            <span>辅导员</span>
-                            <div class="pull-right">
-                                <span id="fdy">曹淼</span>
-                            </div>
-                        </div>
-                        <div class="shlh_name">
-                           <span>生活老师</span>
-                            <div class="pull-right">
-                                <span id="shls">王洪</span>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        
+        </div>
     </div>
 </body>
 <script type="text/javascript">
-$(document).ready(function(){
+$(document).ready(function() {
     $.ajax({
-         type:'GET',
-        async:false,
-        url:'static/json/contact.json',
-        dataType:"json",
-        success: function (data){
+        type: 'GET',
+        async: false,
+        url: 'static/json/contact.json',
+        dataType: "json",
+        success: function(data) {
             console.log("success");
-            var result='';
-            for(i=1;i<=data.result.length;i++)
-            {
-                result += '<ul class="list-group">'+
-                      '<div class="item-cw">'+i+'号床'+'</div>'+
-                        '<li class="list-group-item" style="padding-bottom:1em;">'+
-                            '<div class="item">'+
-                                '<span>姓名</span>'+
-                                '<div class="pull-right">'+
-                                    '<span id="realname">'+data.result[i-1].name+'</span>'+
-                                '</div>'+
-                            '</div>'+
-                            '<div  class="item">'+
-                                '<span>学院</span>'+
-                                 '<div class="pull-right">'+
-                                 '<span id="mobile">'+data.result[i-1].xy+'</span>'+
-                                 '</div>'+
-                            '</div>'+'<div  class="item">'+
-                                '<span>专业</span>'+
-                                 '<div class="pull-right">'+
-                                 '<span id="mobile">'+data.result[i-1].zy+'</span>'+
-                                 '</div>'+
-                            '</div>'+
-                            '<div  class="item">'+
-                                '<span>手机</span>'+
-                                 '<div class="pull-right">'+
-                                 '<span id="mobile">'+data.result[i-1].phone+'</span>'+
-                                 '</div>'+
-                            '</div>'+
-                            '<div class="item">'+
-                                '<span> 邮箱</span>'+
-                                 '<div class="pull-right">'+
-                                 '<span id="email">'+data.result[i-1].email+'</span>'+
-                                 '</div>'+
-                            '</div>'+
-                        '</li>'+
-                    '</ul>'
+            var result = '';
+            for (i = 1; i <= data.result.length; i++) {
+                result += '<a href="#">' + '<div class="panel">' +
+                    '<div class="panel-heading item-cw" id="' + i + '">' + i + '号床' + '</div>' +
+                    '<li class="list-group-item">' +
+                    '<div class="item">' +
+                    '<span>姓名</span>' +
+                    '<div class="pull-right">' +
+                    '<span id="realname">' + data.result[i - 1].name + '</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div  class="item">' +
+                    '<span>学院</span>' +
+                    '<div class="pull-right">' +
+                    '<span id="mobile">' + data.result[i - 1].xy + '</span>' +
+                    '</div>' +
+                    '</div>' + '<div  class="item">' +
+                    '<span>专业</span>' +
+                    '<div class="pull-right">' +
+                    '<span id="mobile">' + data.result[i - 1].zy + '</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div  class="item">' +
+                    '<span>手机</span>' +
+                    '<div class="pull-right">' +
+                    '<span id="mobile">' + data.result[i - 1].phone + '</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="item">' +
+                    '<span> 邮箱</span>' +
+                    '<div class="pull-right">' +
+                    '<span id="email">' + data.result[i - 1].email + '</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '</li>' +
+                    '</div>' +
+                    '</a>'
             }
-         $('.contact-body-one').append(result);
+            $('.contact-body-one').append(result);
+
+            // for(i=1;i<=data.result.length;i++){
+            //    if(data.result[i-1].self)
+            //    $('div[id=i]').parent().parent().attr("href","myinfo.html"); 
+            // }
         }
-        
+
     });
 });
-
 </script>
 
 </html>

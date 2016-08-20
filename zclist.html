@@ -92,7 +92,7 @@
         background-color: #fff;
     }
     .zclist-body-two{
-         margin-bottom: 45px;
+         margin-bottom: 50px;
     }
     .zclist-footer {
         position: fixed;
@@ -116,19 +116,14 @@
     .iradio_flat-green{
             margin-right: 10px;
     }
-    .list-group{
-        border-bottom: 2px solid #73DEC9;
-    }
-  
     .list-group-item{
-        padding: 15px;
+        padding: 8px 15px 0 15px;
         border:0;
     }
     .item-cw{
         font-weight: 700;
         font-size: 16px;
         padding:  5px 15px;
-        border-top:  1px solid #ddd;
         background-color: #02B0B7;
         color:#FFF;
     }
@@ -138,6 +133,15 @@
     .item-content{
         font-size: 18px;
     }
+    .panel{
+        border: 1px solid #02B0B7;
+        border-top: 0;
+        margin: 10px;
+    }
+    .panel-body{
+        padding:0;
+    }
+
 
 
 </style>
@@ -156,11 +160,6 @@
     <div class="container">
         <div class="zclist-header">
             <ul >
-                <!-- <li class="list-group-item" style="padding:0">
-                    <div class="zclist-wrapper">
-                        <img class="img-responsive center-block" src="static/images/1.jpg">
-                    </div>
-                </li> -->
                 <li class="list-group-item">
                      <div id="zclist-tip" style="font-size:1em">
                      注意：<br>
@@ -172,15 +171,13 @@
         </div> 
         <form action="<?php echo($this->createMobileUrl('submit')); ?>" id="zclist-form" method="POST" role="form">
             <div class="zclist-body-one">
-                <ul class="list-group" id="cw1">
+             <!--    <ul class="list-group" id="cw1">
                   <div class="item-cw">1号床</div>
-                   <!--  {loop $zclist_list $each} -->
                     <li class="list-group-item" style="padding-bottom:1em;">
                         <div class="item-content">
                             床橱
                         </div>
                         <div class="item-opition row">
-                          <!--   {loop $each['choice'] $key $each_opition} -->
                             <div class="zclist-radio col-xs-4">
                                 <label class="radio">
                                     <input type="radio" class="flat-radio" name="1.1" value="{$key}">完好
@@ -196,16 +193,14 @@
                                     <input type="radio" class="flat-radio" name="1.1" value="{$key}">缺失
                                 </label>
                             </div>
-                           <!--  {/loop} -->
                         </div>
                     </li>
-                    <!-- {/loop} -->
+                  
                     <li class="list-group-item" style="padding-bottom:1em;">
                         <div class="item-content">
                             椅子
                         </div>
                         <div class="item-opition row">
-                          <!--   {loop $each['choice'] $key $each_opition} -->
                             <div class="zclist-radio col-xs-4">
                                 <label class="radio">
                                     <input type="radio" class="flat-radio" name="1.2" value="{$key}">完好
@@ -221,72 +216,119 @@
                                     <input type="radio" class="flat-radio" name="1.2" value="{$key}">缺失
                                 </label>
                             </div>
-                           <!--  {/loop} -->
                         </div>
                     </li>
-                </ul>
-                <ul class="list-group" id="cw2">
-                    <div  class="item-cw">2号床</div>
-                   <!--  {loop $zclist_list $each} -->
-                    <li class="list-group-item" style="padding-bottom:1em;">
+                </ul> -->
+                <div class="panel" id="cw1">
+                    <div class="panel-heading item-cw">1号床</div>
+                    <div class="panel-body">
+                            <li class="list-group-item">
+                                <div class="item-content">
+                                    床橱
+                                </div>
+                                <div class="item-opition row">
+                                    <div class="zclist-radio col-xs-4">
+                                        <label class="radio">
+                                            <input type="radio" class="flat-radio" name="1.1" value="{$key}">完好
+                                        </label>
+                                    </div>
+                                    <div class="zclist-radio col-xs-4">
+                                        <label class="radio">
+                                            <input type="radio" class="flat-radio" name="1.1" value="{$key}">损坏
+                                        </label>
+                                    </div>
+                                    <div class="zclist-radio col-xs-4">
+                                        <label class="radio">
+                                            <input type="radio" class="flat-radio" name="1.1" value="{$key}">缺失
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+                  
+                            <li class="list-group-item">
+                                <div class="item-content">
+                                    椅子
+                                </div>
+                                <div class="item-opition row">
+                                    <div class="zclist-radio col-xs-4">
+                                        <label class="radio">
+                                            <input type="radio" class="flat-radio" name="1.2" value="{$key}">完好
+                                        </label>
+                                    </div>
+                                    <div class="zclist-radio col-xs-4">
+                                        <label class="radio">
+                                            <input type="radio" class="flat-radio" name="1.2" value="{$key}">损坏
+                                        </label>
+                                    </div>
+                                    <div class="zclist-radio col-xs-4">
+                                        <label class="radio">
+                                            <input type="radio" class="flat-radio" name="1.2" value="{$key}">缺失
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+                    </div>
+                </div>
+                <div class="panel" id="cw2">
+                    <div class="panel-heading item-cw">2号床</div>
+                     <div class="panel-body">
+                        <li class="list-group-item">
+                            <div class="item-content">
+                                床橱
+                            </div>
+                            <div class="item-opition row">
+                          
+                                <div class="zclist-radio col-xs-4">
+                                    <label class="radio">
+                                        <input type="radio" class="flat-radio" name="2.1" value="{$key}">完好
+                                    </label>
+                                </div>
+                                <div class="zclist-radio col-xs-4">
+                                    <label class="radio">
+                                        <input type="radio" class="flat-radio" name="2.1" value="{$key}">损坏
+                                    </label>
+                                </div>
+                                <div class="zclist-radio col-xs-4">
+                                    <label class="radio">
+                                        <input type="radio" class="flat-radio" name="2.1" value="{$key}">缺失
+                                    </label>
+                                </div>
+                               <!--  {/loop} -->
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="item-content">
+                                椅子
+                            </div>
+                            <div class="item-opition row">
+                              <!--   {loop $each['choice'] $key $each_opition} -->
+                                <div class="zclist-radio col-xs-4">
+                                    <label class="radio">
+                                        <input type="radio" class="flat-radio" name="2.2" value="{$key}">完好
+                                    </label>
+                                </div>
+                                <div class="zclist-radio col-xs-4">
+                                    <label class="radio">
+                                        <input type="radio" class="flat-radio" name="2.2" value="{$key}">损坏
+                                    </label>
+                                </div>
+                                <div class="zclist-radio col-xs-4">
+                                    <label class="radio">
+                                        <input type="radio" class="flat-radio" name="2.2" value="{$key}">缺失
+                                    </label>
+                                </div>
+                               <!--  {/loop} -->
+                            </div>
+                        </li>
+                    </div>
+                </div> 
+                <div class="panel" id="cw3">
+                    <div class="panel-heading item-cw">3号床</div>
+                    <li class="list-group-item">
                         <div class="item-content">
                             床橱
                         </div>
                         <div class="item-opition row">
-                          <!--   {loop $each['choice'] $key $each_opition} -->
-                            <div class="zclist-radio col-xs-4">
-                                <label class="radio">
-                                    <input type="radio" class="flat-radio" name="2.1" value="{$key}">完好
-                                </label>
-                            </div>
-                            <div class="zclist-radio col-xs-4">
-                                <label class="radio">
-                                    <input type="radio" class="flat-radio" name="2.1" value="{$key}">损坏
-                                </label>
-                            </div>
-                            <div class="zclist-radio col-xs-4">
-                                <label class="radio">
-                                    <input type="radio" class="flat-radio" name="2.1" value="{$key}">缺失
-                                </label>
-                            </div>
-                           <!--  {/loop} -->
-                        </div>
-                    </li>
-                    <!-- {/loop} -->
-                    <li class="list-group-item" style="padding-bottom:1em;">
-                        <div class="item-content">
-                            椅子
-                        </div>
-                        <div class="item-opition row">
-                          <!--   {loop $each['choice'] $key $each_opition} -->
-                            <div class="zclist-radio col-xs-4">
-                                <label class="radio">
-                                    <input type="radio" class="flat-radio" name="2.2" value="{$key}">完好
-                                </label>
-                            </div>
-                            <div class="zclist-radio col-xs-4">
-                                <label class="radio">
-                                    <input type="radio" class="flat-radio" name="2.2" value="{$key}">损坏
-                                </label>
-                            </div>
-                            <div class="zclist-radio col-xs-4">
-                                <label class="radio">
-                                    <input type="radio" class="flat-radio" name="2.2" value="{$key}">缺失
-                                </label>
-                            </div>
-                           <!--  {/loop} -->
-                        </div>
-                    </li>
-                </ul> 
-                <ul class="list-group" id="cw3">
-                    <div  class="item-cw">3号床</div>
-                   <!--  {loop $zclist_list $each} -->
-                    <li class="list-group-item" style="padding-bottom:1em;">
-                        <div class="item-content">
-                            床橱
-                        </div>
-                        <div class="item-opition row">
-                          <!--   {loop $each['choice'] $key $each_opition} -->
                             <div class="zclist-radio col-xs-4">
                                 <label class="radio">
                                     <input type="radio" class="flat-radio" name="3.1" value="{$key}">完好
@@ -302,16 +344,13 @@
                                     <input type="radio" class="flat-radio" name="3.1" value="{$key}">缺失
                                 </label>
                             </div>
-                           <!--  {/loop} -->
                         </div>
                     </li>
-                    <!-- {/loop} -->
-                    <li class="list-group-item" style="padding-bottom:1em;">
+                    <li class="list-group-item">
                         <div class="item-content">
                             椅子
                         </div>
                         <div class="item-opition row">
-                          <!--   {loop $each['choice'] $key $each_opition} -->
                             <div class="zclist-radio col-xs-4">
                                 <label class="radio">
                                     <input type="radio" class="flat-radio" name="3.2" value="{$key}">完好
@@ -327,14 +366,12 @@
                                     <input type="radio" class="flat-radio" name="3.2" value="{$key}">缺失
                                 </label>
                             </div>
-                           <!--  {/loop} -->
                         </div>
                     </li>
-                </ul> 
-                <ul class="list-group" id="cw4">
-                    <div  class="item-cw">4号床</div>
-                   <!--  {loop $zclist_list $each} -->
-                    <li class="list-group-item" style="padding-bottom:1em;">
+                </div> 
+                <div class="panel" id="cw4">
+                    <div class="panel-heading item-cw">4号床</div>
+                    <li class="list-group-item" >
                         <div class="item-content">
                             床橱
                         </div>
@@ -358,8 +395,7 @@
                            <!--  {/loop} -->
                         </div>
                     </li>
-                    <!-- {/loop} -->
-                    <li class="list-group-item" style="padding-bottom:1em;">
+                    <li class="list-group-item">
                         <div class="item-content">
                             椅子
                         </div>
@@ -383,12 +419,11 @@
                            <!--  {/loop} -->
                         </div>
                     </li>
-                </ul>
+                </div>
             </div>
             <div class="zclist-body-two">
-                <ul class="list-group">
-                  <div class="item-cw">公用设施</div>
-                   <!--  {loop $zclist_list $each} -->
+                <div class="panel">
+                  <div class="panel-heading item-cw">公用设施</div>
                   <!--   <li class="list-group-item" style="padding-bottom:1em;">
                         <div class="item-content">
                             矮柜
@@ -411,7 +446,6 @@
                             </div>
                         </div>
                     </li> -->
-                    <!-- {/loop} -->
                     <li class="list-group-item" style="padding-bottom:1em;">
                         <div class="item-content">
                            阳台水池
@@ -634,7 +668,7 @@
                             <textarea class="form-control" rows="3" cols="20" placeholder="输入内容"></textarea>
                         </div>
                     </li>
-                </ul>
+                </div>
 
             </div>
             <div class="zclist-footer">
