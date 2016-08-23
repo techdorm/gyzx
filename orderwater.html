@@ -64,12 +64,21 @@
 
 <script src="static/js/dropload.js"></script>
 <script type="text/javascript">
+    // $(window).scroll(function(){
+    //           height = $(window).scrollTop();
+    //           if(height >15){
+    //             $('.header').fadeOut();
+    //           }else{
+    //             $('.header').fadeIn();
+    //           };
+
+    //    });
     $(window).scroll(function(){
               height = $(window).scrollTop();
-              if(height >15){
-                $('.header').fadeOut();
-              }else{
+              if(height>200){
                 $('.header').fadeIn();
+              }else{
+                $('.header').fadeOut();
               };
 
        });
