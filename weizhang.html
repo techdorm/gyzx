@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+    <script src="static/js/jquery.min.js"></script>
+    <title>违章信息查询</title>
+    <style type="text/css">
+    body {
+        font-size: 15px;
+        font-family: "YouYuan";
+    }
+    
+    a:active,
+    a:hover {
+        outline: 0;
+    }
+    
+    li {
+        list-style-type: none;
+    }
+    /* ------------------------------------------
+      BASE DEMO STYLES
+    --------------------------------------------- */
+    
+    .header {
+        position: fixed;
+        z-index: 1060;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 45px;
+        border-bottom: 1px solid #43A382;
+        background-color: #45A673;
+        -webkit-box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
+        box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
+    }
+    
+    .header h1 {
+        color: #fff;
+        font-size: 18px;
+        line-height: 44px;
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translate(-50%, 0);
+        text-align: center;
+        font-family: "YouYuan";
+    }
+    
+    .header .navbar-left {
+        float: left;
+        color: #fff;
+    }
+    
+    .header .navbar-left .back {
+        color: white;
+        font-size: 2em;
+    }
+    
+    .header .navbar-left > * {
+        display: table-cell;
+        height: 45px;
+        padding-right: 10px;
+        padding-left: 10px;
+        vertical-align: middle;
+    }
+    
+    .img-responsive {
+        width: 100%;
+    }
+    
+    .container {
+        padding: 0;
+        margin-top: 45px;
+    }
+    
+    .contact-body-one {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        margin-bottom: 15px;
+        background-color: #fff;
+    }
+    
+    .contact-body-two {
+        margin-bottom: 45px;
+    }
+    
+   
+    .list-group-item {
+        padding: 15px;
+        border: 0;
+    }
+    
+    .item-stu {
+        font-weight: 700;
+        font-size: 16px;
+        padding: 5px 15px;
+      /*  border-top: 1px solid #ddd;*/
+        background-color: #FFB141;
+        color: #FFF;
+    }
+    .panel{
+        border: 1px solid #FFB141;
+        border-top: 0;
+        margin: 10px;
+    }
+    .panel-body{
+        padding:0;
+    }
+
+      .item{
+      overflow: hidden;
+      /*white-space: nowrap;*/
+      text-overflow: ellipsis;
+      }
+   
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="navbar-left">
+            <a href="index.html"><i class="fa fa-angle-left back"></i></a>
+        </div>
+        <h1>违章信息查询</h1>
+    </div>
+    <div class="container">
+        <div class="contact-body-one">
+            <div class="panel">
+                <div class="panel-heading item-stu" id="1">甘家城</div>
+                <li class="list-group-item">
+                    
+                    <div class="item">
+                        <strong>楼号: </strong>
+                            <span id="building">18号楼</span>
+                    </div>
+                    <div class="item">
+                        <strong>寝室: </strong>
+                            <span id="dorm">520</span>
+                    </div>
+                    <div class="item">
+                        <strong>违章行为: </strong>
+                            <span id="xingwei"> 违章电器, 打架斗殴</span>
+                    </div>
+                    <div class="item">
+                        <strong> 违章详情: </strong>
+                            <span id="remark"> 这里是行为说明双击打开大数据的开始了上刊登了上是就打瞌睡啦科技大厦开始讲的数据库的还是</span>
+                    </div>
+                    <div class="item">
+                        <strong>发布日期: </strong> 
+                            <span id="rq "> 2016-08-19 20:35:16</span> 
+                    </div>
+                     <div class="item">
+                        <strong> 处理说明: </strong>
+                            <span id="clexplain"> 处理说明在这里啥觉得蓝色的货比三家的保时捷的好时机设计的号结束</span>
+                    </div>
+                    <div class="item">
+                        <strong>处理辅导员: </strong>
+                            <span id="clfdyname"> 卞广旭</span>
+                    </div>
+                    <div class="item">
+                        <strong>处理日期: </strong>
+                            <span id="clfdyname"> 2016-08-27 20:38:18</span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
