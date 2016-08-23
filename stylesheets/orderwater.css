@@ -74,14 +74,14 @@ html, body {
   right: 0;
   left: 0;
   height: 45px;
-  border-bottom: 1px solid #43A382;
-  background-color: #45A673;
-  -webkit-box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3);
-  box-shadow: 0 1px 1px rgba(98, 98, 98, 0.3); }
+  background-color: #6BD6CA; }
   .header h1 {
     color: #fff;
     font-size: 18px;
     line-height: 44px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
     text-align: center;
     font-family: "YouYuan"; }
   .header .navbar-left {
@@ -103,25 +103,11 @@ span {
   font-size: 13px; }
 
 #container {
-  height: 300px;
+  padding-top: 45px;
+  height: 330px;
   padding-bottom: 20px;
-  background-color: #D9FFFF; }
-  #container .button {
-    font-family: "YouYuan";
-    text-align: center;
-    font-size: 1.8rem; }
-  #container .button-glow {
-    position: absolute;
-    left: 38%;
-    top: 90px; }
-  #container .button-primary {
-    background-color: #80FFFF;
-    border-color: #80FFFF;
-    color: #fff; }
-  #container .button-gaint {
-    font-size: 28px;
-    height: 100px;
-    line-height: 100px; }
+  background-color: #6BD6CA;
+  text-align: center; }
 
 .content {
   /* position: fixed;*/

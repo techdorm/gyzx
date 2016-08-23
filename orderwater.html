@@ -8,12 +8,8 @@
     <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/dropload.css">
-     <link rel="stylesheet" href="static/css/ui-dialog.css">
      <link rel="stylesheet" type="text/css" href="stylesheets/orderwater.css">
-     <link rel="stylesheet" type="text/css" href="static/css/buttons.css">
     <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/dialog-min.js"></script>
-    <script src="static/js/echart/echarts.min.js"></script>
     <script type="text/javascript" src="static/js/prefixfree.min.js"></script>
 </head>
 
@@ -22,11 +18,12 @@
         <div class="navbar-left">
            <a href="index.html"><i class="fa fa-angle-left back"></i></a>
         </div>
-        <h1>历史订单详情</h1>
+        <h1>订水</h1>
     </div>
       <div id="container">
-      <a class="button button-glow button-rounded button-primary button-circle button-giant">刷水</a>
-  </div>
+      <!--<a class="button button-glow button-rounded button-primary button-circle button-giant">刷水</a>-->
+      <img src="static/images/orderwater.png" alt="" width="150px" height="150px"class="img-circle">
+    </div>
   
       <div class="content">
         <div class="lists">
@@ -67,6 +64,15 @@
 
 <script src="static/js/dropload.js"></script>
 <script type="text/javascript">
+    $(window).scroll(function(){
+              height = $(window).scrollTop();
+              if(height >15){
+                $('.header').fadeOut();
+              }else{
+                $('.header').fadeIn();
+              };
+
+       });
     $(function(){
         var counter = 0;
         // 每页展示4个
@@ -158,5 +164,6 @@
             threshold : 50
         });
     });
+    
 </script>
 </html>
