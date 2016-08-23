@@ -65,15 +65,6 @@
 
 <script src="static/js/dropload.js"></script>
 <script type="text/javascript">
-    // $(window).scroll(function(){
-    //           height = $(window).scrollTop();
-    //           if(height >15){
-    //             $('.header').fadeOut();
-    //           }else{
-    //             $('.header').fadeIn();
-    //           };
-
-    //    });
     $(window).scroll(function(){
               height = $(window).scrollTop();
               if(height>155||height<30){
@@ -92,45 +83,11 @@
         // dropload
         $('.content').dropload({
             scrollArea : window,
-            domUp : {
-                domClass   : 'dropload-up',
-                domRefresh : '<div class="dropload-refresh">↓下拉刷新</div>',
-                domUpdate  : '<div class="dropload-update">↑释放更新</div>',
-                domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
-            },
             domDown : {
                 domClass   : 'dropload-down',
                 domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
                 domLoad    : '<div class="dropload-load"><span class="loading"></span>拼命加载中...</div>',
                 domNoData  : '<div class="dropload-noData">暂无数据</div>'
-            },
-            loadUpFn : function(me){
-                $.ajax({
-                    type: 'GET',
-                    url: 'static/json/updatewater.json',
-                    dataType: 'json',
-                    success: function(data){
-                        var result = '';
-                        for(var i = 0; i < data.lists.length; i++){
-                            result +=   '<a class="item opacity" href="'+data.lists[i].link+'">'
-                                            +'<img src="'+data.lists[i].pic+'" alt="">'
-                                            +'<h3>'+data.lists[i].title+'</h3>'
-                                            +'<span class="date">'+data.lists[i].date+'</span>'
-                                        +'</a>';
-                                    }
-                        // 为了测试，延迟1秒加载
-                        setTimeout(function(){
-                            $('.lists').html(result);
-                            // 每次数据加载完，必须重置
-                            me.resetload();
-                        },500);
-                    },
-                    error: function(xhr, type){
-                        alert('Ajax error!');
-                        // 即使加载出错，也得重置
-                        me.resetload();
-                    }
-                });
             },
             loadDownFn : function(me){
                 $.ajax({
