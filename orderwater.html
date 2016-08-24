@@ -27,38 +27,45 @@
     </div>
   
       <div class="content">
-        <div class="lists">
-            <a class="item" href="#">
-            <img class="pp" src="static/images/money.png">
-                <h3>-8元</h3>
-                <span class="date">2014-11-14</span>
-            </a>
-            <a class="item" href="#">
-            <img src="static/images/money.png">
-                <h3>-8元</h3>
-                <span class="date">2014-12-14</span>
-            </a>
-            <a class="item" href="#">
-            <img src="static/images/money.png">
-                <h3>-8元</h3>
-                <span class="date">2015-14-14</span>
-            </a>
-            <a class="item" href="#">
-            <img src="static/images/money.png">
-                <h3>-8元</h3>
-                <span class="date">2014-14-14</span>
-            </a>
-            <a class="item" href="#">
-            <img src="static/images/money.png">
-                <h3>-8元</h3>
-                <span class="date">2014-14-14</span>
-            </a>
-            <a class="item" href="#">
-             <img src="static/images/money.png">
-                <h3>-8元</h3>
-                <span class="date">2014-14-14</span>
-            </a>
-        </div>
+           <table class="table table-striped">
+               <tr class="item" >
+                  <td class="item-check"><img src="static/images/check.png"></td> 
+                  <td><span class="item-pay">- 8元</span></td>
+                  <td class="item-date"><span class="date">2017-01-14</span></td>
+               </tr>
+               <tr class="item" >
+                  <td class="item-check"><img src="static/images/check.png"></td> 
+                  <td><span class="item-pay">- 8元</span></td>
+                  <td class="item-date"><span class="date">2014-03-14</span></td>
+               </tr>
+               <tr class="item" >
+                  <td class="item-check"><img src="static/images/check.png"></td> 
+                  <td><span class="item-pay">- 8元</span></td>
+                  <td class="item-date"><span class="date">2014-01-14</span></td>
+               </tr>
+               <tr class="item" >
+                  <td class="item-check"><img src="static/images/check.png"></td> 
+                  <td><span class="item-pay">- 8元</span></td>
+                  <td class="item-date"><span class="date">2014-01-14</span></td>
+               </tr>
+               <tr class="item" >
+                  <td class="item-check"><img src="static/images/check.png"></td> 
+                  <td><span class="item-pay">- 8元</span></td>
+                  <td class="item-date"><span class="date">2014-01-14</span></td>
+               </tr>
+               <tr class="item" >
+                  <td class="item-check"><img src="static/images/check.png"></td> 
+                  <td><span class="item-pay">- 8元</span></td>
+                  <td class="item-date"><span class="date">2014-01-14</span></td>
+               </tr>
+               <tr class="item" >
+                  <td class="item-check"><img src="static/images/check.png"></td> 
+                  <td><span class="item-pay">- 8元</span></td>
+                  <td class="item-date"><span class="date">2015-01-14</span></td>
+               </tr>
+              
+
+            </table>
     </div>
 
 </body>
@@ -101,11 +108,11 @@
                         pageStart = pageEnd - num;
 
                         for(var i = pageStart; i < pageEnd; i++){
-                            result +=   '<a class="item opacity" href="'+data.lists[i].link+'">'
-                                            +'<img src="'+data.lists[i].pic+'" alt="">'
-                                            +'<h3>'+data.lists[i].title+'</h3>'
-                                            +'<span class="date">'+data.lists[i].date+'</span>'
-                                        +'</a>';
+                            result += '<tr class="item">'+
+                                        '<td class="item-check"><img src="static/images/check.png"></td>'+
+                                        '<td><span class="item-pay">- 8元</span></td>'+
+                                        '<td class="item-date"><span class="date">'+data.lists[i].date+'</span></td>'+
+                                    '</tr>';
                             if((i + 1) >= data.lists.length){
                                 // 锁定
                                 me.lock();
@@ -116,7 +123,7 @@
                         }
                         // 为了测试，延迟1秒加载
                         setTimeout(function(){
-                            $('.lists').append(result);
+                            $('.table').append(result);
                             // 每次数据加载完，必须重置
                             me.resetload();
                         },500);

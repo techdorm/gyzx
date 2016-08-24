@@ -128,42 +128,39 @@ span {
     padding-bottom: 40px;
     margin-top: -100px; 
     .item {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: center;
-        -webkit-box-align: center;
-        box-align: center;
-        -webkit-align-items: center;
+        // display: -webkit-box;
+        // display: -webkit-flex;
+        // display: -ms-flexbox;
+        // display: flex;
+        // -ms-flex-align: center;
+        // -webkit-box-align: center;
+        // box-align: center;
+        // -webkit-align-items: center;
         align-items: center;
         padding: 0.125%;
         border-bottom: 1px solid #ddd;
-        color: #333;
+        color: #999;
         text-decoration: none; 
-        img{
-          width: 40px;
-          height: 40px;
-          border:none;
-          margin-left:20px;
+        .item-check{
+            width:55px;
+            img{
+            width: 35px;
+            height: 35px;
+            border:none;
+            margin:5px;
+          }
         }
-        h3 {
-      /*margin: 0 10px;*/
-          display: block;
-          -webkit-box-flex: 1;
-          -webkit-flex: 1;
-          -ms-flex: 1;
-          flex: 1;
-          width: 100%;
-          max-height: 40px;
-          min-height: 35px;
-          overflow: hidden;
-          line-height: 20px;
-          /*margin: 0 10px;*/
-          font-size: 2.0rem; 
-          margin-top:13px;
-          color:#6BD6CA;
-          margin-left:5%;
+        .item-pay{
+          text-align:left;
+          padding-left:0;
+          font-size:17px;
+        }
+        .item-date{
+          text-align:right;
+        }
+        td{
+          border:0;
+          vertical-align: middle;
         }
         .date {
           display: block;
@@ -171,8 +168,8 @@ span {
           line-height: 20px;
           color: #999;
           margin-bottom: 1px; 
-          font-size: 1.5rem;
-          margin-right:30px;
+          font-size: 17px;
+          margin-right:5px;
           }
         }
       }
