@@ -169,54 +169,6 @@
         </div> 
         <form action="<?php echo($this->createMobileUrl('submit')); ?>" id="zclist-form" method="POST" role="form">
             <div class="zclist-body-one">
-             <!--    <ul class="list-group" id="cw1">
-                  <div class="item-cw">1号床</div>
-                    <li class="list-group-item" style="padding-bottom:1em;">
-                        <div class="item-content">
-                            床橱
-                        </div>
-                        <div class="item-opition row">
-                            <div class="zclist-radio col-xs-4">
-                                <label class="radio">
-                                    <input type="radio" class="flat-radio" name="1.1" value="{$key}">完好
-                                </label>
-                            </div>
-                            <div class="zclist-radio col-xs-4">
-                                <label class="radio">
-                                    <input type="radio" class="flat-radio" name="1.1" value="{$key}">损坏
-                                </label>
-                            </div>
-                            <div class="zclist-radio col-xs-4">
-                                <label class="radio">
-                                    <input type="radio" class="flat-radio" name="1.1" value="{$key}">缺失
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                  
-                    <li class="list-group-item" style="padding-bottom:1em;">
-                        <div class="item-content">
-                            椅子
-                        </div>
-                        <div class="item-opition row">
-                            <div class="zclist-radio col-xs-4">
-                                <label class="radio">
-                                    <input type="radio" class="flat-radio" name="1.2" value="{$key}">完好
-                                </label>
-                            </div>
-                            <div class="zclist-radio col-xs-4">
-                                <label class="radio">
-                                    <input type="radio" class="flat-radio" name="1.2" value="{$key}">损坏
-                                </label>
-                            </div>
-                            <div class="zclist-radio col-xs-4">
-                                <label class="radio">
-                                    <input type="radio" class="flat-radio" name="1.2" value="{$key}">缺失
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                </ul> -->
                 <div class="panel" id="cw1">
                     <div class="panel-heading item-cw">1号床</div>
                     <div class="panel-body">
@@ -686,7 +638,7 @@ $(document).ready(function() {
 
     $('#zclist-form').submit(function(event) {
         event.preventDefault();
-        if ($(":checked").length != 20) {
+        if ($(":checked").length != 17) {
             alert('请先全部完成后再提交');
         } else {
             if (confirm('确定要提交吗')) {
