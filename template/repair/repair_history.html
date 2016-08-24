@@ -54,9 +54,12 @@
 		
 		.header .navbar-left {
 		    float: left;
-		    /*color: #fff;*/
 		}
-	    .navbar-left>* {
+        .navbar-right {
+            float:right;
+        }
+        
+	    .navbar-left>*,.navbar-right>* {
 	        display: table-cell;
 	        height: 45px;
 	        padding-right: 10px;
@@ -67,6 +70,11 @@
 	        color: #FFF;
 	        font-size: 2.5em;
 	    }
+         .apply {
+            margin:10px 0 10px 10px;
+            font-size: 2em;
+            color: #FFF;
+        }
 	.text-warning {
     color: #ffa620;
 	}
@@ -154,30 +162,6 @@
       .display{
         display:none;
       }
-      /*.g-footer {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      position: fixed;
-      float: right;
-      bottom: 10%;
-      right: 5%;
-      text-decoration: none; }
-     .u-edit {
-        width: 60px;
-        height: 60px;
-        border-radius: 30px;
-        text-align: center;
-        box-shadow: 2px 2px 7px #45A673;
-        -moz-border-radius: 25px;
-        background: #45A673; }
-       .u-fa-pencil {
-          padding-top: 32%;
-          padding-left: 10%;
-          font-size: 2em;
-          color: white; }*/
-
 </style>
 </head>
 <body>
@@ -185,19 +169,15 @@
     <div class="navbar-left">
        <a href="../../index.html"><i class="fa fa-angle-left back"></i></a>
     </div>
+    <div class="navbar-right">
+                <a href="repair_apply.html"><i class="fa fa-pencil-square-o apply" aria-hidden="true"></i></a>
+            </div>
     <h1>我的报修</h1>
 </div>
 <div class="wx-history">
  	  <div class="preloader"></div>
  	 
 </div>
-<!--<div class="g-footer">
-    <a href="repair_apply.html">
-        <div class="u-edit">
-            <i class="fa fa-pencil-square-o u-fa-pencil"></i>
-        </div>
-    </a> 
-</div>-->
 <script type="text/javascript"> 
 
 
