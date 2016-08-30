@@ -158,6 +158,8 @@
 		padding-left: 10px;
 		padding-right:10px;
 	}
+
+	.dison{pointer-events: none;}
 </style>
 </head>
 <body>
@@ -283,6 +285,7 @@ $(document).ready(function(){
 		    $('input[type="submit"]').attr("disabled", true);
 		    $('#vote_remark').attr("disabled", true);
 		    // $('li').prop("disabled", true);
+		    $('li').addClass('dison');
 			}
 
 		$('.artdia').on('click', function () {
