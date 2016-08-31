@@ -14,7 +14,7 @@
 		var self = this;
 		var zIndex = options && options.zIndex || 1000;
 		var width = options && options.width || '100%';
-		var height = options && options.height || '193px';
+		var height = options && options.height || '170px';
 		var fontSize = options && options.fontSize || '15px';
 		var backgroundColor = options && options.backgroundColor || '#fff';
 		var TABLE_ID = options && options.table_id || 'table_0909099';
@@ -39,10 +39,6 @@
 		}
 		cssStr += '</style>';
 		
-		//Button
-		var btnStr = '<div style="width:60px;height:28px;background-color:#1FB9FF;';
-		btnStr += 'float:right;margin-right:5px;text-align:center;color:#fff;';
-		btnStr += 'line-height:28px;border-radius:3px;margin-bottom:5px;cursor:pointer;">完成</div>';
 		
 		//table
 		var tableStr = '<table id="' + TABLE_ID + '" border="0" cellspacing="0" cellpadding="0">';
@@ -52,7 +48,7 @@
 			tableStr += '<tr><td style="">清空</td><td>0</td>';
 			tableStr += '<td style="">回删</td></tr>';
 			tableStr += '</table>';
-		this.el.innerHTML = cssStr + btnStr + tableStr;
+		this.el.innerHTML = cssStr  + tableStr;
 		
 		function addEvent(e){
 			var ev = e || window.event;
@@ -62,9 +58,11 @@
 				if(self.input){
 					self.input.value += value;
 				}
-			}else if(clickEl.tagName.toLocaleLowerCase() === 'div' && value === "完成"){
-				body.removeChild(self.el);
-			}else if(clickEl.tagName.toLocaleLowerCase() === 'td' && value === "回删"){
+			}
+			// else if(clickEl.tagName.toLocaleLowerCase() === 'td' && value === "清空"){
+			// 	body.removeChild(self.el);
+			// }
+			else if(clickEl.tagName.toLocaleLowerCase() === 'td' && value === "回删"){
 				var num = self.input.value;
 				if(num){
 					var newNum = num.substr(0, num.length - 1);
