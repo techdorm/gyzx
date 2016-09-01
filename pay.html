@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
     <script src="static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/keyboard.js"></script>
     <style type="text/css">
     body{
         font-family: Microsoft YaHei;
@@ -209,6 +209,10 @@ html { font-size: calc(100vw / 3.75)  }
 .loading{
    text-align:center;
 }
+.required 
+{
+ border: solid 1px #f00;
+}
 
 
 </style>
@@ -257,7 +261,6 @@ html { font-size: calc(100vw / 3.75)  }
         </div>
 
   
-    <script type="text/javascript" src="static/js/keyboard.js"></script>
     <script type="text/javascript">
    $(document).ready(function(){
        (function(){
@@ -267,7 +270,7 @@ html { font-size: calc(100vw / 3.75)  }
        })();
         Key();
        $('#cover').hide(); 
-       document.addEventListener('touchstart',function(){},false);
+       document.addEventListener('touchstart',function(){},true);
 
        document.documentElement.style.fontSize = $(document.documentElement).width()/3.75 + 'px';
         $(window).on('resize', function() {
@@ -275,11 +278,22 @@ html { font-size: calc(100vw / 3.75)  }
         })
       });
 
-      
-    
+
+function resetFields() {
+ $(".sixDigitPassword-box").removeClass("required");
+}
+var shake=function(){
+	if($('input[type="number"]').val() == '') {
+		    $('.sixDigitPassword-box')
+		    .animate({ left: "-10px" }, 100).animate({ left: "10px" }, 100)
+		     .animate({ left: "-10px" }, 100).animate({ left: "10px" }, 100)
+		     .animate({ left: "0px" }, 100)
+		     .addClass("required");
+		 }
+}
 
   var Array=$('b');
-   Key=function(){
+   var Key=function(){
         var length=$('#text1').val().length;
         var paykey=$('#text1').val();
         if(length==6){
@@ -300,18 +314,17 @@ html { font-size: calc(100vw / 3.75)  }
                              
                  },
                  error : function() {    
-                      // alert("ajax失败异常！"); 
                         $('.loading').html("支付失败");
+                          //清空内容  红框 抖一抖
                        $("#text1").val("");
                         $('td').removeClass('dispoint');
-                      //清空内容  红框 抖一抖
                       setTimeout("$('#cover').hide()",1000);
-                        
-                      
+                      setTimeout("shake();",1100);
                  },
                  complete: function () {
                     //ajax请求完成，不管成功失败
                     // setTimeout('window.location.reload();',1000);
+                    setTimeout(' resetFields();',2000);
                        
                 }  
             });  
@@ -325,12 +338,6 @@ html { font-size: calc(100vw / 3.75)  }
            }
         window.setTimeout(Key,100);
        }
-    //   $(document).ready(function() {
-    //     Key();
-    // });
-     
-
-
     </script>
 </body>
 </html>
