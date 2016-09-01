@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>支付</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -10,73 +11,83 @@
     <script src="static/js/jquery.min.js"></script>
     <script type="text/javascript" src="static/js/keyboard.js"></script>
     <style type="text/css">
-    body{
+    body {
         /*font-family: Microsoft YaHei;*/
-        font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-         font-size:0.2rem;
+        font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+        font-size: 0.2rem;
     }
-html { font-size: calc(100vw / 3.75)  }
-
-.clearfix:after {
-    clear: both;
-    }
-.clearfix:before, .clearfix:after {
-    content: " ";
-    display: table;
-}
-.header{
-    position:inherit;
-   /* z-index:100;*/
-}
     
-.sixDigitPassword {
-    position: absolute;
-    left: -122px;
-    top: 0;   
-    width: 1000px;
-    height: 26px;  
-    color: #fff;
-    font-size: 12px;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    -webkit-user-select: initial;
-    outline: 'none';
-   /* z-index: 999;*/
-    opacity:0;
-    filter:alpha(opacity=0);
-  }
-
-  .sixDigitPassword-box {
-        cursor:text;
+    html {
+        font-size: calc(100vw / 3.75)
+    }
+    
+    .clearfix:after {
+        clear: both;
+    }
+    
+    .clearfix:before,
+    .clearfix:after {
+        content: " ";
+        display: table;
+    }
+    
+    .header {
+        position: inherit;
+        /* z-index:100;*/
+    }
+    
+    .sixDigitPassword {
+        position: absolute;
+        left: -122px;
+        top: 0;
+        width: 1000px;
+        height: 26px;
+        color: #fff;
+        font-size: 12px;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        -webkit-user-select: initial;
+        outline: 'none';
+        /* z-index: 999;*/
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    
+    .sixDigitPassword-box {
+        cursor: text;
         background: #fff;
         outline: none;
         position: relative;
-        margin-top:20px;
+        margin-top: 20px;
         height: 45px;
         border: 1px solid #cccccc;
         border-radius: 2px;
         /* z-index: 999;*/
-  }
-  .sixDigitPassword-box i {
+    }
+    
+    .sixDigitPassword-box i {
         float: left;
         display: block;
         padding: 4px 0;
         height: 43px;
         border-left: 1px solid #cccccc;
     }
-   .sixDigitPassword-box .active {
-        background: url('static/images/password-blink.gif') no-repeat center center;        
+    
+    .sixDigitPassword-box .active {
+        background: url('static/images/password-blink.gif') no-repeat center center;
     }
-   .sixDigitPassword-box b {
+    
+    .sixDigitPassword-box b {
         display: block;
-        margin:15px 20px;
+        margin: 15px 20px;
         width: 7px;
         height: 7px;
         overflow: hidden;
-        visibility:hidden;
+        visibility: hidden;
         background: url('static/images/passeord-dot.png') no-repeat;
     }
-  .sixDigitPassword-box span {
+    
+    .sixDigitPassword-box span {
         position: absolute;
         display: block;
         left: 0px;
@@ -89,259 +100,296 @@ html { font-size: calc(100vw / 3.75)  }
         -webkit-box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.75), 0 0 8px rgba(82, 168, 236, 0.6);
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
     }
-    .ui-securitycore  .ui-form-item .ui-form-explain{
-        margin-top: 8px; 
+    
+    .ui-securitycore .ui-form-item .ui-form-explain {
+        margin-top: 8px;
     }
-
-td:active{background-color:#D0D0D0;
-	   color:#fff;
-	   font-family: "YouYuan";
-	}
-
- .six-password{
-    height:100px;
-    overflow: hidden;
-    vertical-align: middle;
-    position: absolute;
-    left:50%;
-    width:300px;
-    margin-left:-150px;
-    top: 200px;
-}
-.content{
-    height: 340px;
-    position: absolute;
-    /*top: 45px;*/
-    top: 0px;
-    width: 100%;
-   background-color: #fff;
-  /* z-index: 800;*/
-}
-.heading{
-    /*text-align: center;*/
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    width:100%;
-    vertical-align: middle;
-    height:40px;
-    line-height: 40px;
-    font-size: 15px;
-    font-weight: 600;
-   /* z-index:999;*/
-}
-.pay{
-    text-align: center;
-    width:100%;
-    vertical-align: middle;
-    position: absolute;
-    top: 50px;
-    height:40px;
-    line-height: 40px;
-    font-size: 0.13rem;
-    font-weight: 600;
-    /* z-index:999;*/
-}
-.money{
-    text-align: center;
-    width:100%;
-    vertical-align: middle;
-    position: absolute;
-    top: 80px;
-    height:50px;
-    line-height: 50px;
-    font-size: 2em;
-    color:#46D0FB;
-   /*  z-index:999;*/
-}
-.onecard{
-    padding:0 15px;
-    width:100%;
-    vertical-align: middle;
-    position: absolute;
-    top: 140px;
-    height:47px;
-    line-height: 44px;
-   /*  z-index:999;*/
-     border-top:1px solid rgba(185, 185, 185, 0.35);
-     border-bottom:1px solid rgba(185, 185, 185, 0.35);
-}
-.content-body{
-    width:100%;
-}
-.u-close{
- padding:11px;
- margin-top:-5px;
-}
-.tip{
-    margin-right: 24px;
-}
-.dispoint{
- pointer-events: none;
-}
-#cover{
-		width: 100%;
-		height: 100%;
-		position: fixed;
-		background:rgba(255, 255, 255, 0.8);
-		z-index: 4000;
+    
+    td:active {
+        background-color: #D0D0D0;
+        color: #fff;
+        font-family: "YouYuan";
+    }
+    
+    .six-password {
+        height: 100px;
+        overflow: hidden;
+        vertical-align: middle;
+        position: absolute;
+        left: 50%;
+        width: 300px;
+        margin-left: -150px;
+        top: 200px;
+    }
+    
+    .content {
+        height: 340px;
+        position: absolute;
+        /*top: 45px;*/
+        top: 0px;
+        width: 100%;
+        background-color: #fff;
+        /* z-index: 800;*/
+    }
+    
+    .heading {
+        /*text-align: center;*/
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        width: 100%;
+        vertical-align: middle;
+        height: 40px;
+        line-height: 40px;
+        font-size: 15px;
+        font-weight: 600;
+        /* z-index:999;*/
+    }
+    
+    .pay {
         text-align: center;
-        vertial-alien:middle;
-	}
-.loader {
-   width:60px;
-   height:60px;
-   display:inline-block;
-   padding:0px;
-   border-radius:100%;
-   border:4px solid;
-   border-top-color:rgb(66, 166, 230);
-   border-bottom-color:rgba(0,0,0, 0.1);
-   border-left-color:rgb(66, 166, 230);
-   border-right-color:rgba(0,0,0, 0.1);
-   -webkit-animation: loader4 1s ease-in-out infinite;
-   animation: loader4 1s ease-in-out infinite;
-   margin-top: 40%;
-}
-@keyframes loader4 {
-   from {transform: rotate(0deg);}
-   to {transform: rotate(360deg);}
-}
-@-webkit-keyframes loader4 {
-   from {-webkit-transform: rotate(0deg);}
-   to {-webkit-transform: rotate(360deg);}
-}
-.loading{
-   text-align:center;
-}
-.required 
-{
- border: solid 1px #f00;
-}
-
-
-</style>
-
+        width: 100%;
+        vertical-align: middle;
+        position: absolute;
+        top: 50px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 0.13rem;
+        font-weight: 600;
+        /* z-index:999;*/
+    }
+    
+    .money {
+        text-align: center;
+        width: 100%;
+        vertical-align: middle;
+        position: absolute;
+        top: 80px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 2em;
+        color: #46D0FB;
+        /*  z-index:999;*/
+    }
+    
+    .onecard {
+        padding: 0 15px;
+        width: 100%;
+        vertical-align: middle;
+        position: absolute;
+        top: 140px;
+        height: 47px;
+        line-height: 44px;
+        /*  z-index:999;*/
+        border-top: 1px solid rgba(185, 185, 185, 0.35);
+        border-bottom: 1px solid rgba(185, 185, 185, 0.35);
+    }
+    
+    .content-body {
+        width: 100%;
+    }
+    
+    .u-close {
+        padding: 11px;
+        margin-top: -5px;
+    }
+    
+    .tip {
+        margin-right: 24px;
+    }
+    
+    .dispoint {
+        pointer-events: none;
+    }
+    
+    #cover {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: rgba(255, 255, 255, 0.8);
+        z-index: 4000;
+        text-align: center;
+        vertial-alien: middle;
+    }
+    
+    .loader {
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        padding: 0px;
+        border-radius: 100%;
+        border: 4px solid;
+        border-top-color: rgb(66, 166, 230);
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+        border-left-color: rgb(66, 166, 230);
+        border-right-color: rgba(0, 0, 0, 0.1);
+        -webkit-animation: loader4 1s ease-in-out infinite;
+        animation: loader4 1s ease-in-out infinite;
+        margin-top: 40%;
+    }
+    
+    @keyframes loader4 {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @-webkit-keyframes loader4 {
+        from {
+            -webkit-transform: rotate(0deg);
+        }
+        to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+    
+    .loading {
+        text-align: center;
+    }
+    
+    .required {
+        border: solid 1px #f00;
+    }
+    .loading p{
+		margin-top: 30px;
+    }
+    </style>
 </head>
-<body ontouchstart="">
-  
-    <div id="cover">
-       <div class="loader"></div>
-       <div class="loading"> 付款中...   </div>
-    </div>   
-        <div>
-            <input id="text1" type="number"  class="form-control" style="margin-top:60px; visibility:hidden">
-        </div>
 
+<body ontouchstart="">
+    <div id="cover">
+        <div class="loader"></div>
+        <div class="loading" id="loading"> 付款中... </div>
+    </div>
+    <div>
+        <input id="text" type="number" class="form-control" style="margin-top:60px; visibility:hidden">
+    </div>
     <div class="content">
-         <div class="heading">
+        <div class="heading">
             <span class="tip">请输入支付密码</span>
-           <span class="pull-left">
+            <span class="pull-left">
                 <a href="index.html"><img  class="u-close" src="static/images/close.png"></a>
             </span>
-         </div>
-         <div class="content-body">
-             <div class="pay">支付</div>
+        </div>
+        <div class="content-body">
+            <div class="pay">支付</div>
             <div class="money">￥88.00</div>
             <div class="onecard">
                 <img src="static/images/creditcard.png"><span class="card"> 一卡通</span>
             </div>
-         </div>
+        </div>
     </div>
-     <div id="payPassword_container" class="alieditContainer clearfix" data-busy="0">
-            <div class="i-block" data-error="i_error">
-                <div class="i-block six-password">
-                    <input class="i-text sixDigitPassword" id="payPassword_rsainput" type="password" autocomplete="off" required="required" value="" name="payPassword_rsainput" data-role="sixDigitPassword" tabindex="" maxlength="6" minlength="6" aria-required="true">
-                    <div tabindex="0" class="sixDigitPassword-box" style="width: 300px;">
-                        <i style="width: 49px; border-color: transparent;" class=""><b style="visibility: hidden;"></b></i>
-                        <i style="width: 49px;"><b style="visibility: hidden;"></b></i>
-                        <i style="width: 49px;"><b style="visibility: hidden;"></b></i>
-                        <i style="width: 49px;"><b style="visibility: hidden;"></b></i>
-                        <i style="width: 49px;"><b style="visibility: hidden;"></b></i>
-                        <i style="width: 49px;"><b style="visibility: hidden;"></b></i>
-                        <span style="width: 49px; left: 0px; visibility: hidden;" id="cardwrap" data-role="cardwrap"></span>
-                    </div>
+    <div id="payPassword_container" class="alieditContainer clearfix" data-busy="0">
+        <div class="i-block" data-error="i_error">
+            <div class="i-block six-password">
+                <input class="i-text sixDigitPassword" id="payPassword_rsainput" type="password" autocomplete="off" required="required" value="" name="payPassword_rsainput" data-role="sixDigitPassword" tabindex="" maxlength="6" minlength="6" aria-required="true">
+                <div tabindex="0" class="sixDigitPassword-box" style="width: 300px;">
+                    <i style="width: 49px; border-color: transparent;" class=""><b style="visibility: hidden;"></b></i>
+                    <i style="width: 49px;"><b style="visibility: hidden;"></b></i>
+                    <i style="width: 49px;"><b style="visibility: hidden;"></b></i>
+                    <i style="width: 49px;"><b style="visibility: hidden;"></b></i>
+                    <i style="width: 49px;"><b style="visibility: hidden;"></b></i>
+                    <i style="width: 49px;"><b style="visibility: hidden;"></b></i>
+                    <span style="width: 49px; left: 0px; visibility: hidden;" id="cardwrap" data-role="cardwrap"></span>
                 </div>
             </div>
         </div>
-
-  
+    </div>
     <script type="text/javascript">
-   $(document).ready(function(){
-       (function(){
-        var input1 = document.getElementById('text1');
+    $(document).ready(function() {
+        (function() {
+            var input1 = document.getElementById('text');
             new KeyBoard(input1);
-        
-       })();
+
+        })();
         Key();
-       $('#cover').hide(); 
-       document.addEventListener('touchstart',function(){},true);
+        $('#cover').hide();
+        document.addEventListener('touchstart', function() {}, true);
 
-       document.documentElement.style.fontSize = $(document.documentElement).width()/3.75 + 'px';
+        document.documentElement.style.fontSize = $(document.documentElement).width() / 3.75 + 'px';
         $(window).on('resize', function() {
-        document.documentElement.style.fontSize = $(document.documentElement).width()/3.75 + 'px';
+            document.documentElement.style.fontSize = $(document.documentElement).width() / 3.75 + 'px';
         })
-      });
+    });
 
 
-function resetFields() {
- $(".sixDigitPassword-box").removeClass("required");
-}
-var shake=function(){
-	if($('input[type="number"]').val() == '') {
-		    $('.sixDigitPassword-box')
-		    .animate({ left: "-10px" }, 100).animate({ left: "10px" }, 100)
-		     .animate({ left: "-10px" }, 100).animate({ left: "10px" }, 100)
-		     .animate({ left: "0px" }, 100)
-		     .addClass("required");
-		 }
-}
+    function resetFields() {
+        $(".sixDigitPassword-box").removeClass("required");
+    }
+    var shake = function() {
+        if ($('input[type="number"]').val() == '') {
+            $('.sixDigitPassword-box')
+                .animate({
+                    left: "-10px"
+                }, 100).animate({
+                    left: "10px"
+                }, 100)
+                .animate({
+                    left: "-10px"
+                }, 100).animate({
+                    left: "10px"
+                }, 100)
+                .animate({
+                    left: "0px"
+                }, 100)
+                .addClass("required");
+        }
+    }
 
-  var Array=$('b');
-   var Key=function(){
-        var length=$('#text1').val().length;
-        var paykey=$('#text1').val();
-        if(length==6){
+
+    var Array = $('b');
+    var Key = function() {
+        var length = $('#text').val().length;
+        var paykey = $('#text').val();
+        if (length == 6) {
             $('#cover').show();
             $('td').addClass('dispoint');
-             $.ajax({    
-                url:'keycomfirm.php',// 跳转到 action    
-                data:{    
-                         key : paykey  
-                },    
-                type:'post',    
-                cache:false,    
-                dataType:'json',    
-                success:function(data) { 
-                        // console.log("支付成功！");   //跳转
-                        //  $('#cover').hide(); 
-                        setTimeout('window.location="http://www.baidu.com"',500);
-                             
-                 },
-                 error : function() {    
-                        $('.loading').html("支付失败");
-                          //清空内容  红框 抖一抖
-                       $("#text1").val("");
-                        $('td').removeClass('dispoint');
-                      setTimeout("$('#cover').hide()",1000);
-                      setTimeout("shake();",1100);
-                 },
-                 complete: function () {
+            $.ajax({
+                url: 'keycomfirm.php', // 跳转到 action    
+                data: {
+                    key: paykey
+                },
+                type: 'post',
+                cache: false,
+                dataType: 'json',
+                success: function(data) {
+                    // console.log("支付成功！");   //跳转
+                    //  $('#cover').hide(); 
+                    if ($('#text').val() === 123456) {
+                        setTimeout("$('#loading').html('支付成功')", 1500);
+                        setTimeout('window.location="http://www.baidu.com"', 2000);
+                    }
+                },
+                error: function() {
+                   
+                    //清空内容  红框 抖一抖
+                    $("#text").val("");
+                    $('td').removeClass('dispoint');
+                    setTimeout("$('#loading').html('支付失败'+'<p>'+'密码错误'+'</p>')", 1500);
+                    setTimeout(" $('#cover').hide();", 4000);
+                    setTimeout("shake();", 4000);
+                    
+                },
+                complete: function() {
                     //ajax请求完成，不管成功失败
                     // setTimeout('window.location.reload();',1000);
-                    setTimeout(' resetFields();',2000);
-                       
-                }  
-            });  
+                    $('#loading').html('支付中...');
+                    setTimeout(' resetFields();', 5000);
+
+                }
+            });
         }
-        
-        
-         Array.css("visibility","hidden");
-            for(var i=0;i<length;i++)
-           {
-            $(Array[i]).css("visibility","visible");
-           }
-        window.setTimeout(Key,100);
-       }
+
+
+        Array.css("visibility", "hidden");
+        for (var i = 0; i < length; i++) {
+            $(Array[i]).css("visibility", "visible");
+        }
+        window.setTimeout(Key, 100);
+    }
     </script>
 </body>
+
 </html>
