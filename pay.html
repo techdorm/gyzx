@@ -13,19 +13,20 @@
     <style type="text/css">
     body{
         font-family: Microsoft YaHei;
-        background-color: #fff;
+}
+
     }
-        .clearfix:after {
-       clear: both;
+    .clearfix:after {
+    clear: both;
     }
 .clearfix:before, .clearfix:after {
     content: " ";
     display: table;
 }
- .alieditContainer{
-       /* position: relative;*/
-     /*   margin-top: 100px;*/
-    } 
+.header{
+    position:inherit;
+    z-index:100;
+}
     
 .sixDigitPassword {
     position: absolute;
@@ -39,7 +40,7 @@
     box-sizing: content-box;
     -webkit-user-select: initial;
     outline: 'none';
-    z-index: 9999;
+    z-index: 999;
     opacity:0;
     filter:alpha(opacity=0);
   }
@@ -53,6 +54,7 @@
         height: 30px;
         border: 1px solid #cccccc;
         border-radius: 2px;
+         z-index: 999;
   }
   .sixDigitPassword-box i {
         float: left;
@@ -66,7 +68,7 @@
     }
    .sixDigitPassword-box b {
         display: block;
-        margin:7px 16px;
+        margin:7px 20px;
         width: 7px;
         height: 7px;
         overflow: hidden;
@@ -103,13 +105,12 @@
     bottom:90px;
 }
 .content{
-    z-index:1000;
     height: 340px;
     position: absolute;
     bottom: 10px;
     width: 100%;
-  
-
+   background-color: #fff;
+   z-index: 800;
 }
 .heading{
     text-align: center;
@@ -160,12 +161,67 @@
 .dispoint{
  pointer-events: none;
 }
+#cover{
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		background:rgba(255, 255, 255, 0.8);
+		z-index: 4000;
+        text-align: center;
+        vertial-alien:middle;
+	}
+.shadow{
+        width: 100%;
+		height: 100%;
+		position: fixed;
+		background:rgba(109, 109, 109, 0.62);
+		z-index: 150;
+        text-align: center;
+        vertial-alien:middle;
+}
+.loader {
+   width:60px;
+   height:60px;
+   display:inline-block;
+   padding:0px;
+   border-radius:100%;
+   border:4px solid;
+   border-top-color:rgb(66, 166, 230);
+   border-bottom-color:rgba(0,0,0, 0.1);
+   border-left-color:rgb(66, 166, 230);
+   border-right-color:rgba(0,0,0, 0.1);
+   -webkit-animation: loader4 1s ease-in-out infinite;
+   animation: loader4 1s ease-in-out infinite;
+   position: fixed;
+   left: 43%;
+   top: 30%;
+}
+@keyframes loader4 {
+   from {transform: rotate(0deg);}
+   to {transform: rotate(360deg);}
+}
+@-webkit-keyframes loader4 {
+   from {-webkit-transform: rotate(0deg);}
+   to {-webkit-transform: rotate(360deg);}
+}
+.loading{
+   position: fixed;
+   left: 43%;
+   top: 40%;
+}
+
 
 </style>
 
 </head>
 <body>
-    <div id=loading-mask></div>
+    <!--<div class="shadow">
+    </div>-->
+    <div id="cover">
+       <div class="loader"></div>
+       <div class="loading"> 付款中...   </div>
+    </div>
+    
     <div class="header">
         <div class="navbar-left">
            <a href="index.html"><i class="fa fa-angle-left back"></i></a>
@@ -173,8 +229,7 @@
         <h1>支付</h1>
     </div>
         <div>
-            <input id="text1" type="number" class="form-control" style="margin-top:60px;">
-             <div class="msg"></div>
+            <input id="text1" type="number"  class="form-control" style="margin-top:60px; visibility:hidden">
         </div>
 
     <div class="content">
@@ -208,17 +263,25 @@
   
     <script type="text/javascript" src="static/js/keyboard.js"></script>
     <script type="text/javascript">
-    (function(){
+   $(document).ready(function(){
+       (function(){
         var input1 = document.getElementById('text1');
             new KeyBoard(input1);
         
-    })();
+       })();
+        Key();
+       $('#cover').hide(); 
+   });
 
-    var Array=$('b');
+      
+    
+
+  var Array=$('b');
    Key=function(){
         var length=$('#text1').val().length;
         var paykey=$('#text1').val();
         if(length==6){
+            $('#cover').show();
             $('td').addClass('dispoint');
              $.ajax({    
                 url:'keycomfirm.php',// 跳转到 action    
@@ -228,14 +291,19 @@
                 type:'post',    
                 cache:false,    
                 dataType:'json',    
-                success:function(data) {     
+                success:function(data) { 
                         alert("支付成功！");
-                        window.location.reload();        
-                 },    
+                         $('#cover').hide();   
+                             
+                 },
                  error : function() {    
-                      alert("ajax失败异常！");  
-                       window.location.reload();     
-                 }    
+                      alert("ajax失败异常！");
+                       $('#cover').hide();  
+                 },
+                 complete: function () {
+                    //ajax请求完成，不管成功失败
+                    window.location.reload();   
+                }  
             });  
         }
         
@@ -245,11 +313,11 @@
            {
             $(Array[i]).css("visibility","visible");
            }
-        window.setTimeout(Key,500);
+        window.setTimeout(Key,100);
        }
-      $(document).ready(function() {
-        Key();
-    });
+    //   $(document).ready(function() {
+    //     Key();
+    // });
      
 
 
