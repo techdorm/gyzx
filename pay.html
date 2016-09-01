@@ -8,13 +8,16 @@
     <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
-    <link rel="stylesheet" type="text/css" href="stylesheets/hd.css">
     <script src="static/js/jquery.min.js"></script>
     <style type="text/css">
     body{
         font-family: Microsoft YaHei;
+        font-size:0.15rem;
 }
-
+html { font-size: calc(100vw / 3.75)  }
+td{
+    font-size:18px;
+}
     }
     .clearfix:after {
     clear: both;
@@ -51,7 +54,7 @@
         outline: none;
         position: relative;
         margin-top:20px;
-        height: 30px;
+        height: 45px;
         border: 1px solid #cccccc;
         border-radius: 2px;
          z-index: 999;
@@ -60,7 +63,7 @@
         float: left;
         display: block;
         padding: 4px 0;
-        height: 28px;
+        height: 43px;
         border-left: 1px solid #cccccc;
     }
    .sixDigitPassword-box .active {
@@ -68,7 +71,7 @@
     }
    .sixDigitPassword-box b {
         display: block;
-        margin:7px 20px;
+        margin:15px 20px;
         width: 7px;
         height: 7px;
         overflow: hidden;
@@ -95,34 +98,33 @@
 
 
  .six-password{
-    height:150px;
+    height:100px;
     overflow: hidden;
     vertical-align: middle;
     position: absolute;
     left:50%;
     width:300px;
     margin-left:-150px;
-    bottom:90px;
+    top: 200px;
 }
 .content{
     height: 340px;
     position: absolute;
-    bottom: 10px;
+    /*top: 45px;*/
+    top: 0px;
     width: 100%;
    background-color: #fff;
    z-index: 800;
 }
 .heading{
-    text-align: center;
+    /*text-align: center;*/
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     width:100%;
     vertical-align: middle;
-    position: absolute;
-    bottom:300px;
     height:40px;
     line-height: 40px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     z-index:999;
 }
@@ -131,9 +133,9 @@
     width:100%;
     vertical-align: middle;
     position: absolute;
-    bottom:270px;
-    height:20px;
-    line-height: 20px;
+    top: 50px;
+    height:40px;
+    line-height: 40px;
     font-size: 10px;
     font-weight: 600;
      z-index:999;
@@ -143,20 +145,34 @@
     width:100%;
     vertical-align: middle;
     position: absolute;
-    bottom:240px;
-    height:20px;
-    line-height: 20px;
-    font-size: 20px;
+    top: 80px;
+    height:50px;
+    line-height: 50px;
+    font-size: 2em;
     color:#46D0FB;
      z-index:999;
-
+}
+.onecard{
+    padding:0 15px;
+    width:100%;
+    vertical-align: middle;
+    position: absolute;
+    top: 140px;
+    height:47px;
+    line-height: 44px;
+     z-index:999;
+     border-top:1px solid rgba(185, 185, 185, 0.35);
+     border-bottom:1px solid rgba(185, 185, 185, 0.35);
+}
+.content-body{
+    width:100%;
 }
 .u-close{
  padding:11px;
  margin-top:-5px;
 }
 .tip{
-    margin-left: 24px;
+    margin-right: 24px;
 }
 .dispoint{
  pointer-events: none;
@@ -170,15 +186,6 @@
         text-align: center;
         vertial-alien:middle;
 	}
-.shadow{
-        width: 100%;
-		height: 100%;
-		position: fixed;
-		background:rgba(109, 109, 109, 0.62);
-		z-index: 150;
-        text-align: center;
-        vertial-alien:middle;
-}
 .loader {
    width:60px;
    height:60px;
@@ -215,19 +222,11 @@
 
 </head>
 <body>
-    <!--<div class="shadow">
-    </div>-->
+  
     <div id="cover">
        <div class="loader"></div>
        <div class="loading"> 付款中...   </div>
-    </div>
-    
-    <div class="header">
-        <div class="navbar-left">
-           <a href="index.html"><i class="fa fa-angle-left back"></i></a>
-        </div>
-        <h1>支付</h1>
-    </div>
+    </div>   
         <div>
             <input id="text1" type="number"  class="form-control" style="margin-top:60px; visibility:hidden">
         </div>
@@ -235,13 +234,18 @@
     <div class="content">
          <div class="heading">
             <span class="tip">请输入支付密码</span>
-           <span class="pull-right">
+           <span class="pull-left">
                 <a href="index.html"><img  class="u-close" src="static/images/close.png"></a>
             </span>
 
          </div>
-         <div class="pay">支付</div>
-         <div class="money">88.8元</div>
+         <div class="content-body">
+             <div class="pay">支付</div>
+            <div class="money">￥88.00</div>
+            <div class="onecard">
+                <img src="static/images/creditcard.png"><span class="card"> 一卡通</span>
+            </div>
+         </div>
     </div>
      <div id="payPassword_container" class="alieditContainer clearfix" data-busy="0">
             <div class="i-block" data-error="i_error">
