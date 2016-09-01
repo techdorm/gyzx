@@ -25,7 +25,7 @@ html { font-size: calc(100vw / 3.75)  }
 }
 .header{
     position:inherit;
-    z-index:100;
+   /* z-index:100;*/
 }
     
 .sixDigitPassword {
@@ -40,7 +40,7 @@ html { font-size: calc(100vw / 3.75)  }
     box-sizing: content-box;
     -webkit-user-select: initial;
     outline: 'none';
-    z-index: 999;
+   /* z-index: 999;*/
     opacity:0;
     filter:alpha(opacity=0);
   }
@@ -54,7 +54,7 @@ html { font-size: calc(100vw / 3.75)  }
         height: 45px;
         border: 1px solid #cccccc;
         border-radius: 2px;
-         z-index: 999;
+        /* z-index: 999;*/
   }
   .sixDigitPassword-box i {
         float: left;
@@ -111,7 +111,7 @@ html { font-size: calc(100vw / 3.75)  }
     top: 0px;
     width: 100%;
    background-color: #fff;
-   z-index: 800;
+  /* z-index: 800;*/
 }
 .heading{
     /*text-align: center;*/
@@ -123,7 +123,7 @@ html { font-size: calc(100vw / 3.75)  }
     line-height: 40px;
     font-size: 15px;
     font-weight: 600;
-    z-index:999;
+   /* z-index:999;*/
 }
 .pay{
     text-align: center;
@@ -135,7 +135,7 @@ html { font-size: calc(100vw / 3.75)  }
     line-height: 40px;
     font-size: 0.13rem;
     font-weight: 600;
-     z-index:999;
+    /* z-index:999;*/
 }
 .money{
     text-align: center;
@@ -147,7 +147,7 @@ html { font-size: calc(100vw / 3.75)  }
     line-height: 50px;
     font-size: 2em;
     color:#46D0FB;
-     z-index:999;
+   /*  z-index:999;*/
 }
 .onecard{
     padding:0 15px;
@@ -157,7 +157,7 @@ html { font-size: calc(100vw / 3.75)  }
     top: 140px;
     height:47px;
     line-height: 44px;
-     z-index:999;
+   /*  z-index:999;*/
      border-top:1px solid rgba(185, 185, 185, 0.35);
      border-bottom:1px solid rgba(185, 185, 185, 0.35);
 }
@@ -214,7 +214,7 @@ html { font-size: calc(100vw / 3.75)  }
 </style>
 
 </head>
-<body  ontouchstart="">
+<body ontouchstart="">
   
     <div id="cover">
        <div class="loader"></div>
@@ -230,7 +230,6 @@ html { font-size: calc(100vw / 3.75)  }
            <span class="pull-left">
                 <a href="index.html"><img  class="u-close" src="static/images/close.png"></a>
             </span>
-
          </div>
          <div class="content-body">
              <div class="pay">支付</div>
@@ -268,7 +267,7 @@ html { font-size: calc(100vw / 3.75)  }
        })();
         Key();
        $('#cover').hide(); 
-       document.body.addEventListener('touchstart', function (){},false);
+       document.addEventListener('touchstart',function(){},false);
 
        document.documentElement.style.fontSize = $(document.documentElement).width()/3.75 + 'px';
         $(window).on('resize', function() {
