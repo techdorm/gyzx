@@ -35,7 +35,7 @@
 		cssStr += '#' + TABLE_ID + '{text-align:center;width:100%;height:100%;border-top:1px solid #CECDCE;background-color:#FFF;}';
 		cssStr += '#' + TABLE_ID + ' td{width:33%;border:1px solid #ddd;border-right:0;border-top:0;}';
 		if(!mobile){
-			cssStr += '#' + TABLE_ID + ' td:hover{background-color:#D0D0D0;color:#333;}';
+			cssStr += '#' + TABLE_ID + ' td:active{background-color:#D0D0D0;color:#fff;}';
 		}
 		cssStr += '</style>';
 		

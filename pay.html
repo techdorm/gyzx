@@ -12,14 +12,11 @@
     <style type="text/css">
     body{
         font-family: Microsoft YaHei;
-        font-size:0.15rem;
-}
-html { font-size: calc(100vw / 3.75)  }
-td{
-    font-size:18px;
-}
+         font-size:0.2rem;
     }
-    .clearfix:after {
+html { font-size: calc(100vw / 3.75)  }
+
+.clearfix:after {
     clear: both;
     }
 .clearfix:before, .clearfix:after {
@@ -136,7 +133,7 @@ td{
     top: 50px;
     height:40px;
     line-height: 40px;
-    font-size: 10px;
+    font-size: 0.13rem;
     font-weight: 600;
      z-index:999;
 }
@@ -199,9 +196,7 @@ td{
    border-right-color:rgba(0,0,0, 0.1);
    -webkit-animation: loader4 1s ease-in-out infinite;
    animation: loader4 1s ease-in-out infinite;
-   position: fixed;
-   left: 43%;
-   top: 30%;
+   margin-top: 40%;
 }
 @keyframes loader4 {
    from {transform: rotate(0deg);}
@@ -212,9 +207,7 @@ td{
    to {-webkit-transform: rotate(360deg);}
 }
 .loading{
-   position: fixed;
-   left: 43%;
-   top: 40%;
+   text-align:center;
 }
 
 
@@ -275,7 +268,13 @@ td{
        })();
         Key();
        $('#cover').hide(); 
-   });
+       document.body.addEventListener('touchstart', function (){},false);
+
+       document.documentElement.style.fontSize = $(document.documentElement).width()/3.75 + 'px';
+        $(window).on('resize', function() {
+        document.documentElement.style.fontSize = $(document.documentElement).width()/3.75 + 'px';
+        })
+      });
 
       
     
@@ -296,17 +295,25 @@ td{
                 cache:false,    
                 dataType:'json',    
                 success:function(data) { 
-                        alert("支付成功！");
-                         $('#cover').hide();   
+                        // console.log("支付成功！");   //跳转
+                        //  $('#cover').hide(); 
+                        setTimeout('window.location="http://www.baidu.com"',500);
                              
                  },
                  error : function() {    
-                      alert("ajax失败异常！");
-                       $('#cover').hide();  
+                      // alert("ajax失败异常！"); 
+                        $('.loading').html("支付失败");
+                       $("#text1").val("");
+                        $('td').removeClass('dispoint');
+                      //清空内容  红框 抖一抖
+                      setTimeout("$('#cover').hide()",1000);
+                        
+                      
                  },
                  complete: function () {
                     //ajax请求完成，不管成功失败
-                    window.location.reload();   
+                    // setTimeout('window.location.reload();',1000);
+                       
                 }  
             });  
         }
