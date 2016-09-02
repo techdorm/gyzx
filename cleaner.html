@@ -151,26 +151,11 @@
         color:['#FF7F50'],
         
         tooltip : {
-            show: "ture",  
+            show: "ture", 
         },
-        // toolbox: {
-        //     show : true,
-        //     orient: 'horizontal',      
-        //     x: 'right',              
-        //     y: 'top',    
-        //     padding: 15,             
-        //     showTitle: true,       
-        //     feature : {
-        //         myTool : {
-        //             show : true,
-        //             title : '查看照片',
-        //             icon :   'image://static/images/photo.png',
-        //             onclick : function (){
-        //                 alert('myToolHandler');
-        //             }
-        //         }
-        //     }               
-        // },   
+        itemStyle:{
+          label:{show:true}
+        },
         polar : [
            {
                indicator : [
@@ -191,6 +176,16 @@
             {
                 name: "寝室卫生",
                 type: "radar",
+                itemStyle:{ 
+                            normal:{ 
+                                label:{ 
+                                   show: true, 
+                                   formatter: '{c}分',
+                                   // textStyle:{color:'gray'}
+                                }, 
+                                labelLine :{show:true}
+                            } 
+                    },
                 data : [
                     {
                         value : []
@@ -264,7 +259,7 @@
           title: '请选择月份',
           content: ' <input id="user_date" class="form-control" type="month" min="2016-1" max="2016-6"/> <div class="form-group"><label class="control-label">选择周数</label><select class="form-control" id="week" name="week" data-validation="select_required"><option value="0" selected disabled>请选择第几周</option><option value="1">第1周</option><option value="2">第2周</option><option value="3">第3周</option><option value="4">第4周</option></select></div> ',
           height: 100,
-          width: 300,
+          width: 280,
           okValue: '确 定',
           ok: function () {
             var x=$("#user_date").val();

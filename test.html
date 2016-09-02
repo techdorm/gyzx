@@ -69,7 +69,7 @@
     padding-right: 10px;
     padding-left: 10px;
     vertical-align: middle; }
-
+    
     .now {
     padding-top: 45px; 
     }
@@ -89,10 +89,8 @@
     .panel-body{
      padding:5px 15px;
     }
-    #container{
-    padding-bottom: 20px;
-    height:60%;
-    }
+
+  
 
 </style>
 
@@ -105,7 +103,7 @@
         </div>
         <h1>水电费</h1>
     </div>
-     <div class="now"> 
+    <div class="now"> 
       <div class="panel panel-default">
           <div class="panel-heading"><span class="year">2016</span>/<span class="month">4</span>
                <span id="calender">
@@ -114,46 +112,43 @@
           </div>
       </div>
     </div>
-    <div class="panel">
-        <div class="panel-body">
-          <div class="water">
-            <span >水费</span>
-                <div class="pull-right sum">￥24.28</div>
-              </div>
-              <hr/>
-              <div class="electric">
-                 <span>电费</span>
-                 <div class="pull-right sum">￥174.28</div>
-              </div>
-        </div>
-    </div>
+    <div class="cost"> 
+    <div class="panel ">
+      <div class="panel-body">
+        <div class="water">
+          <span >水费</span>
+              <div class="pull-right sum">￥24.28</div>
+            </div>
+            <hr/>
+            <div class="electric">
+               <span>电费</span>
+               <div class="pull-right sum">￥174.28</div>
+            </div>
+      </div>
+</div>
+  
 
-    <div id="container"></div>
-
+    <div id="container" style="height:400px"></div>
     <script type="text/javascript">
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom,'macarons');
-   
-    option = null;
+     option = null;
     option = {
     tooltip : {
         trigger: 'axis'
     },
     legend: {
         data:['水费','电费']
-    },
-    grid: {
-        left: '3%',
-        right: '6%',
-        containLabel: true
-    },
+      },
+
+    
     calculable : true,
     dataZoom : {
         show : true,
         realtime : true,
-        fillerColor:'rgba(128, 184, 226, 0.3)',
-        start : 60,
-        end : 100
+        handleColor:'rgba(70,130,180,0.8)',
+        start : 20,
+        end : 80
     },
     color:['#009EFF','#EF6612'],
 
@@ -163,7 +158,7 @@
             boundaryGap : false,
             data : function (){
                 var list = [];
-                for (var i = 1; i <= 12; i++) {
+                for (var i = 1; i<= 12; i++) {
                     list.push(i+'月份');
                 }
                 return list;
@@ -176,80 +171,28 @@
         }
     ],
    series : [
-
+     {
+            "name":"水费",
+            "type":"line",
+            "stack": "总量",
+            "areaStyle": {"normal": {}},
+            "data":[320, 332, 301, 334, 390,320, 332, 301, 334, 390, 330, 320]
+        },
+        {
+            "name":"电费",
+            "type":"line",
+            "stack": "总量",
+            "areaStyle": {"normal": {}},
+            "data":[130, 332, 301, 341, 391,321, 312, 301, 334, 319, 310, 320]
+        }
+       
     ]
 };
 
-    CheckMessage=function(){
-              $.ajax({
-                  type: "GET",
-                  async: false,
-                  url: 'static/json/water.json',
-                  dataType: "json",
-                  success: function (result) {
-                    console.log("success");
+                    
+ myChart.setOption(option);
 
-                      if(result.status==200){
-                          option.series = [result.month[0].one[0],result.month[0].one[1]];
-                          console.log(option.series);
-                          myChart.hideLoading();
-                          myChart.setOption(option);
-                      }
-                  },
-                  error: function (a,b,c) {
-                    alert("错误");
-                  }
-              });
-            }
-    $(document).ready(function() {
-        CheckMessage();
-    }); 
-    </script>
-      <script type="text/javascript">
-      $('i[data-event=test]').on('click', function () {
-        var d = dialog({
-         title: '请选择月份',
-          content: ' <input id="user_date" class="form-control" type="month"/>',
-          height: 100,
-          width: 280, 
-          okValue: '确 定',
-          ok: function () {
-            var x=$("#user_date").val();
-            console.log(x);
-            $(".month")[0].innerText=x[5]+x[6];
-            $(".year")[0].innerText=x[0]+x[1]+x[2]+x[3]; 
-            // d.close().remove();
-            CheckMessage=function(){
-              $.ajax({
-                  type: "GET",
-                  async: false,
-                  url: 'static/json/water.json',
-                  dataType: "json",
-                  success: function (result) {
-                     console.log("success");
-                      if(result.status ==200){
-
-                          option.series = [result.month[1].two[0],result.month[1].two[1]];
-
-
-                          myChart.hideLoading();
-                          myChart.setOption(option);
-                      }
-                  },
-                  error: function (errorMsg) {
-                    alert("数据加载失败，请刷新")
-                  }
-              });
-            } 
-            CheckMessage();
-
-          },
-          cancelValue: '取 消',
-          cancel: function () {}
-        });
-
-        d.showModal();
-      });
-
-    </script>
+</script>
+     
 </body>
+  </html>

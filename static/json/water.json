@@ -7,15 +7,15 @@
             "name":"水费",
             "type":"line",
             "stack": "总量",
-            "areaStyle": {"normal": {}},
+            "label": { "normal": {"show": true,"position": "top" }},
             "data":[320, 332, 301, 334, 390,320, 332, 301, 334, 390, 330, 320]
         },
         {
             "name":"电费",
             "type":"line",
             "stack": "总量",
-            "areaStyle": {"normal": {}},
-            "data":[1320, 3132, 3011, 3341, 3901,3210, 3132, 3101, 3314, 3190, 3310, 3201]
+            "label": { "normal": {"show": true,"position": "top" }},
+            "data":[130, 332, 301, 341, 391,321, 312, 301, 334, 319, 310, 320]
         }]
     },
     {
@@ -24,26 +24,14 @@
             "name":"水费",
             "type":"line",
             "stack": "总量",
-            "label": {
-            "normal": {
-            "show": true,
-            "position": "top"
-                }
-            },
-            "areaStyle": {"normal": {}},
+            "label": { "normal": {"show": true,"position": "top" }},
             "data":[820, 932, 901, 934, 1290,460, 762, 681, 894, 1456, 465, 750]
         },
         {
             "name":"电费",
             "type":"line",
             "stack": "总量",
-            "label": {
-            "normal": {
-            "show": true,
-            "position": "top"
-                }
-            },
-            "areaStyle": {"normal": {}},
+            "label": { "normal": {"show": true,"position": "top" }},
             "data":[8120, 932, 901, 934, 1290,460, 762, 681, 894, 1456, 465, 750]
         }]
     }
