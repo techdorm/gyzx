@@ -11,6 +11,7 @@
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/dialog-min.js"></script>
     <script src="static/js/echart/echarts.min.js"></script>
+     <script src="static/js/echart/macarons.js"></script>
     <style type="text/css">
     /* ------------------------------------------
       RESET  
@@ -140,7 +141,7 @@
     <div id="container"></div>
     <script type="text/javascript">
     var dom = document.getElementById("container");
-    var myChart = echarts.init(dom);
+    var myChart = echarts.init(dom,'macarons');
     myChart.showLoading({text: "图表数据正在努力加载..."});
     option = null;
     option = {
