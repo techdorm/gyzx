@@ -145,6 +145,9 @@
     <script type="text/javascript">
     $('#month').html(new Date().getMonth()+1);
     $('#year').html(new Date().getFullYear());
+   
+    
+    
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom);
     var app = {};
@@ -206,10 +209,21 @@
             areaStyle: {
                 normal: {}
             },
-            data: [820, 932, 901, 934, 1290, 460, 762, 681]
+            // data: [820, 932, 901, 934, 1290, 460, 762, 681]
+            data: []
         }]
     };
-    myChart.setOption(option, true);
+
+     $.ajax({
+        url: 'static/json/card.json',
+        type: 'GET',
+        dataType: 'json',
+        success:function(result){
+            option.series[0].data=result.week;
+            myChart.setOption(option, true);
+        }
+    });
+  
     </script>
     <script type="text/javascript">
     // $('i[data-event=test]').on('click', function() {
