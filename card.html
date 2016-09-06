@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html style="height: 100%">
+
 <head>
-   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-     <title>一卡通</title>
+    <title>一卡通</title>
     <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/card.css">
     <link rel="stylesheet" type="text/css" href="static/css/dropload.css">
-     <link rel="stylesheet" href="static/css/ui-dialog.css">
+    <link rel="stylesheet" href="static/css/ui-dialog.css">
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1473158057_610199.css">
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/dialog-min.js"></script>
     <script src="static/js/echart/echarts.min.js"></script>
@@ -18,133 +20,119 @@
 <body>
     <div class="header">
         <div class="navbar-left">
-           <a href="index.html"><i class="fa fa-angle-left back"></i></a>
+            <a href="index.html"><i class="fa fa-angle-left back"></i></a>
         </div>
         <h1>一卡通详情</h1>
     </div>
-    <div class="now"> 
-      <div class="panel panel-default">
-          <div class="panel-heading"><span class="month">04</span>/<span class="year">2016</span>
-               <span id="calender">
+    <div class="now">
+        <div class="panel panel-default">
+            <div class="panel-heading"><span class="month">04</span>/<span class="year">2016</span>
+                <span id="calender">
                <i class="fa fa-calendar pull-right" aria-hidden="true" data-event="test"></i>
                </span>
-          </div>
-      </div>
-    </div>
-
-    <div id="container" style="height:40%;margin-top:-10px;margin-bottom: -20px"></div>
-
-    <div class="content">
-        <div class="lists">
-            <a class="item" href="#">
-                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
-                <h3>关于举办校第二届“互联网+”大学生创新创业大赛的通知</h3>
-                <span class="date">2014-14-14</span>
-            </a>
-            <a class="item" href="#">
-                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg"> 
-                <h3>关于举办“2015年华东地区高校经济学类专业教学改革与人才培养高级研讨会”的通知</h3>
-                <span class="date">2014-14-14</span>
-            </a>
-            <a class="item" href="#">
-                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
-                <h3>关于在全校招募2016年G20杭州峰会志愿者的通知</h3>
-                <span class="date">2014-14-14</span>
-            </a>
-            <a class="item" href="#">
-                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
-                <h3>关于浙江省高等学校思想政治教育研究会2015年专题研讨会论文征集的通知</h3>
-                <span class="date">2014-14-14</span>
-            </a>
-            <a class="item" href="#">
-                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
-                <h3>关于召开2015年校卓越教学名师、青年教学新秀评选会议的通知</h3>
-                <span class="date">2014-14-14</span>
-            </a>
-            <a class="item" href="#">
-                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
-                <h3>关于举办元旦游园会的通知</h3>
-                <span class="date">2014-14-14</span>
-            </a>
-            <a class="item" href="#">
-                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
-                <h3>关于切实做好寒潮及雨雪冰冻天气防御工作的通知</h3>
-                <span class="date">2014-14-14</span>
-            </a>
-            <a class="item" href="#">
-                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
-                <h3>第十届浙江省大学生英语演讲竞赛暨2015“外研社杯”全国英语演讲大赛浙江省复赛通知</h3>
-                <span class="date">2014-14-14</span>
-            </a>
-            <a class="item" href="#">
-                <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg">
-                <h3>第16届IEEE通信技术国际会议(ICCT2015)通知</h3>
-                <span class="date">2014-14-14</span>
-            </a>
+            </div>
         </div>
     </div>
-
+    <div id="container" style="height:40%;margin-top:-10px;margin-bottom: -20px"></div>
+    <div class="content">
+        <div class="lists">
+            <div class="item">
+                <span class="icon-span"> <i class="icon iconfont" style="color:#66CCFF">&#xe609</i></span>
+                <h3>
+                    <p class="expense">-8.00</p>
+                    <p class="detail">桶装水费</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
+            <div class="item">
+                <span class="icon-span"><i class="icon iconfont" style="color:#FFB543">&#xe603</i></span>
+                <h3>
+                    <p class="expense">-23.50</p>
+                    <p class="detail">超市消费</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
+            <div class="item">
+                <span class="icon-span"> <i class="icon iconfont" style="color:#F9664C">&#xe604</i></span>
+                <h3>
+                    <p class="expense">-8.00</p>
+                    <p class="detail">食堂</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
+            <div class="item">
+                <span class="icon-span"> <i class="icon iconfont" style="color:#FF59E9">&#xe602</i></span>
+                <h3>
+                    <p class="expense">-8.00</p>
+                    <p class="detail">其他</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
+            <div class="item">
+                <span class="icon-span"> <i class="icon iconfont" style="color:#54CC7F">&#xe601</i></span>
+                <h3>
+                    <p class="expense">-8.00</p>
+                    <p class="detail">维修费</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom);
     var app = {};
     option = null;
     option = {
-    // title: {
-    //     text: '消费折线图'
-    // },
-    tooltip : {
-        trigger: 'axis'
-    },
-    legend: {
-        data:['消费额'],
-        x:'right'
-    },
-    // toolbox: {
-    //     feature: {
-    //         saveAsImage: {}
-    //     }
-    // },
-    grid: {
-        left: '1%',
-        top:'15%',
-        right: '5%',
 
-        containLabel: true
-    },
-    calculable : true,
-    dataZoom : {
-        show : true,
-        realtime : true,
-        fillerColor:'rgba(128, 184, 226, 0.3)',
-        handleColor:'#008ACD',
-        start : 60,
-        end : 100
-    },
-    color:['#009EFF'],
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['消费额'],
+            x: 'right'
+        },
+        grid: {
+            left: '1%',
+            top: '15%',
+            right: '5%',
 
-    xAxis : [
-        {
-            type : 'category',
-            boundaryGap : false,
-            data : function (){
+            containLabel: true
+        },
+        calculable: true,
+        dataZoom: {
+            show: true,
+            realtime: true,
+            fillerColor: 'rgba(128, 184, 226, 0.3)',
+            handleColor: '#008ACD',
+            start: 60,
+            end: 100
+        },
+        color: ['#009EFF'],
+
+        xAxis: [{
+            type: 'category',
+            boundaryGap: false,
+            data: function() {
                 var list = [];
-                for (var i = 1; i <= 12; i++) {
-                    list.push(i+'月份');
+                var getmonth = new Date().getMonth();
+                for (var i = 1; i <= 4; i++) {
+                    if (getmonth == 0)
+                        getmonth = 12;
+                    list.push(getmonth + '月第' + i + '周');
+                }
+                for (var i = 1; i <= 4; i++) {
+                    list.push((getmonth + 12) % 12 + 1 + '月第' + i + '周');
                 }
                 return list;
             }()
-        }
-    ],
-    yAxis : [
-        {
-            type : 'value'
-        }
-    ],
-    series : [
-        {
-            name:'消费额',
-            type:'line',
+        }],
+        yAxis: [{
+            type: 'value'
+        }],
+        series: [{
+            name: '消费额',
+            type: 'line',
             stack: '总量',
             label: {
                 normal: {
@@ -152,135 +140,126 @@
                     position: 'top',
                 }
             },
-            areaStyle: {normal: {}},
-            data:[820, 932, 901, 934, 1290,460, 762, 681, 894, 1456, 465, 750]
-        }
-    ]
-};
+            areaStyle: {
+                normal: {}
+            },
+            data: [820, 932, 901, 934, 1290, 460, 762, 681]
+        }]
+    };
 
-myChart.setOption(option, true);
-
-   
+    myChart.setOption(option, true);
     </script>
-     <script type="text/javascript">
-      $('i[data-event=test]').on('click', function () {
+    <script type="text/javascript">
+    $('i[data-event=test]').on('click', function() {
         var d = dialog({
-          title: '请选择月份',
-          content: ' <input id="user_date" class="form-control" type="month">',
-          height: 50,
-          width: 280,
-          okValue: '确 定',
-          ok: function () {
-            
-            var x=$("#user_date").val();
-            // $("span")[0].innerText=x[5]+x[6];
-            $(".month")[0].innerText=x[5]+x[6];
-            $(".year")[0].innerText=x[0]+x[1]+x[2]+x[3]; 
-            // d.close().remove();
-            
-          },
-          cancelValue: '取消',
-          cancel: function () {}
+            title: '请选择月份',
+            content: ' <input id="user_date" class="form-control" type="month">',
+            height: 50,
+            width: 280,
+            okValue: '确 定',
+            ok: function() {
+
+                var x = $("#user_date").val();
+                $(".month")[0].innerText = x[5] + x[6];
+                $(".year")[0].innerText = x[0] + x[1] + x[2] + x[3];
+                // d.close().remove();
+
+            },
+            cancelValue: '取消',
+            cancel: function() {}
         });
         d.showModal();
-      });
+    });
     </script>
 </body>
-
 <script src="static/js/dropload.js"></script>
 <script type="text/javascript">
-    $(function(){
-        var counter = 0;
-        // 每页展示4个
-        var num = 4;
-        var pageStart = 0,pageEnd = 0;
+$(function() {
+    var counter = 0;
+    // 每页展示4个
+    var num = 4;
+    var pageStart = 0,
+        pageEnd = 0;
+    var type = ['&#xe604', '&#xe603', '&#xe609', '&#xe601', '&#xe60a', '&#xe600', '&#xe605', '&#xe607', '&#xe608', '&#xe606', '&#xe602'];
+    var color = ['#F9664C', '#FFB543', '#66CCFF', '#54CC7F', '#44AEE2', '#F7A945', '#4FC185', '#F3A42B', '#8C5AC1', '#F32B2B', '#FF59E9']
 
-        // dropload
-        $('.content').dropload({
-            scrollArea : window,
-            domUp : {
-                domClass   : 'dropload-up',
-                domRefresh : '<div class="dropload-refresh">↓下拉刷新</div>',
-                domUpdate  : '<div class="dropload-update">↑释放更新</div>',
-                domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
-            },
-            domDown : {
-                domClass   : 'dropload-down',
-                domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
-                domLoad    : '<div class="dropload-load"><span class="loading"></span>拼命加载中...</div>',
-                domNoData  : '<div class="dropload-noData">暂无数据</div>'
-            },
-            loadUpFn : function(me){
-                $.ajax({
-                    type: 'GET',
-                    url: 'static/json/update.json',
-                    dataType: 'json',
-                    success: function(data){
-                        var result = '';
-                        for(var i = 0; i < data.lists.length; i++){
-                            result +=   '<a class="item opacity" href="'+data.lists[i].link+'">'
-                                            +'<img src="'+data.lists[i].pic+'" alt="">'
-                                            +'<h3>'+data.lists[i].title+'</h3>'
-                                            +'<span class="date">'+data.lists[i].date+'</span>'
-                                        +'</a>';
-                        }
-                        // 为了测试，延迟1秒加载
-                        setTimeout(function(){
-                            $('.lists').html(result);
-                            // 每次数据加载完，必须重置
-                            me.resetload();
-                        },500);
-                    },
-                    error: function(xhr, type){
-                        alert('Ajax error!');
-                        // 即使加载出错，也得重置
-                        me.resetload();
+    // dropload
+    $('.content').dropload({
+        scrollArea: window,
+        domUp: {
+            domClass: 'dropload-up',
+            domRefresh: '<div class="dropload-refresh">↓下拉刷新</div>',
+            domUpdate: '<div class="dropload-update">↑释放更新</div>',
+            domLoad: '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
+        },
+        domDown: {
+            domClass: 'dropload-down',
+            domRefresh: '<div class="dropload-refresh">↑上拉加载更多</div>',
+            domLoad: '<div class="dropload-load"><span class="loading"></span>拼命加载中...</div>',
+            domNoData: '<div class="dropload-noData">暂无数据</div>'
+        },
+        loadUpFn: function(me) {
+            $.ajax({
+                type: 'GET',
+                url: 'static/json/card.json',
+                dataType: 'json',
+                success: function(data) {
+                    console.log("success");
+                    var result = '';
+                    for (var i = 0; i < data.lists.length; i++) {
+                        result += '<div class="item">' + '<span class="icon-span">' + '<i class="icon iconfont">' + type[data.lists[i].feetype - 1] + '</i>' + '</span>' + '<h3>' + '<p class="expense">' + data.lists[i].mondeal + '</p>' + '<p class="detail">' + data.lists[i].feename + '</p>' + '</h3>' + '<div class="pull-right">' + '<span class="date">' + data.lists[i].date + '</span>' + '</div>' + '</div>';
                     }
-                });
-            },
-            loadDownFn : function(me){
-                $.ajax({
-                    type: 'GET',
-                    url: 'static/json/more.json',
-                    dataType: 'json',
-                    success: function(data){
-                        var result = '';
-                        counter++;
-                        pageEnd = num * counter;
-                        pageStart = pageEnd - num;
-
-                        for(var i = pageStart; i < pageEnd; i++){
-                            result +=   '<a class="item opacity" href="'+data.lists[i].link+'">'
-                                            +'<img src="'+data.lists[i].pic+'" alt="">'
-                                            +'<h3>'+data.lists[i].title+'</h3>'
-                                            +'<span class="date">'+data.lists[i].date+'</span>'
-                                        +'</a>';
-                            if((i + 1) >= data.lists.length){
-                                // 锁定
-                                me.lock();
-                                // 无数据
-                                me.noData();
-                                break;
-                            }
-                        }
-                        // 为了测试，延迟1秒加载
-                        setTimeout(function(){
-                            $('.lists').append(result);
-                            // 每次数据加载完，必须重置
-                            me.resetload();
-                        },500);
-                    },
-                    error: function(xhr, type){
-                        alert('Ajax error!');
-                        // 即使加载出错，也得重置
+                    // 为了测试，延迟1秒加载
+                    setTimeout(function() {
+                        $('.lists').html(result);
+                        // 每次数据加载完，必须重置
                         me.resetload();
+                    }, 500);
+                },
+                error: function(xhr, type) {
+                    alert('加载出错');
+                    // 即使加载出错，也得重置
+                    me.resetload();
+                }
+            });
+        },
+        loadDownFn: function(me) {
+            $.ajax({
+                type: 'GET',
+                url: 'static/json/card.json',
+                dataType: 'json',
+                success: function(data) {
+                    var result = '';
+                    counter++;
+                    pageEnd = num * counter;
+                    pageStart = pageEnd - num;
+                    for (var i = pageStart; i < pageEnd; i++) {
+                        result += '<div class="item">' + '<span class="icon-span">' + '<i class="icon iconfont" style="color:' + color[data.lists[i].feetype - 1] + '">' + type[data.lists[i].feetype - 1] + '</i>' + '</span>' + '<h3>' + '<p class="expense">' + data.lists[i].mondeal + '</p>' + '<p class="detail">' + data.lists[i].feename + '</p>' + '</h3>' + '<div class="pull-right">' + '<span class="date">' + data.lists[i].date + '</span>' + '</div>' + '</div>';
+                        if ((i + 1) >= data.lists.length) {
+                            // 锁定
+                            me.lock();
+                            // 无数据
+                            me.noData();
+                            break;
+                        }
                     }
-                });
-            },
-            threshold : 50
-        });
+                    // 为了测试，延迟1秒加载
+                    setTimeout(function() {
+                        $('.lists').append(result);
+                        // 每次数据加载完，必须重置
+                        me.resetload();
+                    }, 500);
+                },
+                error: function(xhr, type) {
+                    alert('加载出错');
+                    // 即使加载出错，也得重置
+                    me.resetload();
+                }
+            });
+        },
+        threshold: 50
     });
-
+});
 </script>
 
 </html>

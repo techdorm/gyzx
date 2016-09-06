@@ -58,12 +58,18 @@ table {
 .ks-clear, .clear {
   *zoom: 1; }
 
-a, a:active, a:hover {
+a,
+a:active,
+a:hover {
   outline: 0;
   text-decoration: none; }
 
-html, body {
+html,
+body {
   height: 100%; }
+
+body {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif; }
 
 /*basic css*/
 #container {
@@ -127,14 +133,12 @@ img {
   float: left; }
 
 .content {
-  /* position: fixed;*/
   z-index: 1000;
-  /*  top: 80px;
-    right: 0;*/
   left: 0;
   background-color: #FFF;
   padding-bottom: 40px;
-  margin-top: 10px; }
+  margin-top: 10px;
+  border-top: 1px solid #ddd; }
   .content .item {
     display: -webkit-box;
     display: -webkit-flex;
@@ -149,11 +153,17 @@ img {
     border-bottom: 1px solid #ddd;
     color: #333;
     text-decoration: none; }
-    .content .item img {
-      display: block;
+    .content .item .icon-span {
+      padding-left: 7px;
+      font-size: 13px;
       width: 40px;
-      height: 40px;
-      border: 1px solid #ddd; }
+      height: 40px; }
+      .content .item .icon-span .icon {
+        font-size: 25px;
+        color: #908B8B;
+        -webkit-transition: font-size 0.25s ease-out 0s;
+        -moz-transition: font-size 0.25s ease-out 0s;
+        transition: font-size 0.25s ease-out 0s; }
     .content .item h3 {
       display: block;
       -webkit-box-flex: 1;
@@ -165,14 +175,17 @@ img {
       min-height: 35px;
       overflow: hidden;
       line-height: 20px;
-      /*margin: 0 10px;*/
-      font-size: 1.2rem; }
+      margin: 0 10px;
+      font-size: 2rem; }
+      .content .item h3 .detail {
+        font-size: 1.2rem;
+        color: #908B8B; }
     .content .item .date {
       display: block;
       height: 20px;
       line-height: 20px;
       color: #999;
-      margin-bottom: -40px; }
+      font-size: 14px; }
 
 .opacity {
   -webkit-animation: opacity 0.3s linear;
