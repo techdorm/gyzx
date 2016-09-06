@@ -26,10 +26,10 @@
     </div>
     <div class="now">
         <div class="panel panel-default">
-            <div class="panel-heading"><span class="month">04</span>/<span class="year">2016</span>
-                <span id="calender">
+            <div class="panel-heading"><span class="month" id="month"></span>/<span class="year" id="year"></span>
+               <!--  <span id="calender">
                <i class="fa fa-calendar pull-right" aria-hidden="true" data-event="test"></i>
-               </span>
+               </span> -->
             </div>
         </div>
     </div>
@@ -76,15 +76,80 @@
                 </h3>
                 <div class="pull-right"> <span class="date">2014-14-14</span></div>
             </div>
+            <div class="item">
+                <span class="icon-span"> <i class="icon iconfont" style="color:#FF59E9">&#xe602</i></span>
+                <h3>
+                    <p class="expense">-8.00</p>
+                    <p class="detail">其他</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
+            <div class="item">
+                <span class="icon-span"> <i class="icon iconfont" style="color:#54CC7F">&#xe601</i></span>
+                <h3>
+                    <p class="expense">-8.00</p>
+                    <p class="detail">维修费</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
+            <div class="item">
+                <span class="icon-span"> <i class="icon iconfont" style="color:#FF59E9">&#xe602</i></span>
+                <h3>
+                    <p class="expense">-8.00</p>
+                    <p class="detail">其他</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
+            <div class="item">
+                <span class="icon-span"> <i class="icon iconfont" style="color:#54CC7F">&#xe601</i></span>
+                <h3>
+                    <p class="expense">-8.00</p>
+                    <p class="detail">维修费</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
+            <div class="item">
+                <span class="icon-span"> <i class="icon iconfont" style="color:#FF59E9">&#xe602</i></span>
+                <h3>
+                    <p class="expense">-8.00</p>
+                    <p class="detail">其他</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
+            <div class="item">
+                <span class="icon-span"> <i class="icon iconfont" style="color:#54CC7F">&#xe601</i></span>
+                <h3>
+                    <p class="expense">-8.00</p>
+                    <p class="detail">维修费</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
+            <div class="item">
+                <span class="icon-span"> <i class="icon iconfont" style="color:#FF59E9">&#xe602</i></span>
+                <h3>
+                    <p class="expense">-8.00</p>
+                    <p class="detail">其他</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
+            <div class="item">
+                <span class="icon-span"> <i class="icon iconfont" style="color:#54CC7F">&#xe601</i></span>
+                <h3>
+                    <p class="expense">-8.00</p>
+                    <p class="detail">维修费</p>
+                </h3>
+                <div class="pull-right"> <span class="date">2014-14-14</span></div>
+            </div>
         </div>
     </div>
     <script type="text/javascript">
+    $('#month').html(new Date().getMonth());
+    $('#year').html(new Date().getFullYear());
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom);
     var app = {};
     option = null;
     option = {
-
         tooltip: {
             trigger: 'axis'
         },
@@ -96,7 +161,6 @@
             left: '1%',
             top: '15%',
             right: '5%',
-
             containLabel: true
         },
         calculable: true,
@@ -109,7 +173,6 @@
             end: 100
         },
         color: ['#009EFF'],
-
         xAxis: [{
             type: 'category',
             boundaryGap: false,
@@ -146,30 +209,27 @@
             data: [820, 932, 901, 934, 1290, 460, 762, 681]
         }]
     };
-
     myChart.setOption(option, true);
     </script>
     <script type="text/javascript">
-    $('i[data-event=test]').on('click', function() {
-        var d = dialog({
-            title: '请选择月份',
-            content: ' <input id="user_date" class="form-control" type="month">',
-            height: 50,
-            width: 280,
-            okValue: '确 定',
-            ok: function() {
-
-                var x = $("#user_date").val();
-                $(".month")[0].innerText = x[5] + x[6];
-                $(".year")[0].innerText = x[0] + x[1] + x[2] + x[3];
-                // d.close().remove();
-
-            },
-            cancelValue: '取消',
-            cancel: function() {}
-        });
-        d.showModal();
-    });
+    // $('i[data-event=test]').on('click', function() {
+    //     var d = dialog({
+    //         title: '请选择月份',
+    //         content: ' <input id="user_date" class="form-control" type="month">',
+    //         height: 50,
+    //         width: 280,
+    //         okValue: '确 定',
+    //         ok: function() {
+    //             var x = $("#user_date").val();
+    //             $(".month")[0].innerText = x[5] + x[6];
+    //             $(".year")[0].innerText = x[0] + x[1] + x[2] + x[3];
+    //             // d.close().remove();
+    //         },
+    //         cancelValue: '取消',
+    //         cancel: function() {}
+    //     });
+    //     d.showModal();
+    // });
     </script>
 </body>
 <script src="static/js/dropload.js"></script>
@@ -182,47 +242,46 @@ $(function() {
         pageEnd = 0;
     var type = ['&#xe604', '&#xe603', '&#xe609', '&#xe601', '&#xe60a', '&#xe600', '&#xe605', '&#xe607', '&#xe608', '&#xe606', '&#xe602'];
     var color = ['#F9664C', '#FFB543', '#66CCFF', '#54CC7F', '#44AEE2', '#F7A945', '#4FC185', '#F3A42B', '#8C5AC1', '#F32B2B', '#FF59E9']
-
     // dropload
     $('.content').dropload({
         scrollArea: window,
-        domUp: {
-            domClass: 'dropload-up',
-            domRefresh: '<div class="dropload-refresh">↓下拉刷新</div>',
-            domUpdate: '<div class="dropload-update">↑释放更新</div>',
-            domLoad: '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
-        },
+        // domUp: {
+        //     domClass: 'dropload-up',
+        //     domRefresh: '<div class="dropload-refresh">↓下拉刷新</div>',
+        //     domUpdate: '<div class="dropload-update">↑释放更新</div>',
+        //     domLoad: '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
+        // },
         domDown: {
             domClass: 'dropload-down',
             domRefresh: '<div class="dropload-refresh">↑上拉加载更多</div>',
             domLoad: '<div class="dropload-load"><span class="loading"></span>拼命加载中...</div>',
             domNoData: '<div class="dropload-noData">暂无数据</div>'
         },
-        loadUpFn: function(me) {
-            $.ajax({
-                type: 'GET',
-                url: 'static/json/card.json',
-                dataType: 'json',
-                success: function(data) {
-                    console.log("success");
-                    var result = '';
-                    for (var i = 0; i < data.lists.length; i++) {
-                        result += '<div class="item">' + '<span class="icon-span">' + '<i class="icon iconfont">' + type[data.lists[i].feetype - 1] + '</i>' + '</span>' + '<h3>' + '<p class="expense">' + data.lists[i].mondeal + '</p>' + '<p class="detail">' + data.lists[i].feename + '</p>' + '</h3>' + '<div class="pull-right">' + '<span class="date">' + data.lists[i].date + '</span>' + '</div>' + '</div>';
-                    }
-                    // 为了测试，延迟1秒加载
-                    setTimeout(function() {
-                        $('.lists').html(result);
-                        // 每次数据加载完，必须重置
-                        me.resetload();
-                    }, 500);
-                },
-                error: function(xhr, type) {
-                    alert('加载出错');
-                    // 即使加载出错，也得重置
-                    me.resetload();
-                }
-            });
-        },
+        // loadUpFn: function(me) {
+        //     $.ajax({
+        //         type: 'GET',
+        //         url: 'static/json/card.json',
+        //         dataType: 'json',
+        //         success: function(data) {
+        //             console.log("success");
+        //             var result = '';
+        //             for (var i = 0; i < data.lists.length; i++) {
+        //                 result += '<div class="item">' + '<span class="icon-span">' + '<i class="icon iconfont">' + type[data.lists[i].feetype - 1] + '</i>' + '</span>' + '<h3>' + '<p class="expense">' + data.lists[i].mondeal + '</p>' + '<p class="detail">' + data.lists[i].feename + '</p>' + '</h3>' + '<div class="pull-right">' + '<span class="date">' + data.lists[i].date + '</span>' + '</div>' + '</div>';
+        //             }
+        //             // 为了测试，延迟1秒加载
+        //             setTimeout(function() {
+        //                 $('.lists').html(result);
+        //                 // 每次数据加载完，必须重置
+        //                 me.resetload();
+        //             }, 500);
+        //         },
+        //         error: function(xhr, type) {
+        //             alert('加载出错');
+        //             // 即使加载出错，也得重置
+        //             me.resetload();
+        //         }
+        //     });
+        // },
         loadDownFn: function(me) {
             $.ajax({
                 type: 'GET',

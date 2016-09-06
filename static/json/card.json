@@ -1,72 +1,85 @@
 {
-    "week":[320, 332, 301, 334, 390,320, 332, 301, 334, 390, 330, 320],
-    "lists":[
+  "lists": [
+    
         {
-            "feetype":"1",
-            "mondeal":"-5.50",
-            "feename":"食堂",
-            "date":"2015-12-02"
+          "date": "2015-12-02",
+          "feename": "食堂",
+          "feetype": "1",
+          "mondeal": "-5.50"
         },
         {
-            "feetype":"2",
-            "mondeal":"-32.83",
-            "feename":"超市",
-            "date":"2015-12-01"
+          "date": "2015-12-01",
+          "feename": "超市",
+          "feetype": "2",
+          "mondeal": "-32.83"
         },
         {
-            "feetype":"3",
-            "mondeal":"-8.00",
-            "feename":"桶装水",
-            "date":"2015-12-04"
+          "date": "2015-12-04",
+          "feename": "桶装水",
+          "feetype": "3",
+          "mondeal": "-8.00"
         },
         {
-            "feetype":"4",
-            "mondeal":"-10.00",
-            "feename":"维修",
-            "date":"2015-12-05"
-        },
-        { 
-            "feetype":"5",
-            "mondeal":"-32.83",
-            "feename":"水费",
-            "date":"2015-12-06"
+          "date": "2015-12-05",
+          "feename": "维修",
+          "feetype": "4",
+          "mondeal": "-10.00"
         },
         {
-            "feetype":"6",
-            "mondeal":"-100.83",
-            "feename":"电费",
-            "date":"2015-12-07"
+          "date": "2015-12-06",
+          "feename": "水费",
+          "feetype": "5",
+          "mondeal": "-32.83"
         },
         {
-            "feetype":"7",
-            "mondeal":"-32.83",
-            "feename":"图书馆",
-            "date":"2015-12-08"
+          "date": "2015-12-07",
+          "feename": "电费",
+          "feetype": "6",
+          "mondeal": "-100.83"
         },
         {
-            "feetype":"8",
-            "mondeal":"-32.83",
-            "feename":"校医院",
-            "date":"2015-12-09"
+          "date": "2015-12-08",
+          "feename": "图书馆",
+          "feetype": "7",
+          "mondeal": "-32.83"
         },
         {
-            "feetype":"9",
-            "mondeal":"-32.83",
-            "feename":"考试四六级",
-            "date":"2015-12-10"
+          "date": "2015-12-09",
+          "feename": "校医院",
+          "feetype": "8",
+          "mondeal": "-32.83"
         },
         {
-            "feetype":"10",
-            "mondeal":"-32.83",
-            "feename":"医疗保险",
-            "date":"2015-12-11"
+          "date": "2015-12-10",
+          "feename": "考试四六级",
+          "feetype": "9",
+          "mondeal": "-32.83"
         },
         {
-            "feetype":"11",
-            "mondeal":"-32.83",
-            "feename":"其他",
-            "date":"2015-12-12"
+          "date": "2015-12-11",
+          "feename": "医疗保险",
+          "feetype": "10",
+          "mondeal": "-32.83"
+        },
+        {
+          "date": "2015-12-12",
+          "feename": "其他",
+          "feetype": "11",
+          "mondeal": "-32.83"
         }
-        
-    ]
+      ] ,
+  "week": [
+    320,
+    332,
+    301,
+    334,
+    390,
+    320,
+    332,
+    301,
+    334,
+    390,
+    330,
+    320
+  ]
 }
