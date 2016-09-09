@@ -10,13 +10,23 @@ body {
   font-size: 14px;
   height: 100%;
   line-height: 1.42857143;
-  color: #333; }
+  color: #333;
+  background-color: rgba(216, 216, 216, 0.5); }
 
 a {
   text-decoration: none; }
 
 .btn-default {
   font-size: 50%; }
+
+.border {
+  position: relative;
+  left: 50%;
+  top: 0;
+  width: 40px;
+  border-top: 4px solid;
+  margin-left: -20px;
+  margin-top: 10px; }
 
 .header {
   position: fixed;
@@ -55,18 +65,11 @@ a {
 .funct {
   padding-top: 45px; }
 
-.pd-img {
-  margin-bottom: 5px;
-  margin-top: 5px;
-  width: 90px;
-  height: 90px; }
+.col-xs-6, .col-xs-12 {
+  padding: 0; }
 
-.col-md-6 {
-  height: 170px;
-  font-size: 40px;
-  margin-top: 15px;
-  width: 45%; }
-
-.div1, .div3, .div5 {
-  margin-left: 4%;
-  margin-right: 2%; }
+.pd-item-name {
+  line-height: 4;
+  text-align: center; }
+  .pd-item-name .iconfont {
+    font-size: 2em; }
