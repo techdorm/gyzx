@@ -52,7 +52,18 @@ body {
             font-size: 2.5em;
         }
     }
-    .navbar-left>* {
+    .navbar-right{
+        float: right;
+        color: #fff;
+        .lost{
+            margin:4px; 
+            background-color: #45A673; 
+            border-color: #45A673;
+            outline:none;
+            font-size:16px
+        }
+    }
+    .navbar-left>* ,navbar-right>*{
         display: table-cell;
         height: 45px;
         padding-right: 10px;

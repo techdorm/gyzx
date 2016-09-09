@@ -23,6 +23,10 @@
             <a href="index.html"><i class="fa fa-angle-left back"></i></a>
         </div>
         <h1>一卡通详情</h1>
+        <div class="navbar-right">
+            <button  id="lost"  class="btn btn-primary" style="margin:4px; background-color: #45A673; border-color: #45A673;outline:none;font-size:16px">挂失</button>
+        </div>
+        
     </div>
     <div class="now">
         <div class="panel panel-default">
@@ -145,7 +149,9 @@
     <script type="text/javascript">
     $('#month').html(new Date().getMonth()+1);
     $('#year').html(new Date().getFullYear());
-   
+    $('#lost').click(function(event) {
+        confirm("确定要挂失么？");
+    });
     
     
     var dom = document.getElementById("container");
