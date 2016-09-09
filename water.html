@@ -148,7 +148,7 @@
 
     <div id="container"></div>
     <div class="exam-footer">
-    <a type="btn" href="pay.html" id="exam-button" class="btn">充值</a>
+    <a type="btn" href="pay.html" id="exam-button" class="btn">缴费</a>
     </div>
     
 
@@ -171,26 +171,27 @@
         containLabel: true
     },
     calculable : true,
-    dataZoom : {
-        show : true,
-        realtime : true,
-        fillerColor:'rgba(128, 184, 226, 0.3)',
-        start : 60,
-        end : 100
-    },
+    // dataZoom : {
+    //     show : true,
+    //     realtime : true,
+    //     fillerColor:'rgba(128, 184, 226, 0.3)',
+    //     start : 60,
+    //     end : 100
+    // },
     color:['#009EFF','#EF6612'],
 
     xAxis : [
         {
             type : 'category',
             boundaryGap : false,
-            data : function (){
-                var list = [];
-                for (var i = 1; i <= 12; i++) {
-                    list.push(i+'月份');
-                }
-                return list;
-            }()
+            // data : function (){
+            //     var list = [];
+            //     for (var i = 1; i <= 12; i++) {
+            //         list.push(i+'月份');
+            //     }
+            //     return list;
+            // }()
+            data:['1月','2月','3月','4月','5月','6月']
         }
     ],
     yAxis : [
