@@ -229,11 +229,17 @@
                          $('.artdia').on('click', function () {
                           var x = dialog({
                             title: '备注',
-                            content: '<img src="" style="width:250px;" id="photo" alt="" />'+'<div>'+'<div class="notes">'+'</div>'+'</div>',
+                            content: '<img  style="width:250px;" id="photo" alt="" />'+'<div>'+'<div class="notes">'+'</div>'+'</div>',
+                             width: 250,
                             cancelValue: '关闭',
                             cancel: function () {}
                          });
-                        $("#photo").attr("src",picurl);
+                      
+                        if(picurl){
+                            $("#photo").attr("src",picurl);
+                          }else{
+                             $("#photo").attr("src","static/images/nopic.jpg");
+                          }
                         $('.notes')[0].innerHTML=result.data[0].week[0].notes;
                         x.showModal();
                       });
@@ -303,7 +309,12 @@
                           myChart.setOption(option);
 
                          $('.artdia').on('click', function () {
+                          if(picurl){
                             $("#photo").attr("src",picurl);
+                          }else{
+                             $("#photo").attr("src","static/images/nopic.jpg");
+                          }
+                            
                             $('.notes')[0].innerHTML=result.data[nowmonth+1-m].week[y-1].notes;
                           });
                       }

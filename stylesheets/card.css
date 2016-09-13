@@ -169,7 +169,6 @@ img {
       height: 40px; }
       .content .item .icon-span .icon {
         font-size: 25px;
-        color: #908B8B;
         -webkit-transition: font-size 0.25s ease-out 0s;
         -moz-transition: font-size 0.25s ease-out 0s;
         transition: font-size 0.25s ease-out 0s; }
