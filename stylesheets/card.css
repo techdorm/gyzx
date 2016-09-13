@@ -120,8 +120,14 @@ body {
 
 .now {
   padding-top: 45px; }
-  .now .month {
-    font-size: 2rem; }
+  .now .demo-main-cont {
+    height: 100%; }
+  .now .demo-credit {
+    font-size: 18px;
+    width: 80%;
+    background-color: transparent;
+    text-decoration: none;
+    border: none; }
   .now .fa-calendar {
     padding-top: 4px;
     color: #949594;
@@ -172,6 +178,28 @@ img {
         -webkit-transition: font-size 0.25s ease-out 0s;
         -moz-transition: font-size 0.25s ease-out 0s;
         transition: font-size 0.25s ease-out 0s; }
+      .content .item .icon-span .icon-restaurant {
+        color: #F9664C; }
+      .content .item .icon-span .icon-supermarke {
+        color: #FFB543; }
+      .content .item .icon-span .icon-tongzhuangshui {
+        color: #66CCFF; }
+      .content .item .icon-span .icon-weixiu {
+        color: #54CC7F; }
+      .content .item .icon-span .icon-shuifei {
+        color: #44AEE2; }
+      .content .item .icon-span .icon-dianfei {
+        color: #F7A945; }
+      .content .item .icon-span .icon-tushu {
+        color: #4FC185; }
+      .content .item .icon-span .icon-yiyuan {
+        color: #F3A42B; }
+      .content .item .icon-span .icon-kaoshi {
+        color: #8C5AC1; }
+      .content .item .icon-span .icon-baoxian {
+        color: #F32B2B; }
+      .content .item .icon-span .icon-qita {
+        color: #FF59E9; }
     .content .item h3 {
       display: block;
       -webkit-box-flex: 1;

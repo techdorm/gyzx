@@ -74,8 +74,17 @@ body {
 
 .now {
     padding-top: 45px;
-    .month {
-        font-size: 2rem;
+     .demo-main-cont {
+            height: 100%;
+        }
+        
+        
+    .demo-credit  {
+        font-size: 18px;
+        width: 80%;
+        background-color: transparent;
+        text-decoration: none;
+        border:none;
     }
     .fa-calendar {
         padding-top: 4px;
@@ -132,6 +141,17 @@ img {
                 -moz-transition: font-size 0.25s ease-out 0s;
                 transition: font-size 0.25s ease-out 0s;
             }
+               .icon-restaurant{color:#F9664C;}
+               .icon-supermarke{color:#FFB543;}
+               .icon-tongzhuangshui{color:#66CCFF;}
+               .icon-weixiu{color:#54CC7F;}
+               .icon-shuifei{color:#44AEE2;}
+               .icon-dianfei{color:#F7A945;}
+               .icon-tushu{color:#4FC185;}
+               .icon-yiyuan{color:#F3A42B;}
+               .icon-kaoshi{color:#8C5AC1;}
+               .icon-baoxian{color:#F32B2B;}
+               .icon-qita{color:#FF59E9;}
         }
         h3 {
             display: block;

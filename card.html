@@ -10,24 +10,12 @@
     <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/card.css">
     <link rel="stylesheet" type="text/css" href="static/css/dropload.css">
-    <link rel="stylesheet" href="static/css/ui-dialog.css">
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1473158057_610199.css">
     <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/dialog-min.js"></script>
     <script src="static/js/echart/echarts.min.js"></script>
-    <style type="text/css">
-       .icon-restaurant{color:#F9664C;}
-       .icon-supermarke{color:#FFB543;}
-       .icon-tongzhuangshui{color:#66CCFF;}
-       .icon-weixiu{color:#54CC7F;}
-       .icon-shuifei{color:#44AEE2;}
-       .icon-dianfei{color:#F7A945;}
-       .icon-tushu{color:#4FC185;}
-       .icon-yiyuan{color:#F3A42B;}
-       .icon-kaoshi{color:#8C5AC1;}
-       .icon-baoxian{color:#F32B2B;}
-       .icon-qita{color:#FF59E9;}
-    </style>
+    <link href="static/plugin/mobiscroll/css/mobiscroll.custom-3.0.0-beta4.min.css" rel="stylesheet" type="text/css" />
+    <script src="static/plugin/mobiscroll/js/mobiscroll.custom-3.0.0-beta4.min.js" type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -43,10 +31,14 @@
     </div>
     <div class="now">
         <div class="panel panel-default">
-            <div class="panel-heading"><span class="month" id="month"></span>/<span class="year" id="year"></span>
-               <!--  <span id="calender">
+            <div class="panel-heading">
+            <span class="demo-main-cont demo-comp-datetime demo-display-bottom demo-theme-mobiscroll">
+                    <input id="demo" class="demo-credit" placeholder="2016/9"/>  
+           
+            </span>
+                <span id="calender">
                <i class="fa fa-calendar pull-right" aria-hidden="true" data-event="test"></i>
-               </span> -->
+               </span>
             </div>
         </div>
     </div>
@@ -129,32 +121,12 @@
             right: '5%',
             containLabel: true
         },
-        calculable: true,
-        dataZoom: {
-            show: true,
-            realtime: true,
-            fillerColor: 'rgba(128, 184, 226, 0.3)',
-            handleColor: '#008ACD',
-            start: 30,
-            end: 80
-        },
+       
         color: ['#009EFF'],
         xAxis: [{
             type: 'category',
             boundaryGap: false,
-            data: function() {
-                var list = [];
-                var getmonth = new Date().getMonth();
-                for (var i = 1; i <= 4; i++) {
-                    if (getmonth == 0)
-                        getmonth = 12;
-                    list.push(getmonth + '月第' + i + '周');
-                }
-                for (var i = 1; i <= 4; i++) {
-                    list.push((getmonth + 12) % 12 + 1 + '月第' + i + '周');
-                }
-                return list;
-            }()
+            data:['前7周','前6周','前5周','前4周','前3周','前2周','前1周','']
         }],
         yAxis: [{
             type: 'value'
@@ -189,24 +161,30 @@
   
     </script>
     <script type="text/javascript">
-    // $('i[data-event=test]').on('click', function() {
-    //     var d = dialog({
-    //         title: '请选择月份',
-    //         content: ' <input id="user_date" class="form-control" type="month">',
-    //         height: 50,
-    //         width: 280,
-    //         okValue: '确 定',
-    //         ok: function() {
-    //             var x = $("#user_date").val();
-    //             $(".month")[0].innerText = x[5] + x[6];
-    //             $(".year")[0].innerText = x[0] + x[1] + x[2] + x[3];
-    //             // d.close().remove();
-    //         },
-    //         cancelValue: '取消',
-    //         cancel: function() {}
-    //     });
-    //     d.showModal();
-    // });
+
+      $(function () {
+    
+        // var now = new Date(),
+        //     until = new Date(now.getFullYear(), now.getMonth());
+          var start=new Date();
+            var now = new Date(start.getFullYear(),start.getMonth()-2),
+            until = new Date();
+    
+        // Mobiscroll Date & Time initialization
+        $('#calender').click(function(){
+            $('#demo').mobiscroll().date({ 
+                theme: 'ios',  // Specify theme like: theme: 'ios' or omit setting to use default
+                lang: 'zh',           // Specify language like: lang: 'pl' or omit setting to use default
+                display: 'bottom',    // Specify display mode like: display: 'bottom' or omit setting to use default
+                dateWheels: 'yymm',   // More info about dateWheels: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateWheels
+                dateFormat: 'yy/m',  // More info about dateFormat: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateFormat
+                min: now,             // More info about min: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-min
+                minWidth: 100,        // More info about minWidth: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-minWidth
+                max: until            // More info about max: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-max
+            });
+        });
+    
+    });
     </script>
 </body>
 <script src="static/js/dropload.js"></script>
