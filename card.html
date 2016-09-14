@@ -33,7 +33,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
             <span class="demo-main-cont demo-comp-datetime demo-display-bottom demo-theme-mobiscroll">
-                    <input id="demo" class="demo-credit" placeholder="2016/9"/>  
+                    <input id="demo" style="ime-mode: disabled" onfocus="this.blur();" class="demo-credit" placeholder="2016/9" />  
            
             </span>
                 <span id="calender">
@@ -126,7 +126,7 @@
         xAxis: [{
             type: 'category',
             boundaryGap: false,
-            data:['前7周','前6周','前5周','前4周','前3周','前2周','前1周','']
+            data:['前7周','前6周','前5周','前4周','前3周','前2周','前1周','本周']
         }],
         yAxis: [{
             type: 'value'
@@ -171,7 +171,7 @@
             until = new Date();
     
         // Mobiscroll Date & Time initialization
-        $('#calender').click(function(){
+       
             $('#demo').mobiscroll().date({ 
                 theme: 'ios',  // Specify theme like: theme: 'ios' or omit setting to use default
                 lang: 'zh',           // Specify language like: lang: 'pl' or omit setting to use default
@@ -183,8 +183,9 @@
                 max: until            // More info about max: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-max
             });
         });
-    
-    });
+       $('#calender').click(function(){ 
+            alert('sucess');
+         });
     </script>
 </body>
 <script src="static/js/dropload.js"></script>
