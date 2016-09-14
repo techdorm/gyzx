@@ -8,11 +8,13 @@
      <title>水电费</title>
     <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/ui-dialog.css">
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/ui-dialog.css"> -->
     <script src="static/js/jquery.min.js"></script>
-     <script src="static/js/dialog-min.js"></script>
+     <!-- <script src="static/js/dialog-min.js"></script> -->
     <script src="static/js/echart/echarts.min.js"></script>
     <script src="static/js/echart/macarons.js"></script>
+    <link href="static/plugin/mobiscroll/css/mobiscroll.custom-3.0.0-beta4.min.css" rel="stylesheet" type="text/css" />
+    <script src="static/plugin/mobiscroll/js/mobiscroll.custom-3.0.0-beta4.min.js" type="text/javascript"></script>
 <style type="text/css">
     /* ------------------------------------------
       RESET  
@@ -71,20 +73,9 @@
     vertical-align: middle; }
 
     .now {
-    padding-top: 45px; 
+    margin-top: 45px; 
     }
-    .now .panel{
-      margin-bottom: 0;
-    }
-    .now .month ,.now .year{
-    font-size: 2rem; }
-    .now .fa-calendar {
-    color: #949594;
-    display: table-cell;
-    height: 45px;
-    padding-left: 10px;
-    vertical-align: middle;
-    font-size: 2em; }
+   
 
     .panel-body{
      padding:5px 15px;
@@ -111,6 +102,27 @@
         background-color: #45A673;
         color:#FFF;
     }
+      .demo-main-cont {
+            height: 100%;
+        }
+        
+        
+    .demo-credit  {
+        font-size: 18px;
+        width: 80%;
+        background-color: transparent;
+        text-decoration: none;
+        border:none;
+        color:#333;
+    }
+    .fa-calendar {
+        color: #949594;
+        display: table-cell;
+        padding-left: 10px;
+        vertical-align: middle;
+        font-size: 2em;
+}
+
 
 </style>
 
@@ -124,21 +136,24 @@
         <h1>水电费</h1>
     </div>
      <div class="now"> 
-      <div class="panel panel-default">
-          <div class="panel-heading"><span class="year">2016</span>/<span class="month">4</span>
-               <span id="calender">
-               <i class="fa fa-calendar pull-right" aria-hidden="true" data-event="test"></i>
-               </span>
-          </div>
+      <div class=" panel-default">
+          <div class="panel-heading">
+                <span class="demo-main-cont demo-comp-datetime demo-display-bottom demo-theme-mobiscroll">
+                        <input id="demo" style="ime-mode: disabled" onfocus="this.blur();" class="demo-credit" placeholder="2016/9" val="" />  
+               
+                </span>
+                <span id="calender">
+                        <i class="fa fa-calendar pull-right" aria-hidden="true" data-event="test"></i>
+                </span>
+            </div>
       </div>
     </div>
     <div class="panel">
         <div class="panel-body">
-          <div class="water">
-            <span >水费</span>
-                <div class="pull-right sum">￥24.28</div>
-              </div>
-              <hr/>
+              <div class="water">
+                  <span >水费</span>
+                  <div class="pull-right sum">￥24.28</div> 
+               </div>
               <div class="electric">
                  <span>电费</span>
                  <div class="pull-right sum">￥174.28</div>
@@ -171,27 +186,13 @@
         containLabel: true
     },
     calculable : true,
-    // dataZoom : {
-    //     show : true,
-    //     realtime : true,
-    //     fillerColor:'rgba(128, 184, 226, 0.3)',
-    //     start : 60,
-    //     end : 100
-    // },
     color:['#009EFF','#EF6612'],
 
     xAxis : [
         {
             type : 'category',
             boundaryGap : false,
-            // data : function (){
-            //     var list = [];
-            //     for (var i = 1; i <= 12; i++) {
-            //         list.push(i+'月份');
-            //     }
-            //     return list;
-            // }()
-            data:['1月','2月','3月','4月','5月','6月']
+            data:['1月','2月','3月','4月','5月','本月']
         }
     ],
     yAxis : [
@@ -214,7 +215,7 @@
                     console.log("success");
 
                       if(result.status==200){
-                          option.series = [result.month[0].one[0],result.month[0].one[1]];
+                          option.series = [result.detail[0],result.detail[1]];
                           console.log(option.series);
                           myChart.hideLoading();
                           myChart.setOption(option);
@@ -230,50 +231,29 @@
     }); 
     </script>
       <script type="text/javascript">
+      $(function () {
+    
+      var start=new Date();
+      var now = new Date(start.getFullYear(),start.getMonth()-6),
+        until = new Date();
+            $('#demo').mobiscroll().date({ 
+                theme: 'ios',  // Specify theme like: theme: 'ios' or omit setting to use default
+                lang: 'zh',           // Specify language like: lang: 'pl' or omit setting to use default
+                display: 'bottom',    // Specify display mode like: display: 'bottom' or omit setting to use default
+                dateWheels: 'yymm',   // More info about dateWheels: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateWheels
+                dateFormat: 'yy/mm',  // More info about dateFormat: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateFormat
+                min: now,             // More info about min: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-min
+                minWidth: 130,        // More info about minWidth: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-minWidth
+                max: until            // More info about max: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-max
+            });
+    });
+
       $('i[data-event=test]').on('click', function () {
-        var d = dialog({
-         title: '请选择月份',
-          content: ' <input id="user_date" class="form-control" type="month"/>',
-          height: 100,
-          width: 280, 
-          okValue: '确 定',
-          ok: function () {
-            var x=$("#user_date").val();
-            console.log(x);
-            $(".month")[0].innerText=x[5]+x[6];
-            $(".year")[0].innerText=x[0]+x[1]+x[2]+x[3]; 
-            // d.close().remove();
-            CheckMessage=function(){
-              $.ajax({
-                  type: "GET",
-                  async: false,
-                  url: 'static/json/water.json',
-                  dataType: "json",
-                  success: function (result) {
-                     console.log("success");
-                      if(result.status ==200){
-
-                          option.series = [result.month[1].two[0],result.month[1].two[1]];
-
-
-                          myChart.hideLoading();
-                          myChart.setOption(option);
-                      }
-                  },
-                  error: function (errorMsg) {
-                    alert("数据加载失败，请刷新")
-                  }
-              });
-            } 
-            CheckMessage();
-
-          },
-          cancelValue: '取 消',
-          cancel: function () {}
-        });
-
-        d.showModal();
+         $('#demo').mobiscroll('show');
       });
 
     </script>
 </body>
+
+
+ 

@@ -1,8 +1,6 @@
 {
     "status":200,
-    "month":[
-    {
-        "one":[
+    "detail":[
         {
             "name":"水费",
             "type":"line",
@@ -17,23 +15,5 @@
             "label": { "normal": {"show": true,"position": "top" }},
             "data":[530, 532, 501, 541, 591,221]
         }]
-    },
-    {
-        "two":[
-        {
-            "name":"水费",
-            "type":"line",
-            "stack": "总量",
-            "label": { "normal": {"show": true,"position": "top" }},
-            "data":[820, 932, 901, 934, 1290,460]
-        },
-        {
-            "name":"电费",
-            "type":"line",
-            "stack": "总量",
-            "label": { "normal": {"show": true,"position": "top" }},
-            "data":[8120, 932, 901, 934, 1290,460]
-        }]
-    }
-]
 }
+

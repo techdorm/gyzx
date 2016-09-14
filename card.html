@@ -32,13 +32,13 @@
     <div class="now">
         <div class="panel panel-default">
             <div class="panel-heading">
-            <span class="demo-main-cont demo-comp-datetime demo-display-bottom demo-theme-mobiscroll">
-                    <input id="demo" style="ime-mode: disabled" onfocus="this.blur();" class="demo-credit" placeholder="2016/9" />  
-           
-            </span>
+                <span class="demo-main-cont demo-comp-datetime demo-display-bottom demo-theme-mobiscroll">
+                        <input id="demo" style="ime-mode: disabled" onfocus="this.blur();" class="demo-credit" placeholder="2016/9/14" val="" />  
+               
+                </span>
                 <span id="calender">
-               <i class="fa fa-calendar pull-right" aria-hidden="true" data-event="test"></i>
-               </span>
+                        <i class="fa fa-calendar pull-right" aria-hidden="true" data-event="test"></i>
+                </span>
             </div>
         </div>
     </div>
@@ -162,13 +162,13 @@
     </script>
     <script type="text/javascript">
 
-      $(function () {
+    $(function () {
     
         // var now = new Date(),
         //     until = new Date(now.getFullYear(), now.getMonth());
-          var start=new Date();
-            var now = new Date(start.getFullYear(),start.getMonth()-2),
-            until = new Date();
+      var start=new Date();
+      var now = new Date(start.getFullYear(),start.getMonth()-2,start.getDate()),
+        until = new Date();
     
         // Mobiscroll Date & Time initialization
        
@@ -176,15 +176,15 @@
                 theme: 'ios',  // Specify theme like: theme: 'ios' or omit setting to use default
                 lang: 'zh',           // Specify language like: lang: 'pl' or omit setting to use default
                 display: 'bottom',    // Specify display mode like: display: 'bottom' or omit setting to use default
-                dateWheels: 'yymm',   // More info about dateWheels: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateWheels
-                dateFormat: 'yy/m',  // More info about dateFormat: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateFormat
+                dateWheels: 'yymmdd',   // More info about dateWheels: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateWheels
+                dateFormat: 'yy/mm/dd',  // More info about dateFormat: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateFormat
                 min: now,             // More info about min: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-min
                 minWidth: 100,        // More info about minWidth: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-minWidth
                 max: until            // More info about max: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-max
             });
-        });
+    });
        $('#calender').click(function(){ 
-            alert('sucess');
+             $('#demo').mobiscroll('show');
          });
     </script>
 </body>
