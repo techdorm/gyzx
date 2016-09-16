@@ -11,11 +11,21 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/card.css">
     <link rel="stylesheet" type="text/css" href="static/css/dropload.css">
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1474008289_4628677.css">
+    <link rel="stylesheet" type="text/css" href="static/css/ui-dialog.css">
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/echart/echarts.min.js"></script>
+    <script src="static/js/dialog-min.js"></script>
     <link href="static/plugin/mobiscroll/css/mobiscroll.custom-3.0.0-beta4.min.css" rel="stylesheet" type="text/css" />
     <script src="static/plugin/mobiscroll/js/mobiscroll.custom-3.0.0-beta4.min.js" type="text/javascript"></script>
-
+    <style type="text/css">
+        .required {
+        border: solid 1px #f00;
+    }
+       #password{
+        width: 100%;
+        } 
+    </style>
+    
 </head>
 
 <body>
@@ -25,7 +35,7 @@
         </div>
         <h1>一卡通详情</h1>
         <div class="navbar-right">
-            <button  id="lost"  class="btn btn-primary lost" >挂失</button>
+            <button  id="lost"  data-event=confirm class="btn btn-primary lost" >挂失</button>
         </div>
         
     </div>
@@ -33,7 +43,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <span class="demo-main-cont demo-comp-datetime demo-display-bottom demo-theme-mobiscroll">
-                        <input id="demo" style="ime-mode: disabled" onfocus="this.blur();" class="demo-credit" placeholder="2016/9/14" val="" />  
+                        <input id="dateselect" style="ime-mode: disabled" onfocus="this.blur();" class="demo-credit" placeholder="2016/9/14" val="" />  
                
                 </span>
                 <span id="calender">
@@ -104,13 +114,8 @@
         </div>
     </div>
     <script type="text/javascript">
-    $('#month').html(new Date().getMonth()+1);
-    $('#year').html(new Date().getFullYear());
-    $('#lost').click(function(event) {
-        confirm("确定要挂失么？");
-    });
-    
-    
+    // $('#month').html(new Date().getMonth()+1);
+    // $('#year').html(new Date().getFullYear());
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom);
     var app = {};
@@ -180,20 +185,75 @@
     
         // Mobiscroll Date & Time initialization
        
-            $('#demo').mobiscroll().date({ 
-                theme: 'ios',  // Specify theme like: theme: 'ios' or omit setting to use default
-                lang: 'zh',           // Specify language like: lang: 'pl' or omit setting to use default
-                display: 'bottom',    // Specify display mode like: display: 'bottom' or omit setting to use default
-                dateWheels: 'yymmdd',   // More info about dateWheels: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateWheels
-                dateFormat: 'yy/mm/dd',  // More info about dateFormat: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateFormat
-                min: now,             // More info about min: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-min
-                minWidth: 100,        // More info about minWidth: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-minWidth
-                max: until            // More info about max: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-max
-            });
+        $('#dateselect').mobiscroll().date({ 
+            theme: 'ios',  // Specify theme like: theme: 'ios' or omit setting to use default
+            lang: 'zh',           // Specify language like: lang: 'pl' or omit setting to use default
+            display: 'bottom',    // Specify display mode like: display: 'bottom' or omit setting to use default
+            dateWheels: 'yymmdd',   // More info about dateWheels: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateWheels
+            dateFormat: 'yy/mm/dd',  // More info about dateFormat: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateFormat
+            min: now,             // More info about min: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-min
+            minWidth: 100,        // More info about minWidth: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-minWidth
+            max: until            // More info about max: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-max 
+        });
     });
-       $('#calender').click(function(){ 
-             $('#demo').mobiscroll('show');
-         });
+    $('#calender').click(function(){ 
+         $('#dateselect').mobiscroll('show');
+    });
+
+
+    var shake = function() {
+            $('input[type="password"]')
+                .animate({
+                    left: "-10px"
+                }, 100).animate({
+                    left: "10px"
+                }, 100)
+                .animate({
+                    left: "-10px"
+                }, 100).animate({
+                    left: "10px"
+                }, 100)
+                .animate({
+                    left: "0px"
+                }, 100)
+                .addClass("required");
+        }
+   
+
+   $('button[data-event=confirm]').on('click', function () {
+        var d = dialog({
+            fixed: true,
+            height: 50,
+            width: 280, 
+            title: '请输入一卡通支付密码',
+            content: '<input type="password" name="password" id="password" class="form-control"  placeholder="输入支付密码">',
+            okValue: '确 定',
+            ok: function () {
+                var that = this;
+                  $('input[type="password"]').removeClass('required');
+                setTimeout(function () {
+                    that.title('密码提交验证中..');
+                     $.post("conform.php",{password: $('#password').val(),},function(data){
+                            if(data.sucess==true)
+                                $('.ui-dialog-title').html('验证成功');
+                            else{
+                                $('.ui-dialog-title').html('验证失败');
+                                $("#password").val("");
+                                shake();
+                            }
+                                
+                      });
+                }, 500);
+                return false;
+            },
+            cancelValue: '取消',
+            cancel: function () {}
+        });
+
+        d.showModal();
+    });
+
+   
     </script>
 </body>
 <script src="static/js/dropload.js"></script>
