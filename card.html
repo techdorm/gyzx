@@ -114,8 +114,6 @@
         </div>
     </div>
     <script type="text/javascript">
-    // $('#month').html(new Date().getMonth()+1);
-    // $('#year').html(new Date().getFullYear());
     var dom = document.getElementById("container");
     var myChart = echarts.init(dom);
     var app = {};
@@ -162,7 +160,7 @@
         }]
     };
 
-     $.ajax({
+    $.ajax({
         url: 'static/json/card.json',
         type: 'GET',
         dataType: 'json',
@@ -173,8 +171,8 @@
     });
   
     </script>
+    <script type="text/javascript" src="static/js/shake.js"></script>
     <script type="text/javascript">
-
     $(function () {
     
         // var now = new Date(),
@@ -193,33 +191,15 @@
             dateFormat: 'yy/mm/dd',  // More info about dateFormat: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!localization-dateFormat
             min: now,             // More info about min: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-min
             minWidth: 100,        // More info about minWidth: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-minWidth
-            max: until            // More info about max: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-max 
+            max: until,          // More info about max: https://docs.mobiscroll.com/3-0-0_beta4/datetime#!opt-max 
+            onClose: function (valueText, inst) {
+                        console.log(valueText);
+                    }
         });
     });
     $('#calender').click(function(){ 
          $('#dateselect').mobiscroll('show');
     });
-
-
-    var shake = function() {
-            $('input[type="password"]')
-                .animate({
-                    left: "-10px"
-                }, 100).animate({
-                    left: "10px"
-                }, 100)
-                .animate({
-                    left: "-10px"
-                }, 100).animate({
-                    left: "10px"
-                }, 100)
-                .animate({
-                    left: "0px"
-                }, 100)
-                .addClass("required");
-        }
-   
-
    $('button[data-event=confirm]').on('click', function () {
         var d = dialog({
             fixed: true,
@@ -239,9 +219,11 @@
                             else{
                                 $('.ui-dialog-title').html('验证失败');
                                 $("#password").val("");
-                                shake();
+                                // shake();
+                                flash('#password',8,10,100);
+                                $("#password").focus();
+                                $("#password").addClass("required");
                             }
-                                
                       });
                 }, 500);
                 return false;
