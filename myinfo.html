@@ -251,10 +251,10 @@ $(document).ready(function(){
             cancel: function () {}
         });
         w.showModal();
-        $('input[type="submit"]').click(function(){
-        $('#username').html($('input[type="text"]').val());
-        // alert("昵称已经修改");
-        });
+        // $('input[type="submit"]').click(function(){
+        // $('#username').html($('input[type="text"]').val());
+        // // alert("昵称已经修改");
+        // });
     });
 
     $('.email').on('click',function(){
@@ -268,7 +268,7 @@ $(document).ready(function(){
         });
         y.showModal();
         $('input[type="submit"]').click(function(){
-        $('#email').html($('input[type="email"]').val());
+        // $('#email').html($('input[type="email"]').val());
         alert("验证邮箱已发送到"+$('input[type="email"]').val()+"您需要点击邮件中的链接来完成修改");
         });
     });
@@ -288,10 +288,10 @@ $(document).ready(function(){
             alert("短信验证码已发送到手机"+$('input[type="number"]').val());
         });
 
-        $('.btn-phone').click(function(){
-            $('#mobile').html($('input[type="number"]').val());
-            // alert("绑定手机已更改");
-        });
+        // $('.btn-phone').click(function(){
+        //     $('#mobile').html($('input[type="number"]').val());
+        //     // alert("绑定手机已更改");
+        // });
     });
 
     $('.key').on('click',function(){
@@ -307,15 +307,12 @@ $(document).ready(function(){
             cancel: function () {}
         });
         y.showModal();
-        $('.btn-default').click(function(){
-            alert("短信验证码已发送到手机"+$('input[type="tel"]').val());
+        // $('.btn-default').click(function(){
+        //     alert("短信验证码已发送到手机"+$('input[type="tel"]').val());
 
-        });
+        // });
 
-        $('.btn-phone').click(function(){
-            $('#mobile').html($('input[type="number"]').val());
-            // alert("密码已更改");
-        });
+     
     });
 
 });
